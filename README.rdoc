@@ -1,0 +1,3 @@
+Arbre - Coming Soon. For now, checkout Active Admin:
+
+http://github.com/gregbell/active_admin
