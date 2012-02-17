@@ -1,0 +1,3 @@
+h1 "Before Partial"
+render "erb/partial"
+h2 "After Partial"

@@ -1,0 +1,8 @@
+html do
+  head do
+  end
+  body do
+    h1 "Hello World"
+    para "Hello again!"
+  end
+end

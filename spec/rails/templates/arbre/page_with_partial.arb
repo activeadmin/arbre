@@ -1,0 +1,3 @@
+h1 "Before Partial"
+render "arbre/partial"
+h2 "After Partial"
