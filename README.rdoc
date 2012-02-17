@@ -1,3 +1,34 @@
-Arbre - Coming Soon. For now, checkout Active Admin:
+= Arbre - Ruby Object Oriented HTML Views
 
-http://github.com/gregbell/active_admin
+Arbre is the DOM implemented in Ruby. This project is primarily used as
+the object oriented view layer in Active Admin.
+
+== Simple Usage
+
+A simple example of setting up an Arbre context and creating some html
+
+    html = Arbre::Context.new do
+      h2 "Why Arbre is awesome?"
+
+      ul do
+        li "The DOM is implemented in ruby"
+        li "You can create object oriented views"
+        li "Templates suck"
+      end
+    end
+
+    puts html.to_s #=> <h2>Why</h2><ul><li></li></ul>
+
+
+== The DOM in Ruby
+
+The purpose of Arbre is to leave the view as ruby objects as long
+as possible. This allows OO Design to be used to implement the view layer.
+
+
+    html = Arbre::Context.new do
+      h2 "Why Arbre is awesome?"
+    end
+
+    html.children.size #=> 1
+    html.children.first #=> #<Arbre::HTML::H2>
