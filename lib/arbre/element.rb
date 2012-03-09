@@ -1,22 +1,13 @@
-require 'arbre/builder'
+require 'arbre/element/builder_methods'
 require 'arbre/element_collection'
 
 module Arbre
 
   class Element
-    include Builder
-    include Builder::BuilderMethods
+    include BuilderMethods
 
     attr_accessor :parent
     attr_reader :children
-
-    def self.builder_method(method_name)
-      Builder::BuilderMethods.class_eval <<-EOF, __FILE__, __LINE__
-        def #{method_name}(*args, &block)
-          insert_tag ::#{self.name}, *args, &block
-        end
-      EOF
-    end
 
     def initialize(assigns = {}, helpers = nil)
       @_assigns, @_helpers = assigns, helpers

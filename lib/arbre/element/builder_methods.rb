@@ -1,19 +1,24 @@
 module Arbre
-
-  # Include this module in any context to start building html.
-  #
-  #   assigns = {}
-  #   include Arbre::Builder
-  #   span("foo").to_s #=> "<span>foo</span>
-  #
-  # When you include the module, you are required to setup 2 variables:
-  #
-  # * assigns: This is a hash that includes local variables
-  # * helpers: This is an object that provides helper methods to all
-  #              objects within the context.
-  module Builder
+  class Element
 
     module BuilderMethods
+
+      def self.included(klass)
+        klass.extend ClassMethods
+      end
+
+      module ClassMethods
+
+        def builder_method(method_name)
+          BuilderMethods.class_eval <<-EOF, __FILE__, __LINE__
+            def #{method_name}(*args, &block)
+              insert_tag ::#{self.name}, *args, &block
+            end
+          EOF
+        end
+
+      end
+
       def build_tag(klass, *args, &block)
         tag = klass.new(assigns, helpers)
         tag.parent = current_dom_context
@@ -77,4 +82,3 @@ module Arbre
 
   end
 end
-

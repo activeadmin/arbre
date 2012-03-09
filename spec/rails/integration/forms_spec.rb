@@ -80,5 +80,29 @@ describe "Building forms" do
 
   end
 
+  describe "forms with other elements" do
+    let(:form) do
+      arbre do
+        form_for MockPerson.new, :url => "/" do |f|
+
+          f.div do
+            f.label :name
+            f.text_field :name
+          end
+
+          f.para do
+            f.label :name
+            f.text_field :name
+          end
+
+        end
+      end
+    end
+
+    it "should correctly nest elements" do
+      html.should have_selector("form > p > label")
+    end
+  end
+
 
 end
