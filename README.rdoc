@@ -32,3 +32,38 @@ as possible. This allows OO Design to be used to implement the view layer.
 
     html.children.size #=> 1
     html.children.first #=> #<Arbre::HTML::H2>
+
+== Components
+
+The purpose of Arbre is to be able to create shareable and extendable HTML
+components. To do this, you create a subclass of Arbre::Component.
+
+For example:
+
+    class Panel < Arbre::Component
+      builder_method :panel
+
+      def build(title, attributes = {})
+        super(attributes)
+
+        h3(title, :class => "panel-title")
+      end
+    end
+
+The builder_method defines the method that will be called to build this component
+when using the DSL. The arguments passed into the builder_method will be passed 
+into the #build method for you.
+
+You can now use this panel in any Arbre context:
+
+    html = Arbre::Context.new do
+      panel "Hello World", :id => "my-panel" do
+        span "Inside the panel"
+      end
+    end
+
+    html.to_s #=>
+      # <div class='panel' id="my-panel">
+      #   <h3 class='panel-title'>Hello World</h3>
+      #   <span>Inside the panel</span>
+      # </div>
