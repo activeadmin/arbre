@@ -19,8 +19,15 @@ end
 class FormBuilderProxy < Arbre::Component
   attr_reader :form_builder
 
+  # Since label and select are Arbre Elements already, we must
+  # override it here instead of letting method_missing
+  # deal with it
   def label(*args)
     proxy_call_to_form :label, *args
+  end
+
+  def select(*args)
+    proxy_call_to_form :select, *args
   end
 
   def respond_to?(name)

@@ -95,12 +95,25 @@ describe "Building forms" do
             f.text_field :name
           end
 
+          div :class => "permissions" do
+            f.fields_for :permission do |pf|
+              div :class => "permissions_label" do
+                pf.label :admin
+              end
+              pf.check_box :admin
+            end
+          end
+
         end
       end
     end
 
     it "should correctly nest elements" do
       html.should have_selector("form > p > label")
+    end
+
+    it "should correnctly nest elements within fields for" do
+      html.should have_selector("form > div.permissions > div.permissions_label label")
     end
   end
 
