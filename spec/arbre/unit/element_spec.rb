@@ -19,7 +19,8 @@ describe Arbre::Element do
     end
 
     it "should have a set of local assigns" do
-      element = Arbre::Element.new :hello => "World"
+      context = Arbre::Context.new :hello => "World"
+      element = Arbre::Element.new(context)
       element.assigns[:hello].should == "World"
     end
 
@@ -39,7 +40,7 @@ describe Arbre::Element do
       end
     end
 
-    let(:element){ Arbre::Element.new(nil, helper.new) }
+    let(:element){ Arbre::Element.new(Arbre::Context.new(nil, helper.new)) }
 
     it "should call methods on the helper object and return TextNode objects" do
       element.helper_method.should == "helper method"
@@ -58,7 +59,7 @@ describe Arbre::Element do
     let(:assigns){ {:post => post} }
 
     it "should be accessible via a method call" do
-      element = Arbre::Element.new(assigns)
+      element = Arbre::Element.new(Arbre::Context.new(assigns))
       element.post.should == post
     end
 

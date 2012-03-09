@@ -85,12 +85,12 @@ describe "Building forms" do
       arbre do
         form_for MockPerson.new, :url => "/" do |f|
 
-          f.div do
+          div do
             f.label :name
             f.text_field :name
           end
 
-          f.para do
+          para do
             f.label :name
             f.text_field :name
           end

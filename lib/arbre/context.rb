@@ -4,9 +4,26 @@ module Arbre
   class Context < Element
 
     def initialize(assigns = {}, helpers = nil, &block)
-      assigns.symbolize_keys!
-      super(assigns, helpers)
-      instance_eval &block
+      @_assigns = assigns || {}
+      @_assigns.symbolize_keys!
+      @_helpers = helpers
+      @_current_dom_element_buffer = [self]
+
+      super(self)
+
+      instance_eval &block if block_given?
+    end
+
+    def arbre_context
+      self
+    end
+
+    def assigns
+      @_assigns
+    end
+
+    def helpers
+      @_helpers
     end
 
     def indent_level
@@ -34,7 +51,20 @@ module Arbre
       end
     end
 
+    def current_dom_context
+      @_current_dom_element_buffer.last
+    end
+
+    def with_current_dom_context(tag)
+      raise ArgumentError, "Can't be in the context of nil. #{@_current_dom_element_buffer.inspect}" unless tag
+      @_current_dom_element_buffer.push tag
+      yield
+      @_current_dom_element_buffer.pop
+    end
+    alias_method :within, :with_current_dom_context
+
     private
+
 
     # Caches the rendered HTML so that we don't re-render just to
     # get the content lenght or to delegate a method to the HTML

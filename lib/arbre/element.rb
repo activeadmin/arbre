@@ -7,19 +7,19 @@ module Arbre
     include BuilderMethods
 
     attr_accessor :parent
-    attr_reader :children
+    attr_reader :children, :arbre_context
 
-    def initialize(assigns = {}, helpers = nil)
-      @_assigns, @_helpers = assigns, helpers
+    def initialize(arbre_context = Arbre::Context.new)
+      @arbre_context = arbre_context
       @children = ElementCollection.new
     end
 
     def assigns
-      @_assigns
+      arbre_context.assigns
     end
 
     def helpers
-      @_helpers
+      arbre_context.helpers
     end
 
     def tag_name

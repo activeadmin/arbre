@@ -20,7 +20,7 @@ module Arbre
       end
 
       def build_tag(klass, *args, &block)
-        tag = klass.new(assigns, helpers)
+        tag = klass.new(arbre_context)
         tag.parent = current_dom_context
 
         # If you passed in a block and want the object
@@ -51,21 +51,11 @@ module Arbre
       end
 
       def current_dom_context
-        @__current_dom_element_buffer__ ||= [self]
-        current_element = @__current_dom_element_buffer__.last
-        if current_element == self
-          self
-        else
-          current_element.current_dom_context
-        end
+        arbre_context.current_dom_context
       end
 
-      def with_current_dom_context(tag)
-        raise ArgumentError, "Can't be in the context of nil. #{@__current_dom_element_buffer__.inspect}" unless tag
-        current_dom_context # Ensure a context is setup
-        @__current_dom_element_buffer__.push tag
-        yield
-        @__current_dom_element_buffer__.pop
+      def with_current_dom_context(tag, &block)
+        arbre_context.with_current_dom_context(tag, &block)
       end
       alias_method :within, :with_current_dom_context
 
