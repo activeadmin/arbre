@@ -7,10 +7,9 @@ module Arbre
       @_assigns = assigns || {}
       @_assigns.symbolize_keys!
       @_helpers = helpers
-      @_current_dom_element_buffer = [self]
+      @_current_arbre_element_buffer = [self]
 
       super(self)
-
       instance_eval &block if block_given?
     end
 
@@ -51,17 +50,17 @@ module Arbre
       end
     end
 
-    def current_dom_context
-      @_current_dom_element_buffer.last
+    def current_arbre_element
+      @_current_arbre_element_buffer.last
     end
 
-    def with_current_dom_context(tag)
-      raise ArgumentError, "Can't be in the context of nil. #{@_current_dom_element_buffer.inspect}" unless tag
-      @_current_dom_element_buffer.push tag
+    def with_current_arbre_element(tag)
+      raise ArgumentError, "Can't be in the context of nil. #{@_current_arbre_element_buffer.inspect}" unless tag
+      @_current_arbre_element_buffer.push tag
       yield
-      @_current_dom_element_buffer.pop
+      @_current_arbre_element_buffer.pop
     end
-    alias_method :within, :with_current_dom_context
+    alias_method :within, :with_current_arbre_element
 
     private
 

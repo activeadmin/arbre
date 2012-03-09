@@ -167,8 +167,8 @@ module Arbre
     #  4. Call super
     #
     def method_missing(name, *args, &block)
-      if current_dom_context.respond_to?(name)
-        current_dom_context.send name, *args, &block
+      if current_arbre_element.respond_to?(name)
+        current_arbre_element.send name, *args, &block
       elsif assigns && assigns.has_key?(name)
         assigns[name]
       elsif helpers.respond_to?(name)

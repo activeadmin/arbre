@@ -6,7 +6,7 @@ module Arbre
         rendered = helpers.render(*args)
         case rendered
         when Arbre::Context
-          current_dom_context.add_child rendered
+          current_arbre_element.add_child rendered
         else
           text_node rendered
         end

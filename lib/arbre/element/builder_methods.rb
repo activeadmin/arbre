@@ -21,12 +21,12 @@ module Arbre
 
       def build_tag(klass, *args, &block)
         tag = klass.new(arbre_context)
-        tag.parent = current_dom_context
+        tag.parent = current_arbre_element
 
         # If you passed in a block and want the object
         if block_given? && block.arity > 0
           # Set out context to the tag, and pass responsibility to the tag
-          with_current_dom_context tag do
+          with_current_arbre_element tag do
             tag.build(*args, &block)
           end
         else
@@ -35,7 +35,7 @@ module Arbre
 
           # Render the blocks contents
           if block_given?
-            with_current_dom_context tag do
+            with_current_arbre_element tag do
               append_return_block(yield)
             end
           end
@@ -46,26 +46,26 @@ module Arbre
 
       def insert_tag(klass, *args, &block)
         tag = build_tag(klass, *args, &block)
-        current_dom_context.add_child(tag)
+        current_arbre_element.add_child(tag)
         tag
       end
 
-      def current_dom_context
-        arbre_context.current_dom_context
+      def current_arbre_element
+        arbre_context.current_arbre_element
       end
 
-      def with_current_dom_context(tag, &block)
-        arbre_context.with_current_dom_context(tag, &block)
+      def with_current_arbre_element(tag, &block)
+        arbre_context.with_current_arbre_element(tag, &block)
       end
-      alias_method :within, :with_current_dom_context
+      alias_method :within, :with_current_arbre_element
 
       # Appends the value to the current DOM element if there are no
       # existing DOM Children and it responds to #to_s
       def append_return_block(tag)
-        return nil if current_dom_context.children?
+        return nil if current_arbre_element.children?
 
         if !tag.is_a?(Arbre::Element) && tag.respond_to?(:to_s)
-          current_dom_context << Arbre::HTML::TextNode.from_string(tag.to_s)
+          current_arbre_element << Arbre::HTML::TextNode.from_string(tag.to_s)
         end
       end
     end
