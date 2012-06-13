@@ -4,8 +4,9 @@ module Arbre
   class Context < Element
 
     def initialize(assigns = {}, helpers = nil, &block)
-      @_assigns = assigns || {}
-      @_assigns.symbolize_keys!
+      assigns = assigns || {}
+      @_assigns = assigns.symbolize_keys
+
       @_helpers = helpers
       @_current_arbre_element_buffer = [self]
 
