@@ -156,29 +156,30 @@ HTML
     }
   end
 
-   describe "self-closing nodes" do
+  describe "self-closing nodes" do
 
-     it "should not self-close script tags" do
-       arbre {
-         script :type => 'text/javascript'
-       }.to_s.should == "<script type=\"text/javascript\"></script>\n"
-     end
+    it "should not self-close script tags" do
+      arbre {
+        script :type => 'text/javascript'
+      }.to_s.should == "<script type=\"text/javascript\"></script>\n"
+    end
 
-     it "should self-close meta tags" do
-       arbre {
-         meta :content => "text/html; charset=utf-8"
-       }.to_s.should == "<meta content=\"text/html; charset=utf-8\"/>\n"
-     end
+    it "should self-close meta tags" do
+      arbre {
+        meta :content => "text/html; charset=utf-8"
+      }.to_s.should == "<meta content=\"text/html; charset=utf-8\"/>\n"
+    end
 
-     it "should self-close link tags" do
-       arbre {
-         link :rel => "stylesheet"
-       }.to_s.should == "<link rel=\"stylesheet\"/>\n"
-     end
+    it "should self-close link tags" do
+      arbre {
+        link :rel => "stylesheet"
+      }.to_s.should == "<link rel=\"stylesheet\"/>\n"
+    end
 
-   end
+  end
 
   describe "html safe" do
+
     it "should escape the contents" do
       arbre {
         span("<br />")
@@ -224,6 +225,7 @@ HTML
 <span class="&lt;br /&gt;"></span>
 HTML
     end
+
   end
 
 end
