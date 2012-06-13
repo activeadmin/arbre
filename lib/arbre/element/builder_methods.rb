@@ -23,21 +23,12 @@ module Arbre
         tag = klass.new(arbre_context)
         tag.parent = current_arbre_element
 
-        # If you passed in a block and want the object
-        if block_given? && block.arity > 0
-          # Set out context to the tag, and pass responsibility to the tag
-          with_current_arbre_element tag do
+        with_current_arbre_element tag do
+          if block_given? && block.arity > 0
             tag.build(*args, &block)
-          end
-        else
-          # Build the tag
-          tag.build(*args)
-
-          # Render the blocks contents
-          if block_given?
-            with_current_arbre_element tag do
-              append_return_block(yield)
-            end
+          else
+            tag.build(*args)
+            append_return_block(yield) if block_given?
           end
         end
 
