@@ -162,7 +162,7 @@ module Arbre
                record.object_id
              end
 
-        [dom_class_name_for(record), id].join("_")
+        [default_id_for_prefix, dom_class_name_for(record), id].compact.join("_")
       end
 
       def default_id_for_prefix

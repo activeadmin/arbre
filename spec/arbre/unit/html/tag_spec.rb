@@ -31,6 +31,22 @@ describe Arbre::HTML::Tag do
     it "should add a class name" do
       tag.class_list.should include("resource_class")
     end
+
+    describe "with a default_id_for_prefix" do
+
+      let(:tag) do
+        Class.new(Arbre::HTML::Tag) do
+          def default_id_for_prefix
+            "a_prefix"
+          end
+        end.new
+      end
+
+      it "should set the id to the type and id" do
+        tag.id.should == "a_prefix_resource_class_5"
+      end
+
+    end
   end
 
   describe "css class names" do
