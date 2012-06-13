@@ -156,6 +156,16 @@ HTML
     }
   end
 
+  it "should not render blank arrays" do
+    arbre {
+      tbody do
+        []
+      end
+    }.to_s.should == <<-HTML
+<tbody></tbody>
+HTML
+  end
+
   describe "self-closing nodes" do
 
     it "should not self-close script tags" do

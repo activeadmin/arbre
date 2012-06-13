@@ -59,14 +59,32 @@ module Arbre
       end
       alias_method :within, :with_current_arbre_element
 
+      private
+
       # Appends the value to the current DOM element if there are no
       # existing DOM Children and it responds to #to_s
       def append_return_block(tag)
         return nil if current_arbre_element.children?
 
-        if !tag.is_a?(Arbre::Element) && tag.respond_to?(:to_s)
+        if appendable_tag?(tag)
           current_arbre_element << Arbre::HTML::TextNode.from_string(tag.to_s)
         end
+      end
+
+      # Returns true if the object should be converted into a text node
+      # and appended into the DOM.
+      def appendable_tag?(tag)
+        is_appendable = !tag.is_a?(Arbre::Element) && tag.respond_to?(:to_s)
+
+        # In ruby 1.9, Arraay.new.to_s prints out an empty array ("[]"). In
+        # Arbre, we append the return value of blocks to the output, which
+        # can cause empty arrays to show up within the output. To get
+        # around this, we check if the object responds to #empty?
+        if tag.respond_to?(:empty?) && tag.empty?
+          is_appendable = false
+        end
+
+        is_appendable
       end
     end
 
