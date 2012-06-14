@@ -14,6 +14,8 @@ require 'capybara/rails'
 
 require 'spec_helper'
 
+require 'rails/support/mock_person'
+
 # Ensure that the rails plugin is installed
 require 'arbre/rails'
 
