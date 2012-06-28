@@ -5,3 +5,4 @@ pkg/*
 benchmarks
 /.rvmrc
 /tags
+.DS_Store
