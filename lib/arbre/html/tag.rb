@@ -95,7 +95,7 @@ module Arbre
       end
 
       INDENT_SIZE = 2
-      
+
       def indent(open_tag, child_content, close_tag)
         spaces = ' ' * indent_level * INDENT_SIZE
 
@@ -119,11 +119,11 @@ module Arbre
 
         html
       end
-      
+
       def self_closing_tag?
         %w|meta link|.include?(tag_name)
       end
-      
+
       def no_child?
         children.empty?
       end
@@ -149,7 +149,7 @@ module Arbre
         if record.class.respond_to?(:model_name)
           record.class.model_name.singular
         else
-          record.class.underscore.gsub("/", "_")
+          record.class.name.underscore.gsub("/", "_")
         end
       end
 

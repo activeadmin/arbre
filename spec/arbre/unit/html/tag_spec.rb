@@ -32,6 +32,23 @@ describe Arbre::HTML::Tag do
       tag.class_list.should include("resource_class")
     end
 
+
+    describe "for an object that doesn't have a model_name" do
+      let(:resource_class){ mock(:name => 'ResourceClass') }
+
+      before do
+        tag.build :for => resource
+      end
+
+      it "should set the id to the type and id" do
+        tag.id.should == "resource_class_5"
+      end
+
+      it "should add a class name" do
+        tag.class_list.should include("resource_class")
+      end
+    end
+
     describe "with a default_id_for_prefix" do
 
       let(:tag) do
