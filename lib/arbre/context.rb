@@ -1,8 +1,39 @@
 require 'arbre/element'
 
 module Arbre
+
+  # The Arbre::Context class is the frontend for using Arbre.
+  #
+  # The simplest example possible:
+  #
+  #     html = Arbre::Context.new do
+  #       h1 "Hello World"
+  #     end
+  #
+  #     html.to_s #=> "<h1>Hello World</h1>"
+  #
+  # The contents of the block are instance eval'd within the Context
+  # object. This means that you lose context to the outside world from
+  # within the block. To pass local variables into the Context, use the
+  # assigns param.
+  #
+  #     html = Arbre::Context.new({:one => 1}) do
+  #       h1 "Your number #{one}"
+  #     end
+  #
+  #     html.to_s #=> "Your number 1"
+  #
   class Context < Element
 
+    # Initialize a new Arbre::Context
+    #
+    # @param [Hash] assigns A hash of objecs that you would like to be
+    #                       availble as local variables within the Context
+    #
+    # @param [Object] helpers An object that has methods on it which will become
+    #                         instance methods within the context.
+    #
+    # @yield [] The block that will get instance eval'd in the context
     def initialize(assigns = {}, helpers = nil, &block)
       assigns = assigns || {}
       @_assigns = assigns.symbolize_keys
