@@ -1,3 +1,7 @@
+## 1.0.0
+
+* Added support for the use of `:for` with non Active Model objects
+
 ## 1.0.0.rc4
 
 * Fix issue where user could call `symbolize_keys!` on a
