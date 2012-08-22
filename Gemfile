@@ -4,6 +4,7 @@ gemspec
 
 group :test do
   gem "rspec"
+  gem "rack"
 end
 
 group :rails do

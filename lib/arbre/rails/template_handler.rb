@@ -4,7 +4,7 @@ module Arbre
     class TemplateHandler
 
       def call(template)
-        "Arbre::Context.new(assigns, self){ #{template.source} }"
+        "Arbre::Context.new(assigns, self){ #{template.source} }.to_s"
       end
 
     end
