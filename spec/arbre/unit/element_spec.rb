@@ -164,9 +164,22 @@ describe Arbre::Element do
 
   describe "rendering to html" do
 
+    before  { @separator = $, }
+    after   { $, = @separator }
+    let(:collection){ element + "hello world" }
+
     it "should render the children collection" do
       element.children.should_receive(:to_s).and_return("content")
       element.to_s.should == "content"
+    end
+
+    it "should render collection when is set the default separator" do
+      $, = "_"
+      collection.to_s.should == "hello world"
+    end
+
+    it "should render collection when is not set the default separator" do
+      collection.to_s.should == "hello world"
     end
 
   end
