@@ -1,3 +1,10 @@
+## 1.0.1
+
+* Template handler converts to string to satisfy Rack::Lint (@jpmckinney, #6)
+* Fix to `Tag#add_class` when passing a string of classes to Tag build method
+  (@gregbell, #7)
+* Not longer uses the default separator (@LTe, #4)
+
 ## 1.0.0
 
 * Added support for the use of `:for` with non Active Model objects
