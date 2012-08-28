@@ -77,7 +77,16 @@ module Arbre
       end
 
       def class_list
-        get_attribute(:class) || set_attribute(:class, ClassList.new)
+        list = get_attribute(:class)
+
+        case list
+        when ClassList
+          list
+        when String
+          set_attribute(:class, ClassList.build_from_string(list))
+        else
+          set_attribute(:class, ClassList.new)
+        end
       end
 
       def to_s

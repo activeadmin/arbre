@@ -91,6 +91,13 @@ describe Arbre::HTML::Tag do
       tag.class_list.size.should == 2
     end
 
+    it "should create a class list from a string" do
+      tag = Arbre::HTML::Tag.new
+      tag.build(:class => "first-class")
+      tag.add_class "second-class"
+      tag.class_list.size.should == 2
+    end
+
   end
 
 end
