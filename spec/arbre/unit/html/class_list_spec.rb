@@ -8,7 +8,7 @@ describe Arbre::HTML::ClassList do
       list = Arbre::HTML::ClassList.build_from_string("first second")
       list.size.should == 2
 
-      list.to_a.should == %w{first second}
+      list.to_a.sort.should == %w{first second}
     end
 
   end
