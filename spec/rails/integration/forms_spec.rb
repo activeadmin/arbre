@@ -1,16 +1,50 @@
 require 'rails/rails_spec_helper'
 
 describe "Building forms" do
+  let(:model_stub_class) do
+    Class.new do
+      extend ActiveModel::Naming
+      attr_accessor :name
 
-  let(:assigns){ {} }
-  let(:helpers){ mock_action_view }
+      def self.name
+        "MockPerson"
+      end
+
+      def persisted?
+        false
+      end
+
+      def to_key
+        []
+      end
+    end
+  end
+
+  let(:view_stub_class) do
+    Class.new(ActionView::Base) do
+      include ActionView::Helpers
+
+      def protect_against_forgery?
+        true
+      end
+
+      def form_authenticity_token
+        "AUTH_TOKEN"
+      end
+    end
+  end
+
+  let(:model_stub) { model_stub_class.new }
+  let(:assigns) { {model_stub: model_stub} }
+  let(:helpers) { view_stub_class.new(ActionController::Base.view_paths, assigns, controller) }
+  let(:controller) { ActionView::TestCase::TestController.new }
   let(:html) { form.to_s }
 
   describe "building a simple form for" do
 
     let(:form) do
       arbre do
-        form_for MockPerson.new, :url => "/" do |f|
+        form_for model_stub, :url => "/" do |f|
           f.label :name
           f.text_field :name
         end
@@ -39,7 +73,7 @@ describe "Building forms" do
 
     let(:form) do
       arbre do
-        form_for MockPerson.new, :url => "/" do |f|
+        form_for model_stub, :url => "/" do |f|
           f.label :name
           f.text_field :name
           f.fields_for :permission do |pf|
@@ -67,7 +101,7 @@ describe "Building forms" do
   describe "forms with other elements" do
     let(:form) do
       arbre do
-        form_for MockPerson.new, :url => "/" do |f|
+        form_for model_stub, :url => "/" do |f|
 
           div do
             f.label :name
@@ -100,6 +134,4 @@ describe "Building forms" do
       html.should have_selector("form > div.permissions > div.permissions_label label")
     end
   end
-
-
 end
