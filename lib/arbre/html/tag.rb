@@ -1,5 +1,3 @@
-require 'erb'
-
 module Arbre
   module HTML
 
@@ -38,6 +36,7 @@ module Arbre
       def get_attribute(name)
         @attributes[name.to_sym]
       end
+
       alias :attr :get_attribute
 
       def has_attribute?(name)
@@ -80,12 +79,12 @@ module Arbre
         list = get_attribute(:class)
 
         case list
-        when ClassList
-          list
-        when String
-          set_attribute(:class, ClassList.build_from_string(list))
-        else
-          set_attribute(:class, ClassList.new)
+          when ClassList
+            list
+          when String
+            set_attribute(:class, ClassList.build_from_string(list))
+          else
+            set_attribute(:class, ClassList.new)
         end
       end
 
@@ -112,7 +111,7 @@ module Arbre
 
         if no_child? || child_is_text?
           if self_closing_tag?
-            html << spaces << open_tag.sub( />$/, '/>' )
+            html << spaces << open_tag.sub(/>$/, '/>')
           else
             # one line
             html << spaces << open_tag << child_content << close_tag
@@ -140,7 +139,6 @@ module Arbre
       def child_is_text?
         children.size == 1 && children.first.is_a?(TextNode)
       end
-
 
       def attributes_html
         attributes.any? ? " " + attributes.to_s : nil
