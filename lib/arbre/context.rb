@@ -1,5 +1,3 @@
-require 'arbre/element'
-
 module Arbre
 
   # The Arbre::Context class is the frontend for using Arbre.
