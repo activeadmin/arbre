@@ -10,7 +10,7 @@ module Arbre
       end
 
       def to_s
-        attrs = self.inject({data: {}}) do |h, (key, value)|
+        attrs = self.inject({:data => {}}) do |h, (key, value)|
           h[key] = value; h
         end
 

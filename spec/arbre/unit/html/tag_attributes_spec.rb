@@ -60,7 +60,7 @@ HTML
 
   describe "#data=" do
     it "should assign data attributes" do
-      tag.data = { :whatever => true }
+      tag.data = {:whatever => true}
       tag.to_s.should == <<-HTML
 <tag data-whatever="true"></tag>
 HTML
@@ -70,14 +70,14 @@ HTML
   describe "#data[]=" do
     it "should assign an html5 data attribute when none already assigned" do
       tag.data[:whatever] = false
-      tag.data.should == { :whatever => false }
+      tag.data.should eq(:whatever => false)
       HTML
     end
 
     it "should assign an html5 data attribute" do
-      tag.data = { riot: true }
+      tag.data = {:riot => true}
       tag.data[:whatever] = false
-      tag.data.should == { riot: true, whatever: false}
+      tag.data.should eq(:riot => true, :whatever => false)
       tag.to_s.should == <<-HTML
 <tag data-riot="true" data-whatever="false"></tag>
       HTML
@@ -91,7 +91,7 @@ HTML
 
     it "should return an html5 data attribute hash" do
       tag.attributes["data-whatever"] = true
-      tag.data.should == { :whatever => true }
+      tag.data.should eq(:whatever => true)
       tag.to_s.should == <<-HTML
 <tag data-whatever="true"></tag>
 HTML
