@@ -88,6 +88,14 @@ module Arbre
         end
       end
 
+      def data
+        get_attribute(:data) || (self.data = {})
+      end
+
+      def data=(hash)
+        set_attribute(:data, hash)
+      end
+
       def to_s
         indent(opening_tag, content, closing_tag).html_safe
       end
