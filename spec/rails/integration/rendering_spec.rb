@@ -25,6 +25,11 @@ class TestController < ActionController::Base
     @my_instance_var = "From Instance Var"
     render "arbre/page_with_assignment"
   end
+
+  def render_partial_with_instance_variable
+    @my_instance_var = "From Instance Var"
+    render "arbre/page_with_arb_partial_and_assignment"
+  end
 end
 
 
@@ -69,5 +74,10 @@ EOS
     body.should have_selector("h1", :text => "From Instance Var")
   end
 
+  it "should render an arbre partial with assignments" do
+    get "test/render_partial_with_instance_variable"
+    response.should be_success
+    body.should have_selector("p", :text => "Partial: From Instance Var")
+  end
 
 end
