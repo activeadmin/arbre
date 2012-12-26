@@ -1,14 +1,14 @@
 module Arbre
   module Rails
-
     class TemplateHandler
-
       def call(template)
-        "Arbre::Context.new(assigns, self){ #{template.source} }.to_s"
+        <<-END
+        Arbre::Context.new(assigns, self) {
+          #{template.source}
+        }.to_s
+        END
       end
-
     end
-
   end
 end
 
