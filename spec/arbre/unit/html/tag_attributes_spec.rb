@@ -57,4 +57,44 @@ HTML
 HTML
     end
   end
+
+  describe "#data=" do
+    it "should assign data attributes" do
+      tag.data = {:whatever => true}
+      tag.to_s.should == <<-HTML
+<tag data-whatever="true"></tag>
+HTML
+    end
+  end
+
+  describe "#data[]=" do
+    it "should assign an html5 data attribute when none already assigned" do
+      tag.data[:whatever] = false
+      tag.data.should eq(:whatever => false)
+      HTML
+    end
+
+    it "should assign an html5 data attribute" do
+      tag.data = {:riot => true}
+      tag.data[:whatever] = false
+      tag.data.should eq(:riot => true, :whatever => false)
+      tag.to_s.should == <<-HTML
+<tag data-riot="true" data-whatever="false"></tag>
+      HTML
+    end
+  end
+
+  describe "#data" do
+    it "should return an empty hash when none assigned" do
+      tag.data.should == {}
+    end
+
+    it "should return an html5 data attribute hash" do
+      tag.attributes["data-whatever"] = true
+      tag.data.should eq(:whatever => true)
+      tag.to_s.should == <<-HTML
+<tag data-whatever="true"></tag>
+HTML
+    end
+  end
 end

@@ -1,9 +1,7 @@
-require 'arbre/element/builder_methods'
-require 'arbre/element_collection'
-
 module Arbre
-
   class Element
+    autoload :BuilderMethods, "arbre/element/builder_methods"
+
     include BuilderMethods
 
     attr_accessor :parent
@@ -35,7 +33,7 @@ module Arbre
       return unless child
 
       if child.is_a?(Array)
-        child.each{|item| add_child(item) }
+        child.each { |item| add_child(item) }
         return @children
       end
 
@@ -85,7 +83,7 @@ module Arbre
 
     # TODO: Shouldn't grab whole tree
     def find_first_ancestor(type)
-      ancestors.find{|a| a.is_a?(type) }
+      ancestors.find { |a| a.is_a?(type) }
     end
 
     def content=(contents)
@@ -101,6 +99,7 @@ module Arbre
       end
       elements
     end
+
     alias_method :find_by_tag, :get_elements_by_tag_name
 
     def get_elements_by_class_name(class_name)
@@ -111,6 +110,7 @@ module Arbre
       end
       elements
     end
+
     alias_method :find_by_class, :get_elements_by_class_name
 
     def content
@@ -139,9 +139,9 @@ module Arbre
 
     def +(element)
       case element
-      when Element, ElementCollection
-      else
-        element = Arbre::HTML::TextNode.from_string(element)
+        when Element, ElementCollection
+        else
+          element = Arbre::HTML::TextNode.from_string(element)
       end
       ElementCollection.new([self]) + element
     end
@@ -149,6 +149,7 @@ module Arbre
     def to_ary
       ElementCollection.new [self]
     end
+
     alias_method :to_a, :to_ary
 
     private
