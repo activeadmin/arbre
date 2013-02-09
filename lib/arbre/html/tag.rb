@@ -143,7 +143,7 @@ module Arbre
 
 
       def attributes_html
-        attributes.any? ? " " + attributes.to_s : nil
+        attributes.any? ? " #{attributes.to_s}" : ""
       end
 
       def set_for_attribute(record)

@@ -4,9 +4,11 @@ module Arbre
     class Attributes < Hash
 
       def to_s
-        self.collect do |name, value|
-          "#{html_escape(name)}=\"#{html_escape(value)}\""
-        end.join(" ")
+        results = self.inject([]) do |out, (name, value)|
+          out << %[#{html_escape(name)}="#{html_escape(value)}"]
+        end
+
+        results.join(' ')
       end
 
       protected
