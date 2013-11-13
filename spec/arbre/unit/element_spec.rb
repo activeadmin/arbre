@@ -55,7 +55,7 @@ describe Arbre::Element do
   end
 
   describe "passing in assigns" do
-    let(:post){ stub }
+    let(:post){ double }
     let(:assigns){ {:post => post} }
 
     it "should be accessible via a method call" do

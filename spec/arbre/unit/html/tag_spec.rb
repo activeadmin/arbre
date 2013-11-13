@@ -17,9 +17,9 @@ describe Arbre::HTML::Tag do
   end
 
   describe "creating a tag 'for' an object" do
-    let(:model_name){ mock(:singular => "resource_class")}
-    let(:resource_class){ mock(:model_name => model_name) }
-    let(:resource){ mock(:class => resource_class, :to_key => ['5'])}
+    let(:model_name){ double(:singular => "resource_class")}
+    let(:resource_class){ double(:model_name => model_name) }
+    let(:resource){ double(:class => resource_class, :to_key => ['5'])}
 
     before do
       tag.build :for => resource
@@ -34,7 +34,7 @@ describe Arbre::HTML::Tag do
 
 
     describe "for an object that doesn't have a model_name" do
-      let(:resource_class){ mock(:name => 'ResourceClass') }
+      let(:resource_class){ double(:name => 'ResourceClass') }
 
       before do
         tag.build :for => resource
