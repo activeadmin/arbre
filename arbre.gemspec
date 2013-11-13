@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.homepage    = ""
   s.summary     = %q{An Object Oriented DOM Tree in Ruby}
   s.description = %q{An Object Oriented DOM Tree in Ruby}
+  s.license     = "MIT"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
