@@ -128,6 +128,10 @@ module Arbre
     def each(&block)
       [to_s].each(&block)
     end
+    
+    def inspect
+      to_s
+    end
 
     def to_str
       to_s
