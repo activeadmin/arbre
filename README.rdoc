@@ -69,3 +69,23 @@ You can now use this panel in any Arbre context:
       #   <h3 class='panel-title'>Hello World</h3>
       #   <span>Inside the panel</span>
       # </div>
+      
+      
+=== Text Nodes
+
+
+To insert unwrapped text nodes use `text_node`:
+
+    html = Arbre::Context.new do
+      panel "Hello World", :id => "my-panel" do
+        span "Inside the panel"
+        text_node "Plain text"
+      end
+    end
+
+    html.to_s #=>
+      # <div class='panel' id="my-panel">
+      #   <h3 class='panel-title'>Hello World</h3>
+      #   <span>Inside the panel</span>
+      #   Plain text
+      # </div>
