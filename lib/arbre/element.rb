@@ -155,6 +155,10 @@ module Arbre
     end
     alias_method :to_a, :to_ary
 
+    def inspect
+      "#<#{self.class}: #{tag_name}>" end
+    end
+
     private
 
     # Resets the Elements children
