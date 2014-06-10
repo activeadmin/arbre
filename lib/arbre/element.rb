@@ -156,7 +156,7 @@ module Arbre
     alias_method :to_a, :to_ary
 
     def inspect
-      "#<#{self.class}: #{tag_name}>" end
+      "#<#{self.class}: #{tag_name}>"
     end
 
     private
