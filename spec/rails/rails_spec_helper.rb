@@ -1,8 +1,6 @@
-require 'support/bundle'
+require 'rubygems'
+require 'bundler/setup'
 
-require 'capybara/rspec'
-
-# Combustion
 require 'combustion'
 
 # Arbre's Rails integration should satisfy Rack::Lint.
@@ -12,10 +10,10 @@ end
 
 Combustion.path = 'spec/rails/stub_app'
 Combustion.initialize! :action_controller,
-                       :action_view,
-                       :sprockets
+                       :action_view
 
 require 'rspec/rails'
+require 'capybara/rspec'
 require 'capybara/rails'
 
 require 'spec_helper'

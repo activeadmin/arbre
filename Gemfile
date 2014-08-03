@@ -9,7 +9,8 @@ group :test do
 end
 
 group :rails do
+  gem 'rails'
   gem 'rspec-rails'
-  gem 'combustion', '0.3.2'
+  gem 'combustion'
   gem 'capybara'
 end
