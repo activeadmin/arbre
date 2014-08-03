@@ -1,5 +1,4 @@
 script: bundle exec rake
 rvm:
-  - ree
   - 1.9.3
   - 2.1.2
