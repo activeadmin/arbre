@@ -9,50 +9,50 @@ describe Arbre::HTML::Tag, "Attributes" do
     before { tag.build :id => "my_id" }
 
     it "should have an attributes hash" do
-      tag.attributes.should == {:id => "my_id"}
+      expect(tag.attributes).to eq({:id => "my_id"})
     end
 
     it "should render the attributes to html" do
-      tag.to_s.should == <<-HTML
+      expect(tag.to_s).to eq <<-HTML
 <tag id="my_id"></tag>
 HTML
     end
 
     it "should get an attribute value" do
-      tag.attr(:id).should == "my_id"
+      expect(tag.attr(:id)).to eq("my_id")
     end
 
     describe "#has_attribute?" do
       context "when the attribute exists" do
         it "should return true" do
-          tag.has_attribute?(:id).should == true
+          expect(tag.has_attribute?(:id)).to eq(true)
         end
       end
 
       context "when the attribute does not exist" do
         it "should return false" do
-          tag.has_attribute?(:class).should == false
+          expect(tag.has_attribute?(:class)).to eq(false)
         end
       end
     end
 
     it "should remove an attribute" do
-      tag.attributes.should == {:id => "my_id"}
-      tag.remove_attribute(:id).should == "my_id"
-      tag.attributes.should == {}
+      expect(tag.attributes).to eq({:id => "my_id"})
+      expect(tag.remove_attribute(:id)).to eq("my_id")
+      expect(tag.attributes).to eq({})
     end
   end
 
   describe "rendering attributes" do
     it "should html safe the attribute values" do
       tag.set_attribute(:class, "\">bad things!")
-      tag.to_s.should == <<-HTML
+      expect(tag.to_s).to eq <<-HTML
 <tag class="&quot;&gt;bad things!"></tag>
 HTML
     end
     it "should should escape the attribute names" do
       tag.set_attribute(">bad", "things")
-      tag.to_s.should == <<-HTML
+      expect(tag.to_s).to eq <<-HTML
 <tag &gt;bad="things"></tag>
 HTML
     end

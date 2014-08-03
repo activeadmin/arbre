@@ -8,11 +8,11 @@ describe Arbre::HTML::Tag do
     before { tag.build "Hello World", :id => "my_id" }
 
     it "should set the contents to a string" do
-      tag.content.should == "Hello World"
+      expect(tag.content).to eq("Hello World")
     end
 
     it "should set the hash of options to the attributes" do
-      tag.attributes.should == { :id => "my_id" }
+      expect(tag.attributes).to eq({ :id => "my_id" })
     end
   end
 
@@ -25,11 +25,11 @@ describe Arbre::HTML::Tag do
       tag.build :for => resource
     end
     it "should set the id to the type and id" do
-      tag.id.should == "resource_class_5"
+      expect(tag.id).to eq("resource_class_5")
     end
 
     it "should add a class name" do
-      tag.class_list.should include("resource_class")
+      expect(tag.class_list).to include("resource_class")
     end
 
 
@@ -41,11 +41,11 @@ describe Arbre::HTML::Tag do
       end
 
       it "should set the id to the type and id" do
-        tag.id.should == "resource_class_5"
+        expect(tag.id).to eq("resource_class_5")
       end
 
       it "should add a class name" do
-        tag.class_list.should include("resource_class")
+        expect(tag.class_list).to include("resource_class")
       end
     end
 
@@ -60,7 +60,7 @@ describe Arbre::HTML::Tag do
       end
 
       it "should set the id to the type and id" do
-        tag.id.should == "a_prefix_resource_class_5"
+        expect(tag.id).to eq("a_prefix_resource_class_5")
       end
 
     end
@@ -70,32 +70,32 @@ describe Arbre::HTML::Tag do
 
     it "should add a class" do
       tag.add_class "hello_world"
-      tag.class_names.should == "hello_world"
+      expect(tag.class_names).to eq("hello_world")
     end
 
     it "should remove_class" do
       tag.add_class "hello_world"
-      tag.class_names.should == "hello_world"
+      expect(tag.class_names).to eq("hello_world")
       tag.remove_class "hello_world"
-      tag.class_names.should == ""
+      expect(tag.class_names).to eq("")
     end
 
     it "should not add a class if it already exists" do
       tag.add_class "hello_world"
       tag.add_class "hello_world"
-      tag.class_names.should == "hello_world"
+      expect(tag.class_names).to eq("hello_world")
     end
 
     it "should seperate classes with space" do
       tag.add_class "hello world"
-      tag.class_list.size.should == 2
+      expect(tag.class_list.size).to eq(2)
     end
 
     it "should create a class list from a string" do
       tag = Arbre::HTML::Tag.new
       tag.build(:class => "first-class")
       tag.add_class "second-class"
-      tag.class_list.size.should == 2
+      expect(tag.class_list.size).to eq(2)
     end
 
   end

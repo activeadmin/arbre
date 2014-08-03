@@ -6,9 +6,9 @@ describe Arbre::HTML::ClassList do
 
     it "should build a new list from a string of classes" do
       list = Arbre::HTML::ClassList.build_from_string("first second")
-      list.size.should == 2
+      expect(list.size).to eq(2)
 
-      list.to_a.sort.should == %w{first second}
+      expect(list.to_a.sort).to eq(%w{first second})
     end
 
   end

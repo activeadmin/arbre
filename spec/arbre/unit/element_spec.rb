@@ -7,25 +7,25 @@ describe Arbre::Element do
   context "when initialized" do
 
     it "should have no children" do
-      element.children.should be_empty
+      expect(element.children).to be_empty
     end
 
     it "should have no parent" do
-      element.parent.should be_nil
+      expect(element.parent).to be_nil
     end
 
     it "should respond to the HTML builder methods" do
-      element.should respond_to(:span)
+      expect(element).to respond_to(:span)
     end
 
     it "should have a set of local assigns" do
       context = Arbre::Context.new :hello => "World"
       element = Arbre::Element.new(context)
-      element.assigns[:hello].should == "World"
+      expect(element.assigns[:hello]).to eq("World")
     end
 
     it "should have an empty hash with no local assigns" do
-      element.assigns.should == {}
+      expect(element.assigns).to eq({})
     end
 
   end
@@ -43,13 +43,13 @@ describe Arbre::Element do
     let(:element){ Arbre::Element.new(Arbre::Context.new(nil, helper.new)) }
 
     it "should call methods on the helper object and return TextNode objects" do
-      element.helper_method.should == "helper method"
+      expect(element.helper_method).to eq("helper method")
     end
 
     it "should raise a NoMethodError if not found" do
-      lambda {
+      expect {
         element.a_method_that_doesnt_exist
-      }.should raise_error(NoMethodError)
+      }.to raise_error(NoMethodError)
     end
 
   end
@@ -60,7 +60,7 @@ describe Arbre::Element do
 
     it "should be accessible via a method call" do
       element = Arbre::Element.new(Arbre::Context.new(assigns))
-      element.post.should == post
+      expect(element.post).to eq(post)
     end
 
   end
@@ -74,11 +74,11 @@ describe Arbre::Element do
     end
 
     it "should add the child to the parent" do
-      element.children.first.should == child
+      expect(element.children.first).to eq(child)
     end
 
     it "should set the parent of the child" do
-      child.parent.should == element
+      expect(child.parent).to eq(element)
     end
 
     context "when the child is nil" do
@@ -86,7 +86,7 @@ describe Arbre::Element do
       let(:child){ nil }
 
       it "should not add the child" do
-        element.children.should be_empty
+        expect(element.children).to be_empty
       end
 
     end
@@ -96,8 +96,8 @@ describe Arbre::Element do
       let(:child){ "Hello World" }
 
       it "should add as a TextNode" do
-        element.children.first.should be_instance_of(Arbre::HTML::TextNode)
-        element.children.first.to_s.should == "Hello World"
+        expect(element.children.first).to be_instance_of(Arbre::HTML::TextNode)
+        expect(element.children.first.to_s).to eq("Hello World")
       end
 
     end
@@ -113,17 +113,17 @@ describe Arbre::Element do
       end
 
       it "should clear the existing children" do
-        element.children.size.should == 1
+        expect(element.children.size).to eq(1)
       end
 
       it "should add the string as a child" do
-        element.children.first.to_s.should == "Goodbye"
+        expect(element.children.first.to_s).to eq("Goodbye")
       end
 
       it "should html escape the string" do
         string = "Goodbye <br />"
         element.content = string
-        element.content.to_s.should == "Goodbye &lt;br /&gt;"
+        expect(element.content.to_s).to eq("Goodbye &lt;br /&gt;")
       end
     end
 
@@ -135,11 +135,11 @@ describe Arbre::Element do
       end
 
       it "should set the content tag" do
-        element.children.first.should == content_element
+        expect(element.children.first).to eq(content_element)
       end
 
       it "should set the tags parent" do
-        content_element.parent.should == element
+        expect(content_element.parent).to eq(element)
       end
     end
 
@@ -152,11 +152,11 @@ describe Arbre::Element do
       end
 
       it "should set the content tag" do
-        element.children.first.should == first
+        expect(element.children.first).to eq(first)
       end
 
       it "should set the tags parent" do
-        element.children.first.parent.should == element
+        expect(element.children.first.parent).to eq(element)
       end
     end
 
@@ -169,17 +169,17 @@ describe Arbre::Element do
     let(:collection){ element + "hello world" }
 
     it "should render the children collection" do
-      element.children.should_receive(:to_s).and_return("content")
-      element.to_s.should == "content"
+      expect(element.children).to receive(:to_s).and_return("content")
+      expect(element.to_s).to eq("content")
     end
 
     it "should render collection when is set the default separator" do
       $, = "_"
-      collection.to_s.should == "hello world"
+      expect(collection.to_s).to eq("hello world")
     end
 
     it "should render collection when is not set the default separator" do
-      collection.to_s.should == "hello world"
+      expect(collection.to_s).to eq("hello world")
     end
 
   end
@@ -192,13 +192,13 @@ describe Arbre::Element do
       let(:collection){ first + second }
 
       it "should return an instance of Collection" do
-        collection.should be_an_instance_of(Arbre::ElementCollection)
+        expect(collection).to be_an_instance_of(Arbre::ElementCollection)
       end
 
       it "should return the elements in the collection" do
-        collection.size.should == 2
-        collection.first.should == first
-        collection[1].should == second
+        expect(collection.size).to eq(2)
+        expect(collection.first).to eq(first)
+        expect(collection[1]).to eq(second)
       end
     end
 
@@ -209,14 +209,14 @@ describe Arbre::Element do
       let(:collection){ Arbre::ElementCollection.new([first, second]) + third}
 
       it "should return an instance of Collection" do
-        collection.should be_an_instance_of(Arbre::ElementCollection)
+        expect(collection).to be_an_instance_of(Arbre::ElementCollection)
       end
 
       it "should return the elements in the collection flattened" do
-        collection.size.should == 3
-        collection[0].should == first
-        collection[1].should == second
-        collection[2].should == third
+        expect(collection.size).to eq(3)
+        expect(collection[0]).to eq(first)
+        expect(collection[1]).to eq(second)
+        expect(collection[2]).to eq(third)
       end
     end
 
@@ -227,14 +227,14 @@ describe Arbre::Element do
       let(:collection){ first + Arbre::ElementCollection.new([second,third]) }
 
       it "should return an instance of Collection" do
-        collection.should be_an_instance_of(Arbre::ElementCollection)
+        expect(collection).to be_an_instance_of(Arbre::ElementCollection)
       end
 
       it "should return the elements in the collection flattened" do
-        collection.size.should == 3
-        collection[0].should == first
-        collection[1].should == second
-        collection[2].should == third
+        expect(collection.size).to eq(3)
+        expect(collection[0]).to eq(first)
+        expect(collection[1]).to eq(second)
+        expect(collection[2]).to eq(third)
       end
     end
 
@@ -243,13 +243,13 @@ describe Arbre::Element do
       let(:collection){ element + "Hello World"}
 
       it "should return an instance of Collection" do
-        collection.should be_an_instance_of(Arbre::ElementCollection)
+        expect(collection).to be_an_instance_of(Arbre::ElementCollection)
       end
 
       it "should return the elements in the collection" do
-        collection.size.should == 2
-        collection[0].should == element
-        collection[1].should be_an_instance_of(Arbre::HTML::TextNode)
+        expect(collection.size).to eq(2)
+        expect(collection[0]).to eq(element)
+        expect(collection[1]).to be_an_instance_of(Arbre::HTML::TextNode)
       end
     end
 
@@ -257,7 +257,7 @@ describe Arbre::Element do
       let(:collection){ "hello World" + Arbre::Element.new}
 
       it "should return a string" do
-        collection.strip.chomp.should == "hello World"
+        expect(collection.strip.chomp).to eq("hello World")
       end
     end
   end

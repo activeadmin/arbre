@@ -18,19 +18,19 @@ describe "Building forms" do
     end
 
     it "should build a form" do
-      html.should have_selector("form")
+      expect(html).to have_selector("form")
     end
 
     it "should include the hidden authenticity token" do
-      html.should have_selector("form input[type=hidden][name=authenticity_token]")
+      expect(html).to have_selector("form input[type=hidden][name=authenticity_token]")
     end
 
     it "should create a label" do
-      html.should have_selector("form label[for=mock_person_name]")
+      expect(html).to have_selector("form label[for=mock_person_name]")
     end
 
     it "should create a text field" do
-      html.should have_selector("form input[type=text]")
+      expect(html).to have_selector("form input[type=text]")
     end
 
   end
@@ -51,15 +51,15 @@ describe "Building forms" do
     end
 
     it "should render nested label" do
-      html.should have_selector("form label[for=mock_person_permission_admin]", :text => "Admin")
+      expect(html).to have_selector("form label[for=mock_person_permission_admin]", :text => "Admin")
     end
 
     it "should render nested label" do
-      html.should have_selector("form input[type=checkbox][name='mock_person[permission][admin]']")
+      expect(html).to have_selector("form input[type=checkbox][name='mock_person[permission][admin]']")
     end
 
     it "should not render a div for the proxy" do
-      html.should_not have_selector("form div.fields_for_proxy")
+      expect(html).not_to have_selector("form div.fields_for_proxy")
     end
 
   end
@@ -93,11 +93,11 @@ describe "Building forms" do
     end
 
     it "should correctly nest elements" do
-      html.should have_selector("form > p > label")
+      expect(html).to have_selector("form > p > label")
     end
 
     it "should correnctly nest elements within fields for" do
-      html.should have_selector("form > div.permissions > div.permissions_label label")
+      expect(html).to have_selector("form > div.permissions > div.permissions_label label")
     end
   end
 

@@ -38,20 +38,20 @@ describe TestController, "Rendering with Arbre", :type => :request do
 
   it "should render the empty template" do
     get "/test/render_empty"
-    response.should be_success
+    expect(response).to be_success
   end
 
   it "should render a simple page" do
     get "/test/render_simple_page"
-    response.should be_success
-    body.should have_selector("h1", :text => "Hello World")
-    body.should have_selector("p", :text => "Hello again!")
+    expect(response).to be_success
+    expect(body).to have_selector("h1", :text => "Hello World")
+    expect(body).to have_selector("p", :text => "Hello again!")
   end
 
   it "should render an arb partial" do
     get "/test/render_partial"
-    response.should be_success
-    body.should == <<-EOS
+    expect(response).to be_success
+    expect(body).to eq <<-EOS
 <h1>Before Partial</h1>
 <p>Hello from a partial</p>
 <h2>After Partial</h2>
@@ -60,8 +60,8 @@ EOS
 
   it "should render an erb (or other) partial" do
     get "/test/render_erb_partial"
-    response.should be_success
-    body.should == <<-EOS
+    expect(response).to be_success
+    expect(body).to eq <<-EOS
 <h1>Before Partial</h1>
 <p>Hello from an erb partial</p>
 <h2>After Partial</h2>
@@ -70,14 +70,14 @@ EOS
 
   it "should render with instance variables" do
     get "test/render_with_instance_variable"
-    response.should be_success
-    body.should have_selector("h1", :text => "From Instance Var")
+    expect(response).to be_success
+    expect(body).to have_selector("h1", :text => "From Instance Var")
   end
 
   it "should render an arbre partial with assignments" do
     get "test/render_partial_with_instance_variable"
-    response.should be_success
-    body.should have_selector("p", :text => "Partial: From Instance Var")
+    expect(response).to be_success
+    expect(body).to have_selector("p", :text => "Partial: From Instance Var")
   end
 
 end

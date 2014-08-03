@@ -20,21 +20,21 @@ describe Arbre::Component do
   let(:component){ component_class.new }
 
   it "should be a subclass of an html div" do
-    Arbre::Component.ancestors.should include(Arbre::HTML::Div)
+    expect(Arbre::Component.ancestors).to include(Arbre::HTML::Div)
   end
 
   it "should render to a div, even as a subclass" do
-    component.tag_name.should == 'div'
+    expect(component.tag_name).to eq('div')
   end
 
   it "should add a class by default" do
-    component.class_list.should include("mock_component")
+    expect(component.class_list).to include("mock_component")
   end
 
   it "should render the object using the builder method name" do
-    comp = arbre {
+    comp = expect(arbre {
       mock_component
-    }.to_s.should == <<-HTML
+    }.to_s).to eq <<-HTML
 <div class="mock_component">
   <h2>Hello World</h2>
 </div>
