@@ -3,6 +3,8 @@
 Gemfile.lock
 pkg/*
 benchmarks
-/.rvmrc
-/tags
+.rvmrc
+.ruby-version
+.ruby-gemset
+tags
 .DS_Store
