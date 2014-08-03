@@ -3,11 +3,6 @@ require 'bundler/setup'
 
 require 'combustion'
 
-# Arbre's Rails integration should satisfy Rack::Lint.
-class Combustion::Application
-  config.middleware.use 'Rack::Lint'
-end
-
 Combustion.path = 'spec/rails/stub_app'
 Combustion.initialize! :action_controller,
                        :action_view
