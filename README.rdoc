@@ -19,8 +19,14 @@ A simple example of setting up an Arbre context and creating some html
       end
     end
 
-    puts html.to_s #=> "<h2>Why Arbre is awesome?</h2>\n<ul>\n  <li>The DOM is implemented in ruby</li>\n  <li>You can create object oriented views</li>\n  <li>Templates suck</li>\n</ul>\n"
-
+    puts html.to_s # =>
+    
+    <h2>Why Arbre is awesome?</h2>
+    <ul>
+      <li>The DOM is implemented in ruby</li>
+      <li>You can create object oriented views</li>
+      <li>Templates suck</li>
+    </ul>
 
 == The DOM in Ruby
 
