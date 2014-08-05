@@ -187,6 +187,12 @@ HTML
       }.to_s).to eq("<link rel=\"stylesheet\"/>\n")
     end
 
+    it "should self-close br tags" do
+      expect(arbre {
+        br
+      }.to_s).to eq("<br/>\n")
+    end
+
   end
 
   describe "html safe" do

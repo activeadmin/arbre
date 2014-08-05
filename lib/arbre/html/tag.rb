@@ -130,7 +130,7 @@ module Arbre
       end
 
       def self_closing_tag?
-        %w|meta link|.include?(tag_name)
+        %w|br link meta|.include?(tag_name)
       end
 
       def no_child?
