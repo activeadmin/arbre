@@ -1,4 +1,5 @@
 require 'arbre/element/builder_methods'
+require 'arbre/element/proxy'
 require 'arbre/element_collection'
 
 module Arbre
@@ -147,11 +148,11 @@ module Arbre
       else
         element = Arbre::HTML::TextNode.from_string(element)
       end
-      ElementCollection.new([self]) + element
+      to_ary + element
     end
 
     def to_ary
-      ElementCollection.new [self]
+      ElementCollection.new [Proxy.new(self)]
     end
     alias_method :to_a, :to_ary
 
