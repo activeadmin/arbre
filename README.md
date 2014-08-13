@@ -1,9 +1,9 @@
 # Arbre - HTML Views in Ruby
 
-Arbre makes it easy to generate HTML directly in Ruby. This gem was extracted from [Active Admin](https://github.com/gregbell/active_admin).
+Arbre makes it easy to generate HTML directly in Ruby. This gem was extracted from [Active Admin](https://github.com/activeadmin/active_admin).
 
-[![Version  ](http://img.shields.io/gem/v/arbre.svg)                 ](https://rubygems.org/gems/arbre)
-[![Travis CI](http://img.shields.io/travis/gregbell/arbre/master.svg)](https://travis-ci.org/gregbell/arbre)
+[![Version  ](http://img.shields.io/gem/v/arbre.svg)                    ](https://rubygems.org/gems/arbre)
+[![Travis CI](http://img.shields.io/travis/activeadmin/arbre/master.svg)](https://travis-ci.org/activeadmin/arbre)
 
 ## Simple Usage
 
