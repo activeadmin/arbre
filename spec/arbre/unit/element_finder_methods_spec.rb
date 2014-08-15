@@ -95,7 +95,16 @@ describe Arbre::Element, "Finder Methods" do
       expect(elements[0]).to be_instance_of(Arbre::HTML::Div)
     end
 
-    # TODO: find children's children by class name
+    it "should return a grandchild element" do
+      html = arbre do
+        div :class => "some_class" do
+          div :class => "my_class"
+        end
+      end
+      elements = html.get_elements_by_class_name("my_class")
+      expect(elements.size).to eq(1)
+      expect(elements[0]).to be_instance_of(Arbre::HTML::Div)
+    end
 
   end
 end
