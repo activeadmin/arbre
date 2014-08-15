@@ -61,6 +61,12 @@ describe Arbre::Element, "Finder Methods" do
       }.get_elements_by_class_name("my_class").size).to eq(0)
     end
 
+    it "should allow text nodes on tree" do
+      expect(arbre {
+        text_node "text"
+      }.get_elements_by_class_name("my_class").size).to eq(0)
+    end
+
     it "should return a child element" do
       html = arbre do
         div :class => "some_class"
