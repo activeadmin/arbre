@@ -22,6 +22,10 @@ module Arbre
         @content = string
       end
 
+      def class_list
+        []
+      end
+
       def tag_name
         nil
       end
