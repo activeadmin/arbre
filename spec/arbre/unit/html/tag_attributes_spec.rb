@@ -13,9 +13,15 @@ describe Arbre::HTML::Tag, "Attributes" do
     end
 
     it "should render the attributes to html" do
-      expect(tag.to_s).to eq <<-HTML
-<tag id="my_id"></tag>
-HTML
+      expect(tag.to_s).to eq "<tag id=\"my_id\"></tag>\n"
+    end
+
+    it "shouldn't render attributes that are empty" do
+      tag.class_list # initializes an empty ClassList
+      tag.set_attribute :foo, ''
+      tag.set_attribute :bar, nil
+
+      expect(tag.to_s).to eq "<tag id=\"my_id\"></tag>\n"
     end
 
     it "should get an attribute value" do
@@ -45,16 +51,12 @@ HTML
 
   describe "rendering attributes" do
     it "should html safe the attribute values" do
-      tag.set_attribute(:class, "\">bad things!")
-      expect(tag.to_s).to eq <<-HTML
-<tag class="&quot;&gt;bad things!"></tag>
-HTML
+      tag.set_attribute(:class, '">bad things!')
+      expect(tag.to_s).to eq "<tag class=\"&quot;&gt;bad things!\"></tag>\n"
     end
     it "should should escape the attribute names" do
       tag.set_attribute(">bad", "things")
-      expect(tag.to_s).to eq <<-HTML
-<tag &gt;bad="things"></tag>
-HTML
+      expect(tag.to_s).to eq "<tag &gt;bad=\"things\"></tag>\n"
     end
   end
 end
