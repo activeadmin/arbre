@@ -1,3 +1,9 @@
+## 1.0.2
+
+* make `Element#inspect` behave correctly in Ruby 2.0 (@seanlinsley, #16)
+* prevent `Arbre::Element#flatten` infinite recursion (@seanlinsley, #32)
+* make `find_by_class` correctly find children by class (@kaapa, #33)
+
 ## 1.0.1
 
 * Template handler converts to string to satisfy Rack::Lint (@jpmckinney, #6)
