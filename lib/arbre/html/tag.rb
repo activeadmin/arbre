@@ -6,6 +6,9 @@ module Arbre
     class Tag < Element
       attr_reader :attributes
 
+      # See: http://www.w3.org/html/wg/drafts/html/master/syntax.html#void-elements
+      SELF_CLOSING_TAGS = %w|area base br col embed hr img input keygen link menuitem meta param source track wbr|
+
       def initialize(*)
         super
         @attributes = Attributes.new
@@ -130,7 +133,7 @@ module Arbre
       end
 
       def self_closing_tag?
-        %w|br link meta|.include?(tag_name)
+        SELF_CLOSING_TAGS.include?(tag_name)
       end
 
       def no_child?
