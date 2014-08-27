@@ -187,16 +187,12 @@ HTML
       }.to_s).to eq("<link rel=\"stylesheet\"/>\n")
     end
 
-    it "should self-close hr tags" do
-      expect(arbre {
-        hr
-      }.to_s).to eq("<hr/>\n")
-    end
-
-    it "should self-close br tags" do
-      expect(arbre {
-        br
-      }.to_s).to eq("<br/>\n")
+    (Arbre::HTML::Tag::SELF_CLOSING_TAGS - %w|script meta link|).each do |tag|
+      it "should self-close #{tag} tags" do
+        expect(arbre {
+          send(tag, {})
+        }.to_s).to eq("<#{tag}/>\n")
+      end
     end
 
   end
