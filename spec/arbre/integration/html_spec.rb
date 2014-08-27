@@ -187,6 +187,12 @@ HTML
       }.to_s).to eq("<link rel=\"stylesheet\"/>\n")
     end
 
+    it "should self-close hr tags" do
+      expect(arbre {
+        hr
+      }.to_s).to eq("<hr/>\n")
+    end
+
     it "should self-close br tags" do
       expect(arbre {
         br
