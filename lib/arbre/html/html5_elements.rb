@@ -10,7 +10,7 @@ module Arbre
                        :legend, :li, :link, :map, :mark, :menu, :meta, :meter, :nav, :noscript, 
                        :object, :ol, :optgroup, :option, :output, :pre, :progress, :q,
                        :s, :samp, :script, :section, :select, :small, :source, :span,
-                       :strong, :style, :sub, :summary, :sup, :table, :tbody, :td,
+                       :strong, :style, :sub, :summary, :sup, :svg, :table, :tbody, :td,
                        :textarea, :tfoot, :th, :thead, :time, :title, :tr, :ul, :var, :video ]
 
     HTML5_ELEMENTS = [ :p ] + AUTO_BUILD_ELEMENTS
