@@ -16,8 +16,8 @@ module Arbre
           proxy_call_to_form :select, *args
         end
 
-        def respond_to?(name)
-          if form_builder && form_builder.respond_to?(name)
+        def respond_to_missing?(method, include_all)
+          if form_builder && form_builder.respond_to?(method, include_all)
             true
           else
             super
