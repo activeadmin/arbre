@@ -67,8 +67,8 @@ module Arbre
     end
     alias :length :bytesize
 
-    def respond_to?(method)
-      super || cached_html.respond_to?(method)
+    def respond_to_missing?(method, include_all)
+      super || cached_html.respond_to?(method, include_all)
     end
 
     # Webservers treat Arbre::Context as a string. We override
