@@ -7,11 +7,11 @@ module Arbre
                        :dfn, :div, :dl, :dt, :em, :embed, :fieldset, :figcaption, :figure,
                        :footer, :form, :h1, :h2, :h3, :h4, :h5, :h6, :head, :header, :hgroup, 
                        :hr, :html, :i, :iframe, :img, :input, :ins, :keygen, :kbd, :label, 
-                       :legend, :li, :link, :map, :mark, :menu, :meta, :meter, :nav, :noscript, 
-                       :object, :ol, :optgroup, :option, :output, :pre, :progress, :q,
+                       :legend, :li, :link, :map, :mark, :menu, :menuitem, :meta, :meter, :nav, :noscript, 
+                       :object, :ol, :optgroup, :option, :output, :param, :pre, :progress, :q,
                        :s, :samp, :script, :section, :select, :small, :source, :span,
                        :strong, :style, :sub, :summary, :sup, :svg, :table, :tbody, :td,
-                       :textarea, :tfoot, :th, :thead, :time, :title, :tr, :ul, :var, :video ]
+                       :textarea, :tfoot, :th, :thead, :time, :title, :tr, :track, :ul, :var, :video, :wbr ]
 
     HTML5_ELEMENTS = [ :p ] + AUTO_BUILD_ELEMENTS
 
