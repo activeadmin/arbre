@@ -47,7 +47,7 @@ module Arbre
 
       if child.respond_to?(:parent)
         # Remove the child
-        child.parent.remove_child(child) if child.parent
+        child.parent.remove_child(child) if child.parent && child.parent != self
         # Set ourselves as the parent
         child.parent = self
       end
