@@ -8,7 +8,7 @@ describe Arbre::HTML::ClassList do
       list = Arbre::HTML::ClassList.build_from_string("first second")
       expect(list.size).to eq(2)
 
-      expect(list.to_a.sort).to eq(%w{first second})
+      expect(list).to match_array(%w{first second})
     end
 
   end
