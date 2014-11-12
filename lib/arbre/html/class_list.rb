@@ -7,10 +7,7 @@ module Arbre
     class ClassList < Set
 
       def self.build_from_string(class_names)
-        list = new
-        list.add(class_names)
-
-        list
+        new.add(class_names)
       end
 
       def add(class_names)
