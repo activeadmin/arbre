@@ -10,7 +10,7 @@ describe "Building forms" do
 
     let(:form) do
       arbre do
-        form_for MockPerson.new, :url => "/" do |f|
+        form_for MockPerson.new, url: "/" do |f|
           f.label :name
           f.text_field :name
         end
@@ -39,7 +39,7 @@ describe "Building forms" do
 
     let(:form) do
       arbre do
-        form_for MockPerson.new, :url => "/" do |f|
+        form_for MockPerson.new, url: "/" do |f|
           f.label :name
           f.text_field :name
           f.fields_for :permission do |pf|
@@ -51,7 +51,7 @@ describe "Building forms" do
     end
 
     it "should render nested label" do
-      expect(html).to have_selector("form label[for=mock_person_permission_admin]", :text => "Admin")
+      expect(html).to have_selector("form label[for=mock_person_permission_admin]", text: "Admin")
     end
 
     it "should render nested label" do
@@ -67,7 +67,7 @@ describe "Building forms" do
   describe "forms with other elements" do
     let(:form) do
       arbre do
-        form_for MockPerson.new, :url => "/" do |f|
+        form_for MockPerson.new, url: "/" do |f|
 
           div do
             f.label :name
@@ -79,9 +79,9 @@ describe "Building forms" do
             f.text_field :name
           end
 
-          div :class => "permissions" do
+          div class: "permissions" do
             f.fields_for :permission do |pf|
-              div :class => "permissions_label" do
+              div class: "permissions_label" do
                 pf.label :admin
               end
               pf.check_box :admin

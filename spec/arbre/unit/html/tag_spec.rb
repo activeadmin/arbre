@@ -5,24 +5,24 @@ describe Arbre::HTML::Tag do
   let(:tag){ Arbre::HTML::Tag.new }
 
   describe "building a new tag" do
-    before { tag.build "Hello World", :id => "my_id" }
+    before { tag.build "Hello World", id: "my_id" }
 
     it "should set the contents to a string" do
       expect(tag.content).to eq("Hello World")
     end
 
     it "should set the hash of options to the attributes" do
-      expect(tag.attributes).to eq({ :id => "my_id" })
+      expect(tag.attributes).to eq({ id: "my_id" })
     end
   end
 
   describe "creating a tag 'for' an object" do
-    let(:model_name){ double(:singular => "resource_class")}
-    let(:resource_class){ double(:model_name => model_name) }
-    let(:resource){ double(:class => resource_class, :to_key => ['5'])}
+    let(:model_name){ double(singular: "resource_class")}
+    let(:resource_class){ double(model_name: model_name) }
+    let(:resource){ double(class: resource_class, to_key: ['5'])}
 
     before do
-      tag.build :for => resource
+      tag.build for: resource
     end
     it "should set the id to the type and id" do
       expect(tag.id).to eq("resource_class_5")
@@ -34,10 +34,10 @@ describe Arbre::HTML::Tag do
 
 
     describe "for an object that doesn't have a model_name" do
-      let(:resource_class){ double(:name => 'ResourceClass') }
+      let(:resource_class){ double(name: 'ResourceClass') }
 
       before do
-        tag.build :for => resource
+        tag.build for: resource
       end
 
       it "should set the id to the type and id" do
@@ -93,7 +93,7 @@ describe Arbre::HTML::Tag do
 
     it "should create a class list from a string" do
       tag = Arbre::HTML::Tag.new
-      tag.build(:class => "first-class")
+      tag.build(class: "first-class")
       tag.add_class "second-class"
       expect(tag.class_list.size).to eq(2)
     end

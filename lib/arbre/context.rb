@@ -17,7 +17,7 @@ module Arbre
   # within the block. To pass local variables into the Context, use the
   # assigns param.
   #
-  #     html = Arbre::Context.new({:one => 1}) do
+  #     html = Arbre::Context.new({one: 1}) do
   #       h1 "Your number #{one}"
   #     end
   #

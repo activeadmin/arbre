@@ -58,7 +58,7 @@ class Panel < Arbre::Component
   def build(title, attributes = {})
     super(attributes)
 
-    h3(title, :class => "panel-title")
+    h3(title, class: "panel-title")
   end
 end
 ```
@@ -71,7 +71,7 @@ You can now use this panel in any Arbre context:
 
 ```ruby
 html = Arbre::Context.new do
-  panel "Hello World", :id => "my-panel" do
+  panel "Hello World", id: "my-panel" do
     span "Inside the panel"
   end
 end
@@ -92,7 +92,7 @@ To insert unwrapped text nodes use `text_node`:
 
 ```ruby
 html = Arbre::Context.new do
-  panel "Hello World", :id => "my-panel" do
+  panel "Hello World", id: "my-panel" do
     span "Inside the panel"
     text_node "Plain text"
   end

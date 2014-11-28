@@ -6,10 +6,10 @@ describe Arbre::HTML::Tag, "Attributes" do
 
   describe "attributes" do
 
-    before { tag.build :id => "my_id" }
+    before { tag.build id: "my_id" }
 
     it "should have an attributes hash" do
-      expect(tag.attributes).to eq({:id => "my_id"})
+      expect(tag.attributes).to eq({id: "my_id"})
     end
 
     it "should render the attributes to html" do
@@ -43,7 +43,7 @@ describe Arbre::HTML::Tag, "Attributes" do
     end
 
     it "should remove an attribute" do
-      expect(tag.attributes).to eq({:id => "my_id"})
+      expect(tag.attributes).to eq({id: "my_id"})
       expect(tag.remove_attribute(:id)).to eq("my_id")
       expect(tag.attributes).to eq({})
     end

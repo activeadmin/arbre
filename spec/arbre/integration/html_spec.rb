@@ -171,19 +171,19 @@ HTML
 
     it "should not self-close script tags" do
       expect(arbre {
-        script :type => 'text/javascript'
+        script type: 'text/javascript'
       }.to_s).to eq("<script type=\"text/javascript\"></script>\n")
     end
 
     it "should self-close meta tags" do
       expect(arbre {
-        meta :content => "text/html; charset=utf-8"
+        meta content: "text/html; charset=utf-8"
       }.to_s).to eq("<meta content=\"text/html; charset=utf-8\"/>\n")
     end
 
     it "should self-close link tags" do
       expect(arbre {
-        link :rel => "stylesheet"
+        link rel: "stylesheet"
       }.to_s).to eq("<link rel=\"stylesheet\"/>\n")
     end
 
@@ -239,7 +239,7 @@ HTML
 
     it "should escape the contents of attributes" do
       expect(arbre {
-        span(:class => "<br />")
+        span(class: "<br />")
       }.to_s).to eq <<-HTML
 <span class="&lt;br /&gt;"></span>
 HTML

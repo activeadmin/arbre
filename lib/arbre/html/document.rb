@@ -29,7 +29,7 @@ module Arbre
 
       def build_head
         @head = head do
-          meta :"http-equiv" => "Content-type", :content => "text/html; charset=utf-8"
+          meta :"http-equiv" => "Content-type", content: "text/html; charset=utf-8"
         end
       end
 

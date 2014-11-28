@@ -33,7 +33,7 @@ class TestController < ActionController::Base
 end
 
 
-describe TestController, "Rendering with Arbre", :type => :request do
+describe TestController, "Rendering with Arbre", type: :request do
   let(:body){ response.body }
 
   it "should render the empty template" do
@@ -44,8 +44,8 @@ describe TestController, "Rendering with Arbre", :type => :request do
   it "should render a simple page" do
     get "/test/render_simple_page"
     expect(response).to be_success
-    expect(body).to have_selector("h1", :text => "Hello World")
-    expect(body).to have_selector("p", :text => "Hello again!")
+    expect(body).to have_selector("h1", text: "Hello World")
+    expect(body).to have_selector("p", text: "Hello again!")
   end
 
   it "should render an arb partial" do
@@ -71,13 +71,13 @@ EOS
   it "should render with instance variables" do
     get "test/render_with_instance_variable"
     expect(response).to be_success
-    expect(body).to have_selector("h1", :text => "From Instance Var")
+    expect(body).to have_selector("h1", text: "From Instance Var")
   end
 
   it "should render an arbre partial with assignments" do
     get "test/render_partial_with_instance_variable"
     expect(response).to be_success
-    expect(body).to have_selector("p", :text => "Partial: From Instance Var")
+    expect(body).to have_selector("p", text: "Partial: From Instance Var")
   end
 
 end

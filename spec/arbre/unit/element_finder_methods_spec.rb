@@ -69,8 +69,8 @@ describe Arbre::Element, "Finder Methods" do
 
     it "should return a child element" do
       html = arbre do
-        div :class => "some_class"
-        div :class => "my_class"
+        div class: "some_class"
+        div class: "my_class"
       end
       elements = html.get_elements_by_class_name("my_class")
       expect(elements.size).to eq(1)
@@ -79,9 +79,9 @@ describe Arbre::Element, "Finder Methods" do
 
     it "should return multple child elements" do
       html = arbre do
-        div :class => "some_class"
-        div :class => "my_class"
-        div :class => "my_class"
+        div class: "some_class"
+        div class: "my_class"
+        div class: "my_class"
       end
       elements = html.get_elements_by_class_name("my_class")
       expect(elements.size).to eq(2)
@@ -91,9 +91,9 @@ describe Arbre::Element, "Finder Methods" do
 
     it "should return elements that match one of several classes" do
       html = arbre do
-        div :class => "some_class this_class"
-        div :class => "some_class"
-        div :class => "other_class"
+        div class: "some_class this_class"
+        div class: "some_class"
+        div class: "other_class"
 
       end
       elements = html.get_elements_by_class_name("this_class")
@@ -103,8 +103,8 @@ describe Arbre::Element, "Finder Methods" do
 
     it "should return a grandchild element" do
       html = arbre do
-        div :class => "some_class" do
-          div :class => "my_class"
+        div class: "some_class" do
+          div class: "my_class"
         end
       end
       elements = html.get_elements_by_class_name("my_class")

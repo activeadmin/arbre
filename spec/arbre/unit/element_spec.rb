@@ -19,7 +19,7 @@ describe Arbre::Element do
     end
 
     it "should have a set of local assigns" do
-      context = Arbre::Context.new :hello => "World"
+      context = Arbre::Context.new hello: "World"
       element = Arbre::Element.new(context)
       expect(element.assigns[:hello]).to eq("World")
     end
@@ -56,7 +56,7 @@ describe Arbre::Element do
 
   describe "passing in assigns" do
     let(:post){ double }
-    let(:assigns){ {:post => post} }
+    let(:assigns){ {post: post} }
 
     it "should be accessible via a method call" do
       element = Arbre::Element.new(Arbre::Context.new(assigns))

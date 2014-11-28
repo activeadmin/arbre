@@ -19,7 +19,7 @@ require 'rails/support/mock_person'
 require 'arbre/rails'
 
 Rails.application.routes.draw do
-  get 'test/:action', :controller => "test"
+  get 'test/:action', controller: "test"
 end
 
 module AdditionalHelpers
