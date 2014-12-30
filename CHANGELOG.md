@@ -1,30 +1,30 @@
-## 1.0.2 [☰](https://github.com/activeadmin/activeadmin/compare/v1.0.1...1.0.2)
+## 1.0.2 [☰](https://github.com/activeadmin/arbre/compare/v1.0.1...v1.0.2)
 
 * make `Element#inspect` behave correctly in Ruby 2.0 [#16][] by [@seanlinsley][]
 * prevent `Arbre::Element#flatten` infinite recursion [#32][] by [@seanlinsley][]
 * make `find_by_class` correctly find children by class [#33][] by [@kaapa][]
 
-## 1.0.1 [☰](https://github.com/activeadmin/activeadmin/compare/v1.0.0...1.0.1)
+## 1.0.1 [☰](https://github.com/activeadmin/arbre/compare/v1.0.0...v1.0.1)
 
 * Template handler converts to string to satisfy Rack::Lint [#6][] by [@jpmckinney][]
 * Fix to `Tag#add_class` when passing a string of classes to Tag build method
   [#4][] by [@gregbell][]
 * Not longer uses the default separator [#7][] by [@LTe][]
 
-## 1.0.0 [☰](https://github.com/activeadmin/activeadmin/compare/v1.0.0.rc4...1.0.0)
+## 1.0.0 [☰](https://github.com/activeadmin/arbre/compare/v1.0.0.rc4...v1.0.0)
 
 * Added support for the use of `:for` with non Active Model objects
 
-## 1.0.0.rc4 [☰](https://github.com/activeadmin/activeadmin/compare/v1.0.0.rc3...1.0.0.rc4)
+## 1.0.0.rc4 [☰](https://github.com/activeadmin/arbre/compare/v1.0.0.rc3...v1.0.0.rc4)
 
 * Fix issue where user could call `symbolize_keys!` on a
   HashWithIndifferentAccess which doesn't implement the method
 
-## 1.0.0.rc3 [☰](https://github.com/activeadmin/activeadmin/compare/v1.0.0.rc2...1.0.0.rc3)
+## 1.0.0.rc3 [☰](https://github.com/activeadmin/arbre/compare/v1.0.0.rc2...v1.0.0.rc3)
 
 * Implemented `Arbre::HTML::Tag#default_id_for_prefix`
 
-## 1.0.0.rc2 [☰](https://github.com/activeadmin/activeadmin/compare/v1.0.0.rc1...1.0.0.rc2)
+## 1.0.0.rc2 [☰](https://github.com/activeadmin/arbre/compare/v1.0.0.rc1...v1.0.0.rc2)
 
 * Fixed bug where Component's build methods were being rendered within the
   parent context.
