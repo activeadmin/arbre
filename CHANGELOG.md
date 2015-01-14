@@ -1,3 +1,9 @@
+## unreleased [☰](https://github.com/activeadmin/arbre/compare/v1.0.2...master)
+
+* Performance improvements [#40][] by [@alexesDev][]
+* Added all void elements as self-closing tags [#39][] by [@OscarBarrett][]
+* Missing tags added [#36][] / [#39][] by [@dtaniwaki][] and [@OscarBarrett][]
+
 ## 1.0.2 [☰](https://github.com/activeadmin/arbre/compare/v1.0.1...v1.0.2)
 
 * make `Element#inspect` behave correctly in Ruby 2.0 [#16][] by [@seanlinsley][]
@@ -40,7 +46,13 @@ Initial release and extraction from Active Admin
 [#16]: https://github.com/activeadmin/arbre/issues/16
 [#32]: https://github.com/activeadmin/arbre/issues/32
 [#33]: https://github.com/activeadmin/arbre/issues/33
+[#36]: https://github.com/activeadmin/arbre/issues/36
+[#39]: https://github.com/activeadmin/arbre/issues/39
+[#40]: https://github.com/activeadmin/arbre/issues/40
 [@LTe]: https://github.com/LTe
+[@OscarBarrett]: https://github.com/OscarBarrett
+[@alexesDev]: https://github.com/alexesDev
+[@dtaniwaki]: https://github.com/dtaniwaki
 [@gregbell]: https://github.com/gregbell
 [@jpmckinney]: https://github.com/jpmckinney
 [@kaapa]: https://github.com/kaapa
