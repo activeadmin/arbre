@@ -22,7 +22,7 @@ describe "Building forms" do
     end
 
     it "should include the hidden authenticity token" do
-      expect(html).to include '<input name="authenticity_token" type="hidden" value="AUTH_TOKEN" />'
+      expect(html).to include '<input type="hidden" name="authenticity_token" value="AUTH_TOKEN" />'
     end
 
     it "should create a label" do

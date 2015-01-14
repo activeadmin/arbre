@@ -69,13 +69,13 @@ EOS
   end
 
   it "should render with instance variables" do
-    get "test/render_with_instance_variable"
+    get "/test/render_with_instance_variable"
     expect(response).to be_success
     expect(body).to have_selector("h1", text: "From Instance Var")
   end
 
   it "should render an arbre partial with assignments" do
-    get "test/render_partial_with_instance_variable"
+    get "/test/render_partial_with_instance_variable"
     expect(response).to be_success
     expect(body).to have_selector("p", text: "Partial: From Instance Var")
   end
