@@ -1,5 +1,7 @@
 ## unreleased [☰](https://github.com/activeadmin/arbre/compare/v1.0.3...master)
 
+* Tag option `for` sets the attribute when value is a string or symbol [#18]
+
 ## 1.0.3 [☰](https://github.com/activeadmin/arbre/compare/v1.0.2...v1.0.3)
 
 * Performance improvements [#40][] by [@alexesDev][]

@@ -20,7 +20,10 @@ module Arbre
         attributes = extract_arguments(args)
         self.content = args.first if args.first
 
-        set_for_attribute(attributes.delete(:for))
+        for_value = attributes[:for]
+        unless for_value.is_a?(String) || for_value.is_a?(Symbol)
+          set_for_attribute(attributes.delete(:for))
+        end
 
         attributes.each do |key, value|
           set_attribute(key, value)
