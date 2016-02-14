@@ -66,6 +66,18 @@ describe Arbre::HTML::Tag do
     end
   end
 
+  describe "creating a tag with a for attribute" do
+    it "sets the `for` attribute when a string is given" do
+      tag.build for: "email"
+      expect(tag.attributes[:for]).to eq "email"
+    end
+
+    it "sets the `for` attribute when a symbol is given" do
+      tag.build for: :email
+      expect(tag.attributes[:for]).to eq :email
+    end
+  end
+
   describe "css class names" do
 
     it "should add a class" do
