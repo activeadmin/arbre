@@ -108,3 +108,7 @@ puts html.to_s # =>
   Plain text
 </div>
 ```
+
+### Tag replacement
+
+`para 'text'     # => "<p>text</p>"` 
