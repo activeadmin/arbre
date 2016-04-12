@@ -8,11 +8,14 @@ module Arbre
     include BuilderMethods
 
     attr_accessor :parent
-    attr_reader :children, :arbre_context
+    attr_reader :arbre_context
 
     def initialize(arbre_context = Arbre::Context.new)
       @arbre_context = arbre_context
-      @children = ElementCollection.new
+    end
+
+    def children
+      @children ||= ElementCollection.new
     end
 
     def assigns
@@ -37,7 +40,7 @@ module Arbre
 
       if child.is_a?(Array)
         child.each{|item| add_child(item) }
-        return @children
+        return children
       end
 
       # If its not an element, wrap it in a TextNode
@@ -52,12 +55,12 @@ module Arbre
         child.parent = self
       end
 
-      @children << child
+      children << child
     end
 
     def remove_child(child)
       child.parent = nil if child.respond_to?(:parent=)
-      @children.delete(child)
+      children.delete(child)
     end
 
     def <<(child)
@@ -65,7 +68,7 @@ module Arbre
     end
 
     def children?
-      @children.any?
+      @children && children.any?
     end
 
     def parent=(parent)
@@ -160,7 +163,7 @@ module Arbre
 
     # Resets the Elements children
     def clear_children!
-      @children.clear
+      children.clear
     end
 
     # Implements the method lookup chain. When you call a method that
