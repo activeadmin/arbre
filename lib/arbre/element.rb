@@ -185,9 +185,9 @@ module Arbre
 
     def respond_to_missing?(name, include_all)
       (current_arbre_element != self && current_arbre_element.respond_to?(name, include_all)) ||
-          !!(assigns && assigns.has_key?(name)) ||
-          helpers.respond_to?(name, include_all) ||
-          super
+        !!(assigns && assigns.has_key?(name)) ||
+        helpers.respond_to?(name, include_all) ||
+        super
     end
 
   end
