@@ -1,6 +1,8 @@
-## unreleased [☰](https://github.com/activeadmin/arbre/compare/v1.0.3...master)
+## unreleased [☰](https://github.com/activeadmin/arbre/compare/v1.1.0...master)
 
-* Tag option `for` sets the attribute when value is a string or symbol [#18]
+## 1.1.0 [☰](https://github.com/activeadmin/arbre/compare/v1.0.3...v1.1.0)
+
+* Tag option `for` sets the attribute when value is a string or symbol [#49][] by [@ramontayag][]
 
 ## 1.0.3 [☰](https://github.com/activeadmin/arbre/compare/v1.0.2...v1.0.3)
 
@@ -53,6 +55,7 @@ Initial release and extraction from Active Admin
 [#36]: https://github.com/activeadmin/arbre/issues/36
 [#39]: https://github.com/activeadmin/arbre/issues/39
 [#40]: https://github.com/activeadmin/arbre/issues/40
+[#49]: https://github.com/activeadmin/arbre/issues/49
 [@LTe]: https://github.com/LTe
 [@OscarBarrett]: https://github.com/OscarBarrett
 [@alexesDev]: https://github.com/alexesDev
@@ -60,4 +63,5 @@ Initial release and extraction from Active Admin
 [@gregbell]: https://github.com/gregbell
 [@jpmckinney]: https://github.com/jpmckinney
 [@kaapa]: https://github.com/kaapa
+[@ramontayag]: https://github.com/ramontayag
 [@seanlinsley]: https://github.com/seanlinsley
