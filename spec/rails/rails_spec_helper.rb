@@ -28,7 +28,7 @@ module AdditionalHelpers
     true
   end
 
-  def form_authenticity_token
+  def form_authenticity_token(form_options: {})
     "AUTH_TOKEN"
   end
 
