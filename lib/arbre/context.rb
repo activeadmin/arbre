@@ -35,8 +35,8 @@ module Arbre
     #
     # @yield [] The block that will get instance eval'd in the context
     def initialize(assigns = {}, helpers = nil, &block)
-      assigns = assigns || {}
-      @_assigns = assigns.symbolize_keys
+      assigns = (assigns || {}).symbolize_keys!
+      @_assigns = assigns
 
       @_helpers = helpers
       @_current_arbre_element_buffer = [self]
