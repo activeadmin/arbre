@@ -45,6 +45,10 @@ module Arbre
       instance_eval &block if block_given?
     end
 
+    def inspect
+      :arbre_context
+    end
+
     def arbre_context
       self
     end
