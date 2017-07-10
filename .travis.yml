@@ -3,4 +3,5 @@ sudo: false
 rvm:
   - 2.2.5
   - 2.4.0
+  - jruby-9.1.9.0 # Rails 5.0.2+ requires jruby-9.1.9, see https://github.com/jruby/jruby/issues/4557
 cache: bundler
