@@ -7,12 +7,13 @@ module Arbre
   class Element
     include BuilderMethods
 
-    attr_accessor :parent
+    attr_reader :parent
     attr_reader :children, :arbre_context
 
     def initialize(arbre_context = Arbre::Context.new)
       @arbre_context = arbre_context
       @children = ElementCollection.new
+      @parent = nil
     end
 
     def assigns
