@@ -1,0 +1,7 @@
+span { 'before h1 link' }
+h1 { link_to('/h1_link_path') { 'h1 link text' } }
+
+span { 'before link_to block' }
+text_node link_to('/link_path') { i("Link text", class: 'link-class') }
+
+span { 'at end' }
