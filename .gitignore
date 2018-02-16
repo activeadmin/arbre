@@ -8,3 +8,4 @@ benchmarks
 .ruby-gemset
 tags
 .DS_Store
+docs/_site
