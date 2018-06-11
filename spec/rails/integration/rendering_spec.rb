@@ -42,19 +42,19 @@ describe TestController, "Rendering with Arbre", type: :request do
 
   it "should render the empty template" do
     get "/test/render_empty"
-    expect(response).to be_success
+    expect(response).to be_successful
   end
 
   it "should render a simple page" do
     get "/test/render_simple_page"
-    expect(response).to be_success
+    expect(response).to be_successful
     expect(body).to have_selector("h1", text: "Hello World")
     expect(body).to have_selector("p", text: "Hello again!")
   end
 
   it "should render an arb partial" do
     get "/test/render_partial"
-    expect(response).to be_success
+    expect(response).to be_successful
     expect(body).to eq <<-EOS
 <h1>Before Partial</h1>
 <p>Hello from a partial</p>
@@ -64,7 +64,7 @@ EOS
 
   it "should render an erb (or other) partial" do
     get "/test/render_erb_partial"
-    expect(response).to be_success
+    expect(response).to be_successful
     expect(body).to eq <<-EOS
 <h1>Before Partial</h1>
 <p>Hello from an erb partial</p>
@@ -74,19 +74,19 @@ EOS
 
   it "should render with instance variables" do
     get "/test/render_with_instance_variable"
-    expect(response).to be_success
+    expect(response).to be_successful
     expect(body).to have_selector("h1", text: "From Instance Var")
   end
 
   it "should render an arbre partial with assignments" do
     get "/test/render_partial_with_instance_variable"
-    expect(response).to be_success
+    expect(response).to be_successful
     expect(body).to have_selector("p", text: "Partial: From Instance Var")
   end
 
   it "should render a page with helpers" do
     get "/test/render_page_with_helpers"
-    expect(response).to be_success
+    expect(response).to be_successful
     expect(body).to eq <<EOS
 <span>before h1 link</span>
 <h1><a href="/h1_link_path">h1 link text</a></h1>
