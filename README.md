@@ -1,9 +1,10 @@
 # Arbre - HTML Views in Ruby
 
-[Arbre](https://www.activeadmin.info/arbre) makes it easy to generate HTML directly in Ruby. This gem was extracted from [Active Admin](https://github.com/activeadmin/active_admin).
+[Arbre][docs] makes it easy to generate HTML directly in Ruby. This gem was extracted from [Active Admin](https://github.com/activeadmin/active_admin).
 
 [![Version         ][rubygems_badge]][rubygems]
 [![Travis CI       ][travis_badge]][travis]
+[![Tidelift        ][tidelift_badge]][tidelift]
 
 ## Goals
 
@@ -21,11 +22,17 @@ Please use [StackOverflow][stackoverflow] for help requests and how-to questions
 Please open GitHub issues for bugs and enhancements only, not general help requests.
 Please search previous issues (and Google and StackOverflow) before creating a new issue.
 
+## Want to support us?
+
+Subscribe to [Tidelift][tidelift] to support Arbre and get licensing assurances and timely security notifications.
+
 
 [rubygems_badge]: http://img.shields.io/gem/v/arbre.svg
 [rubygems]: https://rubygems.org/gems/arbre
 [travis_badge]: http://img.shields.io/travis/activeadmin/arbre/master.svg
 [travis]: https://travis-ci.org/activeadmin/arbre
+[tidelift_badge]: https://tidelift.com/badges/github/activeadmin/arbre
+[tidelift]: https://tidelift.com/subscription/pkg/rubygems-arbre?utm_source=rubygems-arbre&utm_medium=readme
 
 [docs]: https://activeadmin.github.io/arbre/
 [stackoverflow]: http://stackoverflow.com/questions/tagged/arbre
