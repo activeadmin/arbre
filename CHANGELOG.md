@@ -1,4 +1,11 @@
-## unreleased [☰](https://github.com/activeadmin/arbre/compare/v1.1.0...master)
+# Changelog
+
+## Master (unreleased)
+
+## 1.1.1 [☰](https://github.com/activeadmin/arbre/compare/v1.1.0...v1.1.1)
+
+* Use mime-types 2.x for Ruby 1.9 by [@timoschilling][]
+* Verify Ruby 2.3 support. [#59][] by [@dlackty][] 
 
 ## 1.1.0 [☰](https://github.com/activeadmin/arbre/compare/v1.0.3...v1.1.0)
 
@@ -56,12 +63,15 @@ Initial release and extraction from Active Admin
 [#39]: https://github.com/activeadmin/arbre/issues/39
 [#40]: https://github.com/activeadmin/arbre/issues/40
 [#49]: https://github.com/activeadmin/arbre/issues/49
+[#59]: https://github.com/activeadmin/arbre/issues/59
 [@LTe]: https://github.com/LTe
 [@OscarBarrett]: https://github.com/OscarBarrett
 [@alexesDev]: https://github.com/alexesDev
+[@dlackty]: https://github.com/dlackty
 [@dtaniwaki]: https://github.com/dtaniwaki
 [@gregbell]: https://github.com/gregbell
 [@jpmckinney]: https://github.com/jpmckinney
 [@kaapa]: https://github.com/kaapa
 [@ramontayag]: https://github.com/ramontayag
 [@seanlinsley]: https://github.com/seanlinsley
+[@timoschilling]: https://github.com/timoschilling

@@ -11,7 +11,7 @@ group :test do
 end
 
 group :rails do
-  gem 'rails'
+  gem 'rails', '>= 5.0.0.1' # fixes CVE-2016-6316
   gem 'rspec-rails'
   gem 'combustion'
   gem 'capybara'
