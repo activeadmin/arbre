@@ -2,6 +2,8 @@
 
 ## Master (unreleased)
 
+* Drop support for EOL'd rubies (under 2.3) by [@deivid-rodriguez][]
+
 ## 1.1.1 [☰](https://github.com/activeadmin/arbre/compare/v1.1.0...v1.1.1)
 
 * Use mime-types 2.x for Ruby 1.9 by [@timoschilling][]
@@ -67,6 +69,7 @@ Initial release and extraction from Active Admin
 [@LTe]: https://github.com/LTe
 [@OscarBarrett]: https://github.com/OscarBarrett
 [@alexesDev]: https://github.com/alexesDev
+[@deivid-rodriguez]: https://github.com/deivid-rodriguez
 [@dlackty]: https://github.com/dlackty
 [@dtaniwaki]: https://github.com/dtaniwaki
 [@gregbell]: https://github.com/gregbell
