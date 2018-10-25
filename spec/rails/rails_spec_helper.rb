@@ -18,10 +18,6 @@ require 'rails/support/mock_person'
 # Ensure that the rails plugin is installed
 require 'arbre/rails'
 
-Rails.application.routes.draw do
-  get 'test/:action', controller: "test"
-end
-
 module AdditionalHelpers
 
   def protect_against_forgery?
