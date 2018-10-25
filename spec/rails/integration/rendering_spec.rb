@@ -55,21 +55,21 @@ describe TestController, "Rendering with Arbre", type: :request do
   it "should render an arb partial" do
     get "/test/render_partial"
     expect(response).to be_successful
-    expect(body).to eq <<-EOS
-<h1>Before Partial</h1>
-<p>Hello from a partial</p>
-<h2>After Partial</h2>
-EOS
+    expect(body).to eq <<~HTML
+      <h1>Before Partial</h1>
+      <p>Hello from a partial</p>
+      <h2>After Partial</h2>
+    HTML
   end
 
   it "should render an erb (or other) partial" do
     get "/test/render_erb_partial"
     expect(response).to be_successful
-    expect(body).to eq <<-EOS
-<h1>Before Partial</h1>
-<p>Hello from an erb partial</p>
-<h2>After Partial</h2>
-EOS
+    expect(body).to eq <<~HTML
+      <h1>Before Partial</h1>
+      <p>Hello from an erb partial</p>
+      <h2>After Partial</h2>
+    HTML
   end
 
   it "should render with instance variables" do
@@ -87,12 +87,12 @@ EOS
   it "should render a page with helpers" do
     get "/test/render_page_with_helpers"
     expect(response).to be_successful
-    expect(body).to eq <<EOS
-<span>before h1 link</span>
-<h1><a href="/h1_link_path">h1 link text</a></h1>
-<span>before link_to block</span>
-<a href="/link_path">  <i class=\"link-class\">Link text</i>
-</a><span>at end</span>
-EOS
+    expect(body).to eq <<~HTML
+      <span>before h1 link</span>
+      <h1><a href="/h1_link_path">h1 link text</a></h1>
+      <span>before link_to block</span>
+      <a href="/link_path">  <i class=\"link-class\">Link text</i>
+      </a><span>at end</span>
+    HTML
   end
 end
