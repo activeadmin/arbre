@@ -40,6 +40,22 @@ end
 describe TestController, "Rendering with Arbre", type: :request do
   let(:body){ response.body }
 
+  before do
+    Rails.application.routes.draw do
+      get 'test/render_empty', controller: "test"
+      get 'test/render_simple_page', controller: "test"
+      get 'test/render_partial', controller: "test"
+      get 'test/render_erb_partial', controller: "test"
+      get 'test/render_with_instance_variable', controller: "test"
+      get 'test/render_partial_with_instance_variable', controller: "test"
+      get 'test/render_page_with_helpers', controller: "test"
+    end
+  end
+
+  after do
+    Rails.application.reload_routes!
+  end
+
   it "should render the empty template" do
     get "/test/render_empty"
     expect(response).to be_successful
