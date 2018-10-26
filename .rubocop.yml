@@ -10,3 +10,6 @@ AllCops:
 
 Metrics:
   Enabled: false
+
+Layout/IndentHeredoc:
+  Enabled: true
