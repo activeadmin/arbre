@@ -34,11 +34,11 @@ describe Arbre::Component do
   it "should render the object using the builder method name" do
     comp = expect(arbre {
       mock_component
-    }.to_s).to eq <<-HTML
-<div class="mock_component">
-  <h2>Hello World</h2>
-</div>
-HTML
+    }.to_s).to eq <<~HTML
+      <div class="mock_component">
+        <h2>Hello World</h2>
+      </div>
+      HTML
   end
 
 end
