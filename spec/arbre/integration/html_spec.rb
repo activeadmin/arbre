@@ -16,11 +16,11 @@ describe Arbre do
       span do
         span "Hello World"
       end
-    }.to_s).to eq <<-HTML
-<span>
-  <span>Hello World</span>
-</span>
-HTML
+    }.to_s).to eq <<~HTML
+      <span>
+        <span>Hello World</span>
+      </span>
+    HTML
   end
 
   it "should render an unordered list" do
@@ -30,31 +30,30 @@ HTML
         li "Second"
         li "Third"
       end
-    }.to_s).to eq <<-HTML
-<ul>
-  <li>First</li>
-  <li>Second</li>
-  <li>Third</li>
-</ul>
-HTML
+    }.to_s).to eq <<~HTML
+      <ul>
+        <li>First</li>
+        <li>Second</li>
+        <li>Third</li>
+      </ul>
+    HTML
   end
 
-   it "should allow local variables inside the tags" do
-     expect(arbre {
-       first = "First"
-       second = "Second"
-       ul do
-         li first
-         li second
-       end
-     }.to_s).to eq <<-HTML
-<ul>
-  <li>First</li>
-  <li>Second</li>
-</ul>
-HTML
-   end
-
+  it "should allow local variables inside the tags" do
+    expect(arbre {
+      first = "First"
+      second = "Second"
+      ul do
+        li first
+        li second
+      end
+    }.to_s).to eq <<~HTML
+      <ul>
+        <li>First</li>
+        <li>Second</li>
+      </ul>
+    HTML
+  end
 
   it "should add children and nested" do
     expect(arbre {
@@ -64,14 +63,14 @@ HTML
           li
         end
       end
-    }.to_s).to eq <<-HTML
-<div>
-  <ul></ul>
-  <li>
-    <li></li>
-  </li>
-</div>
-HTML
+    }.to_s).to eq <<~HTML
+      <div>
+        <ul></ul>
+        <li>
+          <li></li>
+        </li>
+      </div>
+    HTML
   end
 
 
@@ -82,13 +81,13 @@ HTML
           li
         end
       end
-    }.to_s).to eq <<-HTML
-<div>
-  <ul>
-    <li></li>
-  </ul>
-</div>
-HTML
+    }.to_s).to eq <<~HTML
+      <div>
+        <ul>
+          <li></li>
+        </ul>
+      </div>
+    HTML
   end
 
 
@@ -97,15 +96,15 @@ HTML
       div do
         span(ul(li))
       end
-    }.to_s).to eq <<-HTML
-<div>
-  <span>
-    <ul>
-      <li></li>
-    </ul>
-  </span>
-</div>
-HTML
+    }.to_s).to eq <<~HTML
+      <div>
+        <span>
+          <ul>
+            <li></li>
+          </ul>
+        </span>
+      </div>
+    HTML
   end
 
   it "should add content to the parent if the element is passed into block" do
@@ -116,13 +115,13 @@ HTML
           li
         end
       end
-    }.to_s).to eq <<-HTML
-<div id="my-tag">
-  <ul>
-    <li></li>
-  </ul>
-</div>
-HTML
+    }.to_s).to eq <<~HTML
+      <div id="my-tag">
+        <ul>
+          <li></li>
+        </ul>
+      </div>
+    HTML
   end
 
   it "should have the parent set on it" do
@@ -141,9 +140,9 @@ HTML
       li do
         "Hello World"
       end
-    }.to_s).to eq <<-HTML
-<li>Hello World</li>
-HTML
+    }.to_s).to eq <<~HTML
+      <li>Hello World</li>
+    HTML
   end
 
   it "should turn string return values into text nodes" do
@@ -162,9 +161,9 @@ HTML
       tbody do
         []
       end
-    }.to_s).to eq <<-HTML
-<tbody></tbody>
-HTML
+    }.to_s).to eq <<~HTML
+      <tbody></tbody>
+    HTML
   end
 
   describe "self-closing nodes" do
@@ -202,9 +201,9 @@ HTML
     it "should escape the contents" do
       expect(arbre {
         span("<br />")
-      }.to_s).to eq <<-HTML
-<span>&lt;br /&gt;</span>
-HTML
+      }.to_s).to eq <<~HTML
+        <span>&lt;br /&gt;</span>
+      HTML
     end
 
     it "should return html safe strings" do
@@ -216,11 +215,11 @@ HTML
     it "should not escape html passed in" do
       expect(arbre {
         span(span("<br />"))
-      }.to_s).to eq <<-HTML
-<span>
-  <span>&lt;br /&gt;</span>
-</span>
-HTML
+      }.to_s).to eq <<~HTML
+        <span>
+          <span>&lt;br /&gt;</span>
+        </span>
+      HTML
     end
 
     it "should escape string contents when passed in block" do
@@ -230,19 +229,19 @@ HTML
             "<br />"
           }
         }
-      }.to_s).to eq <<-HTML
-<span>
-  <span>&lt;br /&gt;</span>
-</span>
-HTML
+      }.to_s).to eq <<~HTML
+        <span>
+          <span>&lt;br /&gt;</span>
+        </span>
+      HTML
     end
 
     it "should escape the contents of attributes" do
       expect(arbre {
         span(class: "<br />")
-      }.to_s).to eq <<-HTML
-<span class="&lt;br /&gt;"></span>
-HTML
+      }.to_s).to eq <<~HTML
+        <span class="&lt;br /&gt;"></span>
+      HTML
     end
 
   end
