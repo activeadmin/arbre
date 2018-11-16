@@ -6,7 +6,6 @@ gem 'rake'
 
 group :test do
   gem 'rspec'
-  gem 'rack'
   gem 'pry'
 end
 

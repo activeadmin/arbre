@@ -197,7 +197,6 @@ DEPENDENCIES
   capybara
   combustion
   pry
-  rack
   rails (>= 5.0.0.1)
   rake
   rspec
