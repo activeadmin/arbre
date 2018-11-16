@@ -85,7 +85,6 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (0.9.0)
-    mime-types (2.99.3)
     mimemagic (0.3.2)
     mini_mime (1.0.1)
     mini_portile2 (2.3.0)
@@ -107,7 +106,7 @@ GEM
       method_source (~> 0.9.0)
       spoon (~> 0.0)
     public_suffix (3.0.3)
-    rack (2.0.5)
+    rack (2.0.6)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.1)
@@ -197,9 +196,7 @@ DEPENDENCIES
   arbre!
   capybara
   combustion
-  mime-types (~> 2.6)
   pry
-  rack
   rails (>= 5.0.0.1)
   rake
   rspec
