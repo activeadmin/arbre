@@ -4,10 +4,9 @@ Bundler::GemHelper.install_tasks
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec)
 
-require 'rubocop/rake_task'
-RuboCop::RakeTask.new
+import 'tasks/lint.rake'
 
-task default: [:spec, :rubocop]
+task default: [:spec, :lint]
 
 task :console do
   require 'irb'
