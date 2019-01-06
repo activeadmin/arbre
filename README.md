@@ -26,6 +26,10 @@ Please search previous issues (and Google and StackOverflow) before creating a n
 
 Subscribe to [Tidelift][tidelift] to support Arbre and get licensing assurances and timely security notifications.
 
+## Security contact information
+
+Please use the Tidelift security contact to [report a security vulnerability][Tidelift security contact].
+Tidelift will coordinate the fix and disclosure.
 
 [rubygems_badge]: http://img.shields.io/gem/v/arbre.svg
 [rubygems]: https://rubygems.org/gems/arbre
@@ -36,3 +40,4 @@ Subscribe to [Tidelift][tidelift] to support Arbre and get licensing assurances 
 
 [docs]: https://activeadmin.github.io/arbre/
 [stackoverflow]: http://stackoverflow.com/questions/tagged/arbre
+[Tidelift security contact]: https://tidelift.com/security
