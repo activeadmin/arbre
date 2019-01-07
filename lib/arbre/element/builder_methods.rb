@@ -65,7 +65,7 @@ module Arbre
       # Returns true if the object should be converted into a text node
       # and appended into the DOM.
       def appendable_tag?(tag)
-        # In ruby 1.9, Arraay.new.to_s prints out an empty array ("[]"). In
+        # Array.new.to_s prints out an empty array ("[]"). In
         # Arbre, we append the return value of blocks to the output, which
         # can cause empty arrays to show up within the output. To get
         # around this, we check if the object responds to #empty?
