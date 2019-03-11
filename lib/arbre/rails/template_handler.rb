@@ -19,10 +19,12 @@ end
 module Arbre
   module Rails
     class TemplateHandler
-      def call(template)
+      def call(template, source = nil)
+        source = template.source unless source
+
         <<-END
         Arbre::Context.new(assigns, self) {
-          #{template.source}
+          #{source}
         }.to_s
         END
       end
