@@ -4,7 +4,7 @@
 
 * Fix deprecation warning about single arity template handlers on Rails 6. [#110][] by [@aramvisser][]
 * Fix rendering `link_to` with a block in a arbre template. [#64][] by [@varyonic][]
-* Drop support for EOL'd rubies (under 2.3) by [@deivid-rodriguez][]
+* Drop support for EOL'd rubies (under 2.3). [#78][] by [@deivid-rodriguez][]
 
 ## 1.1.1 [☰](https://github.com/activeadmin/arbre/compare/v1.1.0...v1.1.1)
 
@@ -69,6 +69,7 @@ Initial release and extraction from Active Admin
 [#49]: https://github.com/activeadmin/arbre/issues/49
 [#59]: https://github.com/activeadmin/arbre/issues/59
 [#64]: https://github.com/activeadmin/arbre/pull/64
+[#78]: https://github.com/activeadmin/arbre/pull/78
 [#110]: https://github.com/activeadmin/arbre/pull/110
 
 [@aramvisser]: https://github.com/aramvisser
