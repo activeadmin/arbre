@@ -48,7 +48,7 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.6.0)
+    addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (9.0.0)
     ast (2.4.0)
@@ -61,6 +61,9 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.2)
       xpath (~> 3.2)
+    chandler (0.9.0)
+      netrc
+      octokit (>= 2.2.0)
     coderay (1.1.2)
     combustion (1.1.0)
       activesupport (>= 3.0.0)
@@ -70,6 +73,8 @@ GEM
     crass (1.0.4)
     diff-lcs (1.3)
     erubi (1.8.0)
+    faraday (0.15.4)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.25-java)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -89,11 +94,15 @@ GEM
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
+    multipart-post (2.0.0)
+    netrc (0.11.0)
     nio4r (2.3.1)
     nio4r (2.3.1-java)
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
     nokogiri (1.10.1-java)
+    octokit (4.13.0)
+      sawyer (~> 0.8.0, >= 0.5.3)
     parallel (1.13.0)
     parser (2.6.0.0)
       ast (~> 2.4.0)
@@ -166,6 +175,9 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.4.0)
     ruby-progressbar (1.10.0)
+    sawyer (0.8.1)
+      addressable (>= 2.3.5, < 2.6)
+      faraday (~> 0.8, < 1.0)
     spoon (0.0.6)
       ffi
     sprockets (3.7.2)
@@ -196,6 +208,7 @@ PLATFORMS
 DEPENDENCIES
   arbre!
   capybara
+  chandler
   combustion
   pry
   rails (>= 5.0.0.1)
