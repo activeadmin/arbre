@@ -2,6 +2,10 @@
 
 ## Master (unreleased)
 
+## 1.2.0 [☰](https://github.com/activeadmin/arbre/compare/v1.2.0.rc1...v1.2.0)
+
+_No changes_.
+
 ## 1.2.0.rc1 [☰](https://github.com/activeadmin/arbre/compare/v1.1.1...v1.2.0.rc1)
 
 * Fix deprecation warning about single arity template handlers on Rails 6. [#110][] by [@aramvisser][]
