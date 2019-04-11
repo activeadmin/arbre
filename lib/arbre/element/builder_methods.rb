@@ -24,7 +24,7 @@ module Arbre
         tag.parent = current_arbre_element
 
         with_current_arbre_element tag do
-          if block_given? && block.arity > 0
+          if block_given? && (block.arity > 0 || tag.is_a?(Arbre::Rails::Links::LinkToProxy))
             tag.build(*args, &block)
           else
             tag.build(*args)

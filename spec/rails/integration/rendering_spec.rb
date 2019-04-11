@@ -105,10 +105,14 @@ describe TestController, "Rendering with Arbre", type: :request do
     expect(response).to be_successful
     expect(body).to eq <<~HTML
       <span>before h1 link</span>
-      <h1><a href="/h1_link_path">h1 link text</a></h1>
+      <h1>
+        <a href="/h1_link_path">h1 link text</a>
+      </h1>
       <span>before link_to block</span>
-      <a href="/link_path">  <i class=\"link-class\">Link text</i>
-      </a><span>at end</span>
+      <a href="/link_path">
+        <i class=\"link-class\">Link text</i>
+      </a>
+      <span>at end</span>
     HTML
   end
 end
