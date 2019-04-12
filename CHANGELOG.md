@@ -2,6 +2,8 @@
 
 ## Master (unreleased)
 
+## 1.2.1 [☰](https://github.com/activeadmin/arbre/compare/v1.2.0...v1.2.1)
+
 * Revert [#64][] to fix several regressions, at the cost of reintroducing [#46][]. [#121][] by [@deivid-rodriguez][]
 
 ## 1.2.0 [☰](https://github.com/activeadmin/arbre/compare/v1.2.0.rc1...v1.2.0)
