@@ -2,6 +2,8 @@
 
 ## Master (unreleased)
 
+* Revert [#64][] to fix several regressions, at the cost of reintroducing [#46][]. [#121][] by [@deivid-rodriguez][]
+
 ## 1.2.0 [☰](https://github.com/activeadmin/arbre/compare/v1.2.0.rc1...v1.2.0)
 
 _No changes_.
@@ -72,11 +74,13 @@ Initial release and extraction from Active Admin
 [#36]: https://github.com/activeadmin/arbre/issues/36
 [#39]: https://github.com/activeadmin/arbre/issues/39
 [#40]: https://github.com/activeadmin/arbre/issues/40
+[#46]: https://github.com/activeadmin/arbre/issues/46
 [#49]: https://github.com/activeadmin/arbre/issues/49
 [#59]: https://github.com/activeadmin/arbre/issues/59
 [#64]: https://github.com/activeadmin/arbre/pull/64
 [#78]: https://github.com/activeadmin/arbre/pull/78
 [#110]: https://github.com/activeadmin/arbre/pull/110
+[#121]: https://github.com/activeadmin/arbre/pull/121
 
 [@aramvisser]: https://github.com/aramvisser
 [@LTe]: https://github.com/LTe

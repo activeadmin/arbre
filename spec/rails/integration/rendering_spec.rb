@@ -30,10 +30,6 @@ class TestController < ActionController::Base
     @my_instance_var = "From Instance Var"
     render "arbre/page_with_arb_partial_and_assignment"
   end
-
-  def render_page_with_helpers
-    render "arbre/page_with_helpers"
-  end
 end
 
 
@@ -100,15 +96,4 @@ describe TestController, "Rendering with Arbre", type: :request do
     expect(body).to have_selector("p", text: "Partial: From Instance Var")
   end
 
-  it "should render a page with helpers" do
-    get "/test/render_page_with_helpers"
-    expect(response).to be_successful
-    expect(body).to eq <<~HTML
-      <span>before h1 link</span>
-      <h1><a href="/h1_link_path">h1 link text</a></h1>
-      <span>before link_to block</span>
-      <a href="/link_path">  <i class=\"link-class\">Link text</i>
-      </a><span>at end</span>
-    HTML
-  end
 end
