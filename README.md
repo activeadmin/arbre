@@ -36,7 +36,7 @@ Tidelift will coordinate the fix and disclosure.
 [travis_badge]: http://img.shields.io/travis/activeadmin/arbre/master.svg
 [travis]: https://travis-ci.org/activeadmin/arbre
 [tidelift_badge]: https://tidelift.com/badges/github/activeadmin/arbre
-[tidelift]: https://tidelift.com/subscription/pkg/rubygems-arbre?utm_source=rubygems-arbre&utm_medium=readme
+[tidelift]: https://tidelift.com/subscription/pkg/rubygems-arbre?utm_source=rubygems-arbre&utm_medium=referral&utm_campaign=readme
 
 [docs]: https://activeadmin.github.io/arbre/
 [stackoverflow]: http://stackoverflow.com/questions/tagged/arbre
