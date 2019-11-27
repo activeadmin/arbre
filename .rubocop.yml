@@ -11,5 +11,5 @@ AllCops:
 Metrics:
   Enabled: false
 
-Layout/IndentHeredoc:
+Layout/HeredocIndentation:
   Enabled: true
