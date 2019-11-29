@@ -8,9 +8,9 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Greg Bell"]
   s.email       = ["gregdbell@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/activeadmin/arbre"
   s.summary     = %q{An Object Oriented DOM Tree in Ruby}
-  s.description = %q{An Object Oriented DOM Tree in Ruby}
+  s.description = %q{Arbre makes it easy to generate HTML directly in Ruby}
   s.license     = "MIT"
 
   s.files         = `git ls-files`.split("\n")
@@ -20,5 +20,5 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.4'
 
-  s.add_dependency("activesupport", ">= 3.0.0")
+  s.add_dependency("activesupport", ">= 3.0.0", "< 6.1")
 end
