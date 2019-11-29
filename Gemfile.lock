@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     arbre (1.2.1)
-      activesupport (>= 3.0.0)
+      activesupport (>= 3.0.0, < 6.1)
 
 GEM
   remote: http://rubygems.org/
