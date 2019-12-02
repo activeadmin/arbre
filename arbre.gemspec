@@ -13,9 +13,10 @@ Gem::Specification.new do |s|
   s.description = %q{Arbre makes it easy to generate HTML directly in Ruby}
   s.license     = "MIT"
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.files         = `git ls-files LICENSE docs lib`.split("\n")
+
+  s.extra_rdoc_files = %w[CHANGELOG.md README.md]
+
   s.require_paths = ["lib"]
 
   s.required_ruby_version = '>= 2.4'
