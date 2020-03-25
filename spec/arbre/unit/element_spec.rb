@@ -180,7 +180,8 @@ describe Arbre::Element do
     end
 
     it "should render collection when is set the default separator" do
-      $, = "_"
+      suppressing_27_warning {  $, = "_" }
+
       expect(collection.to_s).to eq("hello world")
     end
 
@@ -188,6 +189,19 @@ describe Arbre::Element do
       expect(collection.to_s).to eq("hello world")
     end
 
+    private
+
+    def suppressing_27_warning
+      return yield unless Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.7.a")
+
+      begin
+        old_verbose = $VERBOSE
+        $VERBOSE = nil
+        yield
+      ensure
+        $VERBOSE = old_verbose
+      end
+    end
   end
 
   describe "adding elements together" do
