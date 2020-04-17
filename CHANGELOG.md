@@ -3,6 +3,7 @@
 ## Master (unreleased)
 
 * Drop ruby 2.3 support. [#152][] by [@deivid-rodriguez][]
+* Drop ruby 2.4 support. [#177][] by [@deivid-rodriguez][]
 
 ## 1.2.1 [☰](https://github.com/activeadmin/arbre/compare/v1.2.0...v1.2.1)
 
@@ -86,6 +87,7 @@ Initial release and extraction from Active Admin
 [#110]: https://github.com/activeadmin/arbre/pull/110
 [#121]: https://github.com/activeadmin/arbre/pull/121
 [#152]: https://github.com/activeadmin/arbre/pull/152
+[#177]: https://github.com/activeadmin/arbre/pull/177
 
 [@aramvisser]: https://github.com/aramvisser
 [@LTe]: https://github.com/LTe
