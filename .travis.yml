@@ -4,7 +4,6 @@ before_install:
   - gem update --system 3.0.6
   - gem install bundler:2.0.2
 rvm:
-  - 2.4.5
   - 2.5.5
   - 2.6.2
   - jruby-9.2.6.0
