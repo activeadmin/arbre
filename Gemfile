@@ -18,7 +18,7 @@ group :release do
 end
 
 group :rails do
-  gem 'rails', '>= 5.0.0.1' # fixes CVE-2016-6316
+  gem 'rails', '~> 6.0.2', github: 'rails/rails', branch: '6-0-stable'
   gem 'rspec-rails'
   gem 'combustion'
   gem 'capybara'
