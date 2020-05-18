@@ -18,7 +18,7 @@ group :release do
 end
 
 group :rails do
-  gem 'rails', '~> 6.0.2', github: 'rails/rails', branch: '6-0-stable'
+  gem 'rails', '~> 6.0.3'
   gem 'rspec-rails'
   gem 'combustion'
   gem 'capybara'
