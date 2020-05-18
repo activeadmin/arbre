@@ -172,15 +172,29 @@ module Arbre
     #  3. Call the method on the helper object
     #  4. Call super
     #
-    def method_missing(name, *args, &block)
-      if current_arbre_element.respond_to?(name)
-        current_arbre_element.send name, *args, &block
-      elsif assigns && assigns.has_key?(name)
-        assigns[name]
-      elsif helpers.respond_to?(name)
-        helpers.send(name, *args, &block)
-      else
-        super
+    if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.7.a")
+      def method_missing(name, *args, **kwargs, &block)
+        if current_arbre_element.respond_to?(name)
+          current_arbre_element.send name, *args, **kwargs, &block
+        elsif assigns && assigns.has_key?(name)
+          assigns[name]
+        elsif helpers.respond_to?(name)
+          helpers.send(name, *args, **kwargs, &block)
+        else
+          super
+        end
+      end
+    else
+      def method_missing(name, *args, &block)
+        if current_arbre_element.respond_to?(name)
+          current_arbre_element.send name, *args, &block
+        elsif assigns && assigns.has_key?(name)
+          assigns[name]
+        elsif helpers.respond_to?(name)
+          helpers.send(name, *args, &block)
+        else
+          super
+        end
       end
     end
 
