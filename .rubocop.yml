@@ -1,5 +1,7 @@
 ---
 
+require: rubocop-packaging
+
 AllCops:
   DisabledByDefault: true
 

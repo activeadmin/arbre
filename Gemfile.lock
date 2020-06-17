@@ -191,6 +191,8 @@ GEM
       unicode-display_width (>= 1.4.0, < 2.0)
     rubocop-ast (0.0.3)
       parser (>= 2.7.0.1)
+    rubocop-packaging (0.1.0)
+      rubocop (>= 0.75.0)
     ruby-progressbar (1.10.1)
     ruby2_keywords (0.0.2)
     sawyer (0.8.1)
@@ -235,6 +237,7 @@ DEPENDENCIES
   rspec
   rspec-rails
   rubocop
+  rubocop-packaging
 
 BUNDLED WITH
    2.1.4
