@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.description = %q{Arbre makes it easy to generate HTML directly in Ruby}
   s.license     = "MIT"
 
-  s.files         = `git ls-files LICENSE docs lib`.split("\n")
+  s.files         = Dir['docs/**/*', 'lib/**/*', 'LICENSE'].reject { |f| File.directory?(f) }
 
   s.extra_rdoc_files = %w[CHANGELOG.md README.md]
 

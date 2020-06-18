@@ -11,6 +11,7 @@ end
 
 group :tools do
   gem 'rubocop'
+  gem 'rubocop-packaging'
 end
 
 group :release do
