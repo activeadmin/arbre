@@ -2,9 +2,11 @@
 
 ## Master (unreleased)
 
+## 1.3.0 [☰](https://github.com/activeadmin/arbre/compare/v1.2.1...v1.3.0)
+
 * Drop ruby 2.3 support. [#152][] by [@deivid-rodriguez][]
 * Drop ruby 2.4 support. [#177][] by [@deivid-rodriguez][]
-* Fix ruby 2.7 kwargs warnings. [#202][] by [@deivid-rodriguez][]
+* Fix ruby 2.7 kwargs warnings. [#202][] and [#205][] by [@deivid-rodriguez][]
 
 ## 1.2.1 [☰](https://github.com/activeadmin/arbre/compare/v1.2.0...v1.2.1)
 
@@ -90,6 +92,7 @@ Initial release and extraction from Active Admin
 [#152]: https://github.com/activeadmin/arbre/pull/152
 [#177]: https://github.com/activeadmin/arbre/pull/177
 [#202]: https://github.com/activeadmin/arbre/pull/202
+[#205]: https://github.com/activeadmin/arbre/pull/205
 
 [@aramvisser]: https://github.com/aramvisser
 [@LTe]: https://github.com/LTe
