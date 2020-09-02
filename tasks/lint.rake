@@ -57,7 +57,7 @@ require 'rubocop/rake_task'
 RuboCop::RakeTask.new
 
 desc "Lints ActiveAdmin code base"
-task lint: ["rubocop", "lint:missing_trailing_carriage_return"]
+task lint: ["rubocop", "lint:missing_trailing_carriage_return", "lint:rspec"]
 
 namespace :lint do
   desc "Check for missing trailing new lines"
@@ -65,5 +65,17 @@ namespace :lint do
     puts "Checking for missing trailing carriage returns..."
 
     MissingTrailingCarriageReturn.new.run
+  end
+
+  desc "RSpec specs for linting project files"
+  task :rspec do
+    puts "Linting project files..."
+
+    sh(
+      "bundle",
+      "exec",
+      "rspec",
+      *Dir.glob("spec/*.lint.rb")
+    )
   end
 end
