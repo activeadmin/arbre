@@ -21,6 +21,6 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.5'
 
-  s.add_dependency("activesupport", ">= 3.0.0", "< 6.1")
+  s.add_dependency("activesupport", ">= 3.0.0", "< 6.2")
   s.add_dependency("ruby2_keywords", ">= 0.0.2", "< 1.0")
 end
