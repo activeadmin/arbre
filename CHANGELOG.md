@@ -2,6 +2,8 @@
 
 ## Master (unreleased)
 
+* Allow activesupport 6.1 prereleases. [#242][] by [@deivid-rodriguez][]
+
 ## 1.3.0 [☰](https://github.com/activeadmin/arbre/compare/v1.2.1...v1.3.0)
 
 * Drop ruby 2.3 support. [#152][] by [@deivid-rodriguez][]
@@ -93,6 +95,7 @@ Initial release and extraction from Active Admin
 [#177]: https://github.com/activeadmin/arbre/pull/177
 [#202]: https://github.com/activeadmin/arbre/pull/202
 [#205]: https://github.com/activeadmin/arbre/pull/205
+[#242]: https://github.com/activeadmin/arbre/pull/242
 
 [@aramvisser]: https://github.com/aramvisser
 [@LTe]: https://github.com/LTe
