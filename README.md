@@ -3,7 +3,7 @@
 [Arbre][docs] makes it easy to generate HTML directly in Ruby. This gem was extracted from [Active Admin](https://github.com/activeadmin/active_admin).
 
 [![Version         ][rubygems_badge]][rubygems]
-[![Travis CI       ][travis_badge]][travis]
+[![Github Actions  ][actions_badge]][actions]
 [![Tidelift        ][tidelift_badge]][tidelift]
 
 ## Goals
@@ -33,8 +33,8 @@ Tidelift will coordinate the fix and disclosure.
 
 [rubygems_badge]: http://img.shields.io/gem/v/arbre.svg
 [rubygems]: https://rubygems.org/gems/arbre
-[travis_badge]: http://img.shields.io/travis/activeadmin/arbre/master.svg
-[travis]: https://travis-ci.org/activeadmin/arbre
+[actions_badge]: https://github.com/activeadmin/arbre/workflows/ci/badge.svg
+[actions]: https://github.com/activeadmin/arbre/actions
 [tidelift_badge]: https://tidelift.com/badges/github/activeadmin/arbre
 [tidelift]: https://tidelift.com/subscription/pkg/rubygems-arbre?utm_source=rubygems-arbre&utm_medium=referral&utm_campaign=readme
 
