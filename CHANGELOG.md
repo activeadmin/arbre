@@ -2,6 +2,8 @@
 
 ## Master (unreleased)
 
+## 1.4.0 [☰](https://github.com/activeadmin/arbre/compare/v1.3.0...v1.4.0)
+
 * Allow activesupport 6.1 prereleases. [#242][] by [@deivid-rodriguez][]
 
 ## 1.3.0 [☰](https://github.com/activeadmin/arbre/compare/v1.2.1...v1.3.0)
