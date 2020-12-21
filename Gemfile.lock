@@ -160,7 +160,7 @@ GEM
       rake (>= 0.8.7)
       thor (~> 1.0)
     rainbow (3.0.0)
-    rake (13.0.1)
+    rake (13.0.3)
     regexp_parser (1.8.2)
     rexml (3.2.4)
     rspec (3.8.0)
