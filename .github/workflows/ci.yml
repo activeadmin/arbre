@@ -29,7 +29,7 @@ jobs:
 
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.2
+          ruby-version: ${{ matrix.ruby }}
           bundler: none
 
       - name: Install a specific rubygems version
