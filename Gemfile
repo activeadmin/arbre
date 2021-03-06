@@ -19,7 +19,7 @@ group :release do
 end
 
 group :rails do
-  gem 'rails', '~> 6.1.a'
+  gem 'rails'
   gem 'rspec-rails'
   gem 'combustion'
   gem 'capybara'
