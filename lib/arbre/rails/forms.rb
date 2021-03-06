@@ -1,4 +1,5 @@
-require_relative '../core_ext/concurrent/hash'
+# jruby workaround while waiting for fix from https://github.com/jruby/jruby/issues/6599
+require_relative '../core_ext/concurrent/hash' if Concurrent.on_jruby?
 
 module Arbre
   module Rails

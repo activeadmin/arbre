@@ -1,3 +1,5 @@
+# adapted from i18n
+# Copyright (c) 2008 The Ruby I18n team
 module Concurrent
   class Hash
     def except(*keys)
