@@ -1,7 +1,8 @@
+require_relative '../core_ext/concurrent/hash'
+
 module Arbre
   module Rails
     module Forms
-
       class FormBuilderProxy < Arbre::Component
         attr_reader :form_builder
 
