@@ -1,0 +1,16 @@
+---
+
+version: 2
+
+updates:
+  - package-ecosystem: bundler
+    directory: /
+    schedule:
+      interval: daily
+    versioning-strategy: lockfile-only
+
+  - package-ecosystem: bundler
+    directory: /gemfiles/
+    schedule:
+      interval: daily
+    versioning-strategy: lockfile-only

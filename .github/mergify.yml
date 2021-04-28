@@ -1,0 +1,19 @@
+---
+
+pull_request_rules:
+  - name: Automatic merge for dependabot pull requests
+
+    conditions:
+      - author~=^dependabot\[bot\]$
+      - check-success=test (2.6.9, rails_61)
+      - check-success=test (2.7.5, rails_61)
+      - check-success=test (2.7.5, rails_70)
+      - check-success=test (3.0.3, rails_61)
+      - check-success=test (3.0.3, rails_70)
+      - check-success=test (3.1.0, rails_61)
+      - check-success=test (3.1.0, rails_70)
+      - check-success=test (jruby-9.3.2.0, rails_61)
+
+    actions:
+      merge:
+        method: merge
