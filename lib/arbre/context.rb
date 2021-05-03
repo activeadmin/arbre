@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'arbre/element'
 require 'ruby2_keywords'
 
