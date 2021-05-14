@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails/rails_spec_helper'
 
 ARBRE_VIEWS_PATH = File.expand_path("../../templates", __FILE__)

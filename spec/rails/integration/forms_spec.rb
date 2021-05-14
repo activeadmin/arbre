@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails/rails_spec_helper'
 
 describe "Building forms" do

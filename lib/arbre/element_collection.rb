@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Arbre
 
   # Stores a collection of Element objects
