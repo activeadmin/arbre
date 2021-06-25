@@ -1,0 +1,16 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  versioning-strategy: increase-if-necessary
+  ignore:
+  - dependency-name: rails
+    versions:
+    - 6.1.2
+    - 6.1.2.1
+  - dependency-name: capybara
+    versions:
+    - 3.35.2
