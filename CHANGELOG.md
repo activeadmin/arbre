@@ -2,6 +2,8 @@
 
 ## Master (unreleased)
 
+* Allow activesupport 7.0. [#314][] by [@tagliala][]
+
 ## 1.4.0 [☰](https://github.com/activeadmin/arbre/compare/v1.3.0...v1.4.0)
 
 * Allow activesupport 6.1 prereleases. [#242][] by [@deivid-rodriguez][]
@@ -98,6 +100,7 @@ Initial release and extraction from Active Admin
 [#202]: https://github.com/activeadmin/arbre/pull/202
 [#205]: https://github.com/activeadmin/arbre/pull/205
 [#242]: https://github.com/activeadmin/arbre/pull/242
+[#314]: https://github.com/activeadmin/arbre/pull/314
 
 [@aramvisser]: https://github.com/aramvisser
 [@LTe]: https://github.com/LTe
@@ -113,3 +116,4 @@ Initial release and extraction from Active Admin
 [@seanlinsley]: https://github.com/seanlinsley
 [@timoschilling]: https://github.com/timoschilling
 [@varyonic]: https://github.com/varyonic
+[@tagliala]: https://github.com/tagliala
