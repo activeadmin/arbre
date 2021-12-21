@@ -19,10 +19,16 @@ jobs:
       fail-fast: false
 
       matrix:
-        ruby: [2.5.8, 2.6.6, 2.7.2, 3.0.0, jruby-9.2.16.0]
+        ruby: [2.5.9, 2.6.9, 2.7.5, 3.0.3, jruby-9.3.2.0]
+        deps: [rails_61, rails_70]
 
-    env:
-      BUNDLE_PATH: vendor/bundle
+        exclude:
+          - deps: rails_70
+            ruby: 2.5.9
+          - deps: rails_70
+            ruby: 2.6.9
+          - deps: rails_70
+            ruby: jruby-9.3.2.0
 
     steps:
       - uses: actions/checkout@v2
@@ -32,20 +38,22 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler: none
 
-      - name: Install a specific rubygems version
-        run: gem update --system 3.2.0.rc.1
+      - name: Configure bundler (default)
+        run: |
+          echo "BUNDLE_GEMFILE=Gemfile" >> $GITHUB_ENV
+          echo "BUNDLE_PATH=$(pwd)/vendor/bundle" >> $GITHUB_ENV
+        if: matrix.deps == 'rails_70'
 
-      - name: Install a specific bundler version
-        run: gem install bundler -v 2.1.4
+      - name: Configure bundler (alternative)
+        run: |
+          echo "BUNDLE_GEMFILE=gemfiles/${{ matrix.deps }}.gemfile" >> $GITHUB_ENV
+          echo "BUNDLE_PATH=$(pwd)/gemfiles/${{ matrix.deps }}/vendor/bundle" >> $GITHUB_ENV
+        if: matrix.deps != 'rails_70'
 
-      - name: Restore cached dependencies
-        uses: actions/cache@v2
+      - uses: ruby/setup-ruby@v1
         with:
-          path: ${{ env.BUNDLE_PATH }}
-          key: gems-${{ matrix.ruby }}-${{ hashFiles('current_gemfile.lock') }}
-
-      - name: Install dependencies
-        run: bundle install --jobs 3
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
 
       - name: Run tests
         run: bundle exec rake

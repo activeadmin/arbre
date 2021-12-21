@@ -23,7 +23,7 @@ describe "Building forms" do
     end
 
     it "should include the hidden authenticity token" do
-      expect(html).to include '<input type="hidden" name="authenticity_token" value="AUTH_TOKEN" />'
+      expect(html).to have_selector('input[type="hidden"][name="authenticity_token"][value="AUTH_TOKEN"]', visible: :hidden)
     end
 
     it "should create a label" do
