@@ -6,7 +6,6 @@ require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec)
 
 import 'tasks/lint.rake'
-import 'tasks/release.rake'
 
 task default: [:spec, :lint]
 

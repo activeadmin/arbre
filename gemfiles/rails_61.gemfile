@@ -13,10 +13,6 @@ group :tools do
   gem 'rubocop-packaging'
 end
 
-group :release do
-  gem 'chandler'
-end
-
 group :rails do
   gem 'rails', '~> 6.1.0'
   gem 'rspec-rails'
