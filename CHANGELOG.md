@@ -2,7 +2,12 @@
 
 ## Master (unreleased)
 
+## 1.5.0 [☰](https://github.com/activeadmin/arbre/compare/v1.4.0...v1.5.0)
+
+* Avoid mutating string literals. [#292][] by [@tomgilligan][]
 * Allow activesupport 7.0. [#314][] by [@tagliala][]
+* Drop ruby 2.5 support. [#315][] by [@alejandroperea][]
+* Fix keyword delegation in form component. [#318][] by [@deivid-rodriguez][]
 
 ## 1.4.0 [☰](https://github.com/activeadmin/arbre/compare/v1.3.0...v1.4.0)
 
@@ -100,11 +105,15 @@ Initial release and extraction from Active Admin
 [#202]: https://github.com/activeadmin/arbre/pull/202
 [#205]: https://github.com/activeadmin/arbre/pull/205
 [#242]: https://github.com/activeadmin/arbre/pull/242
+[#292]: https://github.com/activeadmin/arbre/pull/292
 [#314]: https://github.com/activeadmin/arbre/pull/314
+[#315]: https://github.com/activeadmin/arbre/pull/315
+[#318]: https://github.com/activeadmin/arbre/pull/318
 
 [@aramvisser]: https://github.com/aramvisser
 [@LTe]: https://github.com/LTe
 [@OscarBarrett]: https://github.com/OscarBarrett
+[@alejandroperea]: https://github.com/alejandroperea
 [@alexesDev]: https://github.com/alexesDev
 [@deivid-rodriguez]: https://github.com/deivid-rodriguez
 [@dlackty]: https://github.com/dlackty
@@ -117,3 +126,4 @@ Initial release and extraction from Active Admin
 [@timoschilling]: https://github.com/timoschilling
 [@varyonic]: https://github.com/varyonic
 [@tagliala]: https://github.com/tagliala
+[@tomgilligan]: https://github.com/tomgilligan
