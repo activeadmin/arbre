@@ -44,7 +44,7 @@ jobs:
 
       - name: Configure bundler (alternative)
         run: |
-          echo "BUNDLE_GEMFILE=gemfiles/${{ matrix.deps }}.gemfile" >> $GITHUB_ENV
+          echo "BUNDLE_GEMFILE=gemfiles/${{ matrix.deps }}/Gemfile" >> $GITHUB_ENV
           echo "BUNDLE_PATH=$(pwd)/gemfiles/${{ matrix.deps }}/vendor/bundle" >> $GITHUB_ENV
         if: matrix.deps != 'rails_70'
 

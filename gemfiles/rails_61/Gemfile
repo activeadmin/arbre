@@ -20,4 +20,4 @@ group :rails do
   gem 'capybara'
 end
 
-gemspec path: ".."
+gemspec path: "../.."
