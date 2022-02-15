@@ -16,7 +16,7 @@ group :tools do
 end
 
 group :rails do
-  gem 'rails', '~> 7.0.0'
+  gem 'rails', '~> 7.0.2'
   gem 'rspec-rails'
   gem 'combustion'
   gem 'capybara'
