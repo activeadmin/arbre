@@ -30,7 +30,7 @@ module Arbre
     # Initialize a new Arbre::Context
     #
     # @param [Hash] assigns A hash of objecs that you would like to be
-    #                       availble as local variables within the Context
+    #                       available as local variables within the Context
     #
     # @param [Object] helpers An object that has methods on it which will become
     #                         instance methods within the context.
@@ -100,7 +100,7 @@ module Arbre
 
 
     # Caches the rendered HTML so that we don't re-render just to
-    # get the content lenght or to delegate a method to the HTML
+    # get the content length or to delegate a method to the HTML
     def cached_html
       if defined?(@cached_html)
         @cached_html

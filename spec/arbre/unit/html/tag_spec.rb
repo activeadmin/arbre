@@ -99,7 +99,7 @@ describe Arbre::HTML::Tag do
       expect(tag.class_names).to eq("hello_world")
     end
 
-    it "should seperate classes with space" do
+    it "should separate classes with space" do
       tag.add_class "hello world"
       expect(tag.class_list.size).to eq(2)
     end
