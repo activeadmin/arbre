@@ -24,7 +24,7 @@ describe Arbre::Element, "Finder Methods" do
       expect(elements[0]).to be_instance_of(Arbre::HTML::Li)
     end
 
-    it "should return multple child elements" do
+    it "should return multiple child elements" do
       html = arbre do
         ul
         li
@@ -78,7 +78,7 @@ describe Arbre::Element, "Finder Methods" do
       expect(elements[0]).to be_instance_of(Arbre::HTML::Div)
     end
 
-    it "should return multple child elements" do
+    it "should return multiple child elements" do
       html = arbre do
         div class: "some_class"
         div class: "my_class"
