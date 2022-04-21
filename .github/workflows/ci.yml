@@ -19,12 +19,8 @@ jobs:
       fail-fast: false
 
       matrix:
-        ruby: [2.7.5, 3.0.3, 3.1.0, jruby-9.3.2.0]
+        ruby: [2.7.5, 3.0.3, 3.1.0]
         deps: [rails_61, rails_70]
-
-        exclude:
-          - deps: rails_70
-            ruby: jruby-9.3.2.0
 
     steps:
       - uses: actions/checkout@v2
