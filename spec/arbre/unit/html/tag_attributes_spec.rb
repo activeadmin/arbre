@@ -41,21 +41,21 @@ describe Arbre::HTML::Tag, "Attributes" do
           expect(tag.to_s).to eq "<tag id=\"my_id\" data-action=\"some_action\"></tag>\n"
         end
       end
-    end
 
-    context "when there is a deeply nested attribute" do
-      before { tag.build id: "my_id", foo: { bar: { baz: 'foozle' } } }
+      context "when there is a deeply nested attribute" do
+        before { tag.build id: "my_id", foo: { bar: { baz: 'foozle' } } }
 
-      it "should flatten the attributes when rendering to html" do
-        expect(tag.to_s).to eq "<tag id=\"my_id\" foo-bar-baz=\"foozle\"></tag>\n"
+        it "should flatten the attributes when rendering to html" do
+          expect(tag.to_s).to eq "<tag id=\"my_id\" foo-bar-baz=\"foozle\"></tag>\n"
+        end
       end
-    end
 
-    context "when there are multiple nested attributes" do
-      before { tag.build id: "my_id", foo: { bar: 'foozle1', baz: 'foozle2' } }
+      context "when there are multiple nested attributes" do
+        before { tag.build id: "my_id", foo: { bar: 'foozle1', baz: 'foozle2' } }
 
-      it "should flatten the attributes when rendering to html" do
-        expect(tag.to_s).to eq "<tag id=\"my_id\" foo-bar=\"foozle1\" foo-baz=\"foozle2\"></tag>\n"
+        it "should flatten the attributes when rendering to html" do
+          expect(tag.to_s).to eq "<tag id=\"my_id\" foo-bar=\"foozle1\" foo-baz=\"foozle2\"></tag>\n"
+        end
       end
     end
 
