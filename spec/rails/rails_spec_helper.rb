@@ -4,6 +4,9 @@ require 'bundler/setup'
 
 require 'combustion'
 
+# Ensure that the rails plugin is installed
+require 'arbre/railtie'
+
 Combustion.path = 'spec/rails/stub_app'
 Combustion.initialize! :action_controller,
                        :action_view
@@ -15,9 +18,6 @@ require 'capybara/rails'
 require 'spec_helper'
 
 require 'rails/support/mock_person'
-
-# Ensure that the rails plugin is installed
-require 'arbre/rails'
 
 module AdditionalHelpers
 

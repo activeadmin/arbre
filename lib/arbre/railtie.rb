@@ -4,6 +4,8 @@ require 'arbre/rails/forms'
 require 'arbre/rails/rendering'
 require 'rails'
 
+Arbre::Element.include(Arbre::Rails::Rendering)
+
 module Arbre
   class Railtie < ::Rails::Railtie
     initializer "arbre" do

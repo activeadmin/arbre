@@ -12,7 +12,6 @@ module Arbre
           text_node rendered
         end
       end
-
     end
   end
 end
