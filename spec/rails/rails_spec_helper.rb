@@ -33,8 +33,8 @@ end
 
 def mock_action_view(assigns = {})
   controller = ActionView::TestCase::TestController.new
-  ActionView::Base.send :include, ActionView::Helpers
-  ActionView::Base.send :include, AdditionalHelpers
+  ActionView::Base.include(ActionView::Helpers)
+  ActionView::Base.include(AdditionalHelpers)
   context = ActionView::LookupContext.new(ActionController::Base.view_paths)
   ActionView::Base.new(context, assigns, controller)
 end
