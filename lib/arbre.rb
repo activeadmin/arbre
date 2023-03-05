@@ -17,5 +17,5 @@ require 'arbre/html/html5_elements'
 require 'arbre/component'
 
 if defined?(Rails)
-  require 'arbre/rails'
+  require 'arbre/railtie'
 end
