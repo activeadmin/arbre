@@ -22,5 +22,8 @@ Layout/HeredocIndentation:
 Layout/TrailingEmptyLines:
   Enabled: true
 
+Layout/TrailingWhitespace:
+  Enabled: true
+
 Style/FrozenStringLiteralComment:
   Enabled: true
