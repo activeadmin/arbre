@@ -5,10 +5,12 @@ gem 'rake'
 
 group :test do
   gem 'rspec'
+  gem 'simplecov', require: false
+  gem 'simplecov-cobertura'
   gem 'pry'
 end
 
-group :tools do
+group :rubocop do
   gem 'rubocop'
   gem 'rubocop-packaging'
 end

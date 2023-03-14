@@ -8,3 +8,4 @@ benchmarks
 tags
 .DS_Store
 docs/_site
+coverage/
