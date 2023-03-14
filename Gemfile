@@ -12,7 +12,7 @@ group :test do
   gem 'pry'
 end
 
-group :tools do
+group :rubocop do
   gem 'rubocop'
   gem 'rubocop-packaging'
 end
