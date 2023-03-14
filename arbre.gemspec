@@ -20,6 +20,8 @@ Gem::Specification.new do |s|
 
   s.require_paths = ["lib"]
 
+  s.metadata = { "rubygems_mfa_required" => "true" }
+
   s.required_ruby_version = '>= 2.7'
 
   s.add_dependency("activesupport", ">= 3.0.0", "< 7.1")
