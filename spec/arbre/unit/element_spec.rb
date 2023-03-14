@@ -181,7 +181,7 @@ describe Arbre::Element do
     end
 
     it "should render collection when is set the default separator" do
-      suppressing_27_warning {  $, = "_" }
+      suppressing_27_warning { $, = "_" }
 
       expect(collection.to_s).to eq("hello world")
     end
