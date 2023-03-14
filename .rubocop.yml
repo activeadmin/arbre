@@ -16,5 +16,8 @@ Metrics:
 Layout/HeredocIndentation:
   Enabled: true
 
+Layout/TrailingEmptyLines:
+  Enabled: true
+
 Style/FrozenStringLiteralComment:
   Enabled: true
