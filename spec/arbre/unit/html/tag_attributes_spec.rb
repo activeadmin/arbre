@@ -26,6 +26,14 @@ describe Arbre::HTML::Tag, "Attributes" do
         expect(tag.to_s).to eq "<tag id=\"my_id\"></tag>\n"
       end
 
+      context "with hyphenated attributes" do
+        before { tag.build id: "my_id", "data-method" => "get", "data-remote" => true }
+
+        it "should render the attributes to html" do
+          expect(tag.to_s).to eq "<tag id=\"my_id\" data-method=\"get\" data-remote=\"true\"></tag>\n"
+        end
+      end
+
       context "when there is a nested attribute" do
         before { tag.build id: "my_id", data: { action: 'some_action' } }
 
