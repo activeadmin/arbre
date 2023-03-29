@@ -174,13 +174,13 @@ module Arbre
     #  3. Call the method on the helper object
     #  4. Call super
     #
-    ruby2_keywords def method_missing(name, *args, &block)
+    ruby2_keywords def method_missing(name, *args, **kwargs, &block)
       if current_arbre_element.respond_to?(name)
-        current_arbre_element.send name, *args, &block
+        current_arbre_element.send name, *args, **kwargs, &block
       elsif assigns && assigns.has_key?(name)
         assigns[name]
       elsif helpers.respond_to?(name)
-        helpers.send(name, *args, &block)
+        helpers.send(name, *args, **kwargs, &block)
       else
         super
       end
