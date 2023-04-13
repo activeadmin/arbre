@@ -1,11 +1,6 @@
 # frozen_string_literal: true
-require 'rubygems'
-require 'bundler/setup'
 
-require 'combustion'
-
-# Ensure that the rails plugin is installed
-require 'arbre/railtie'
+require 'spec_helper'
 
 Combustion.path = 'spec/rails/stub_app'
 Combustion.initialize! :action_controller,
@@ -14,8 +9,6 @@ Combustion.initialize! :action_controller,
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
-
-require 'spec_helper'
 
 require 'rails/support/mock_person'
 
