@@ -12,6 +12,7 @@ if ENV.fetch('COVERAGE', false)
 end
 
 require 'support/bundle'
+require 'combustion'
 require 'arbre'
 
 def arbre(&block)

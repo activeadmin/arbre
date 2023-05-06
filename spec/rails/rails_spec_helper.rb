@@ -1,8 +1,6 @@
 # frozen_string_literal: true
-require 'rubygems'
-require 'bundler/setup'
 
-require 'combustion'
+require 'spec_helper'
 
 Combustion.path = 'spec/rails/stub_app'
 Combustion.initialize! :action_controller,
@@ -12,12 +10,7 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
 
-require 'spec_helper'
-
 require 'rails/support/mock_person'
-
-# Ensure that the rails plugin is installed
-require 'arbre/rails'
 
 module AdditionalHelpers
 
@@ -33,8 +26,8 @@ end
 
 def mock_action_view(assigns = {})
   controller = ActionView::TestCase::TestController.new
-  ActionView::Base.send :include, ActionView::Helpers
-  ActionView::Base.send :include, AdditionalHelpers
+  ActionView::Base.include(ActionView::Helpers)
+  ActionView::Base.include(AdditionalHelpers)
   context = ActionView::LookupContext.new(ActionController::Base.view_paths)
   ActionView::Base.new(context, assigns, controller)
 end
