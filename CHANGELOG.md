@@ -2,6 +2,13 @@
 
 ## Master (unreleased)
 
+## 1.6.0 [☰](https://github.com/activeadmin/arbre/compare/v1.5.0...v1.6.0)
+
+* Drop support for Ruby 2.6. [#345][] by [@alejandroperea][]
+* Add 'main' to HTML5 elements. [#270][] by [@mynnx][]
+* Support nested attribute hashes rendered as hyphenated attributes. [#451][] [@Ikariusrb][]
+* Lazy-load rails interactions. [#456][] [@ngan][]
+
 ## 1.5.0 [☰](https://github.com/activeadmin/arbre/compare/v1.4.0...v1.5.0)
 
 * Avoid mutating string literals. [#292][] by [@tomgilligan][]
@@ -36,7 +43,7 @@ _No changes_.
 ## 1.1.1 [☰](https://github.com/activeadmin/arbre/compare/v1.1.0...v1.1.1)
 
 * Use mime-types 2.x for Ruby 1.9 by [@timoschilling][]
-* Verify Ruby 2.3 support. [#59][] by [@dlackty][] 
+* Verify Ruby 2.3 support. [#59][] by [@dlackty][]
 
 ## 1.1.0 [☰](https://github.com/activeadmin/arbre/compare/v1.0.3...v1.1.0)
 
@@ -105,10 +112,14 @@ Initial release and extraction from Active Admin
 [#202]: https://github.com/activeadmin/arbre/pull/202
 [#205]: https://github.com/activeadmin/arbre/pull/205
 [#242]: https://github.com/activeadmin/arbre/pull/242
+[#270]: https://github.com/activeadmin/arbre/pull/270
 [#292]: https://github.com/activeadmin/arbre/pull/292
 [#314]: https://github.com/activeadmin/arbre/pull/314
 [#315]: https://github.com/activeadmin/arbre/pull/315
 [#318]: https://github.com/activeadmin/arbre/pull/318
+[#345]: https://github.com/activeadmin/arbre/pull/345
+[#451]: https://github.com/activeadmin/arbre/pull/451
+[#456]: https://github.com/activeadmin/arbre/pull/456
 
 [@aramvisser]: https://github.com/aramvisser
 [@LTe]: https://github.com/LTe
@@ -127,3 +138,6 @@ Initial release and extraction from Active Admin
 [@varyonic]: https://github.com/varyonic
 [@tagliala]: https://github.com/tagliala
 [@tomgilligan]: https://github.com/tomgilligan
+[@mynnx]: https://github.com/mynnx
+[@Ikariusrb]: https://github.com/Ikariusrb
+[@ngan]: https://github.com/ngan
