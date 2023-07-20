@@ -33,8 +33,7 @@ class TestController < ActionController::Base
   end
 end
 
-
-describe TestController, "Rendering with Arbre", type: :request do
+RSpec.describe TestController, "Rendering with Arbre", type: :request do
   let(:body){ response.body }
 
   before do

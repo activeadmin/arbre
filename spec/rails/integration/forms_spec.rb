@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails/rails_spec_helper'
 
-describe "Building forms" do
+RSpec.describe "Building forms" do
 
   let(:assigns){ {} }
   let(:helpers){ mock_action_view }
