@@ -18,7 +18,7 @@ group :rubocop do
 end
 
 group :rails do
-  gem 'rails', '~> 7.0.2'
+  gem 'rails', '~> 7.1.0'
   gem 'rspec-rails'
   gem 'combustion'
   gem 'capybara'
