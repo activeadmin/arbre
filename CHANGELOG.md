@@ -2,7 +2,7 @@
 
 ## Master (unreleased)
 
-* Add support for Active Support 7.1. [#537][] by [@tomascco][]
+* Allow Active Support 7.1. [#537][] by [@tomascco][]
 
 ## 1.6.0 [☰](https://github.com/activeadmin/arbre/compare/v1.5.0...v1.6.0)
 
