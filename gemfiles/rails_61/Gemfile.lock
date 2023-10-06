@@ -2,8 +2,8 @@ PATH
   remote: ../..
   specs:
     arbre (1.6.0)
-      activesupport (>= 3.0.0, < 7.1)
-      ruby2_keywords (>= 0.0.2, < 1.0)
+      activesupport (>= 3.0.0)
+      ruby2_keywords (>= 0.0.2)
 
 GEM
   remote: http://rubygems.org/
