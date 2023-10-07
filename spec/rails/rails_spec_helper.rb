@@ -2,8 +2,11 @@
 require 'spec_helper'
 
 Combustion.path = 'spec/rails/stub_app'
-Combustion.initialize! :action_controller,
-                       :action_view
+Combustion.initialize! :action_controller, :action_view do
+  if Rails.gem_version >= Gem::Version.new("7.1.0")
+    config.active_support.cache_format_version = 7.1
+  end
+end
 
 require 'rspec/rails'
 require 'capybara/rspec'

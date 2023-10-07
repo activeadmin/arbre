@@ -2,6 +2,8 @@
 
 ## Master (unreleased)
 
+* Allow Active Support 7.1. [#537][] by [@tomascco][]
+
 ## 1.6.0 [☰](https://github.com/activeadmin/arbre/compare/v1.5.0...v1.6.0)
 
 * Drop support for Ruby 2.6. [#345][] by [@alejandroperea][]
@@ -120,6 +122,7 @@ Initial release and extraction from Active Admin
 [#345]: https://github.com/activeadmin/arbre/pull/345
 [#451]: https://github.com/activeadmin/arbre/pull/451
 [#456]: https://github.com/activeadmin/arbre/pull/456
+[#537]: https://github.com/activeadmin/arbre/pull/537
 
 [@aramvisser]: https://github.com/aramvisser
 [@LTe]: https://github.com/LTe
@@ -141,3 +144,4 @@ Initial release and extraction from Active Admin
 [@mynnx]: https://github.com/mynnx
 [@Ikariusrb]: https://github.com/Ikariusrb
 [@ngan]: https://github.com/ngan
+[@tomascco]: https://github.com/tomascco
