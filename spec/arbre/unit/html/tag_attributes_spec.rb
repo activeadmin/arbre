@@ -18,12 +18,12 @@ describe Arbre::HTML::Tag, "Attributes" do
         expect(tag.to_s).to eq "<tag id=\"my_id\"></tag>\n"
       end
 
-      it "shouldn't render attributes that are empty" do
+      it "should still render attributes that are empty but not nil" do
         tag.class_list # initializes an empty ClassList
         tag.set_attribute :foo, ''
         tag.set_attribute :bar, nil
 
-        expect(tag.to_s).to eq "<tag id=\"my_id\"></tag>\n"
+        expect(tag.to_s).to eq "<tag id=\"my_id\" class=\"\" foo=\"\"></tag>\n"
       end
 
       context "with hyphenated attributes" do
@@ -41,17 +41,17 @@ describe Arbre::HTML::Tag, "Attributes" do
           expect(tag.to_s).to eq "<tag id=\"my_id\" data-action=\"some_action\"></tag>\n"
         end
 
-        it "shouldn't render attributes that are empty" do
+        it "should still render attributes that are empty but not nil" do
           tag.class_list # initializes an empty ClassList
           tag.set_attribute :foo, { bar: '' }
           tag.set_attribute :bar, { baz: nil }
 
-          expect(tag.to_s).to eq "<tag id=\"my_id\" data-action=\"some_action\"></tag>\n"
+          expect(tag.to_s).to eq "<tag id=\"my_id\" data-action=\"some_action\" class=\"\" foo-bar=\"\"></tag>\n"
         end
       end
 
       context "when there is a deeply nested attribute" do
-        before { tag.build id: "my_id", foo: { bar: { baz: 'foozle' } } }
+        before { tag.build id: "my_id", foo: { bar: { bat: nil, baz: 'foozle' } } }
 
         it "should flatten the attributes when rendering to html" do
           expect(tag.to_s).to eq "<tag id=\"my_id\" foo-bar-baz=\"foozle\"></tag>\n"
@@ -59,10 +59,10 @@ describe Arbre::HTML::Tag, "Attributes" do
       end
 
       context "when there are multiple nested attributes" do
-        before { tag.build id: "my_id", foo: { bar: 'foozle1', baz: 'foozle2' } }
+        before { tag.build id: "my_id", foo: { bar: 'foozle1', bat: nil, baz: '' } }
 
         it "should flatten the attributes when rendering to html" do
-          expect(tag.to_s).to eq "<tag id=\"my_id\" foo-bar=\"foozle1\" foo-baz=\"foozle2\"></tag>\n"
+          expect(tag.to_s).to eq "<tag id=\"my_id\" foo-bar=\"foozle1\" foo-baz=\"\"></tag>\n"
         end
       end
     end

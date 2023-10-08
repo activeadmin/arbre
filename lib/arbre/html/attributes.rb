@@ -5,14 +5,9 @@ module Arbre
     class Attributes < Hash
 
       def to_s
-        flatten_hash.map do |name, value|
-          next if value_empty?(value)
+        flatten_hash.compact.map do |name, value|
           "#{html_escape(name)}=\"#{html_escape(value)}\""
         end.compact.join ' '
-      end
-
-      def any?
-        super{ |k,v| !value_empty?(v) }
       end
 
       protected
@@ -27,10 +22,6 @@ module Arbre
           end
         end
         accumulator
-      end
-
-      def value_empty?(value)
-        value.respond_to?(:empty?) ? value.empty? : !value
       end
 
       def html_escape(s)
