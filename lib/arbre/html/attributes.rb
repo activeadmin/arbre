@@ -6,12 +6,13 @@ module Arbre
 
       def to_s
         flatten_hash.map do |name, value|
-          if value.nil?
-            html_escape(name)
-          else
-            "#{html_escape(name)}=\"#{html_escape(value)}\""
-          end
-        end.join ' '
+          next if value_empty?(value)
+          "#{html_escape(name)}=\"#{html_escape(value)}\""
+        end.compact.join ' '
+      end
+
+      def any?
+        super{ |k,v| !value_empty?(v) }
       end
 
       protected
@@ -26,6 +27,10 @@ module Arbre
           end
         end
         accumulator
+      end
+
+      def value_empty?(value)
+        value.respond_to?(:empty?) ? value.empty? : !value
       end
 
       def html_escape(s)

@@ -18,12 +18,12 @@ describe Arbre::HTML::Tag, "Attributes" do
         expect(tag.to_s).to eq "<tag id=\"my_id\"></tag>\n"
       end
 
-      it "should still render attributes that are empty" do
+      it "shouldn't render attributes that are empty" do
         tag.class_list # initializes an empty ClassList
         tag.set_attribute :foo, ''
         tag.set_attribute :bar, nil
 
-        expect(tag.to_s).to eq "<tag id=\"my_id\" class=\"\" foo=\"\" bar></tag>\n"
+        expect(tag.to_s).to eq "<tag id=\"my_id\"></tag>\n"
       end
 
       context "with hyphenated attributes" do
@@ -41,12 +41,12 @@ describe Arbre::HTML::Tag, "Attributes" do
           expect(tag.to_s).to eq "<tag id=\"my_id\" data-action=\"some_action\"></tag>\n"
         end
 
-        it "should still render attributes that are empty" do
+        it "shouldn't render attributes that are empty" do
           tag.class_list # initializes an empty ClassList
           tag.set_attribute :foo, { bar: '' }
           tag.set_attribute :bar, { baz: nil }
 
-          expect(tag.to_s).to eq "<tag id=\"my_id\" data-action=\"some_action\" class=\"\" foo-bar=\"\" bar-baz></tag>\n"
+          expect(tag.to_s).to eq "<tag id=\"my_id\" data-action=\"some_action\"></tag>\n"
         end
       end
 
