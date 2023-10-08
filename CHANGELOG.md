@@ -1,6 +1,10 @@
 # Changelog
 
-## Master (unreleased)
+## 2.0.0 [☰](https://github.com/activeadmin/arbre/compare/v1.7.0...v2.0.0)
+
+* Include empty attributes in HTML output. [#543][] by [@javierjulio][]
+* Remove table tag defaults. [#542][] by [@javierjulio][]
+* Remove component CSS class name default. [#545][] by [@javierjulio][]
 
 ## 1.7.0 [☰](https://github.com/activeadmin/arbre/compare/v1.6.0...v1.7.0)
 
@@ -127,6 +131,9 @@ Initial release and extraction from Active Admin
 [#456]: https://github.com/activeadmin/arbre/pull/456
 [#537]: https://github.com/activeadmin/arbre/pull/537
 [#539]: https://github.com/activeadmin/arbre/pull/539
+[#542]: https://github.com/activeadmin/arbre/pull/542
+[#543]: https://github.com/activeadmin/arbre/pull/543
+[#545]: https://github.com/activeadmin/arbre/pull/545
 
 [@aramvisser]: https://github.com/aramvisser
 [@LTe]: https://github.com/LTe
