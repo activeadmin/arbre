@@ -2,7 +2,10 @@
 
 ## Master (unreleased)
 
-* Allow Active Support 7.1. [#537][] by [@tomascco][]
+## 1.7.0 [☰](https://github.com/activeadmin/arbre/compare/v1.6.0...v1.7.0)
+
+* Remove upper bound dependency limits from gemspec. [#539][] by [@javierjulio][]
+* Allow ActiveSupport 7.1. [#537][] by [@tomascco][]
 
 ## 1.6.0 [☰](https://github.com/activeadmin/arbre/compare/v1.5.0...v1.6.0)
 
@@ -123,6 +126,7 @@ Initial release and extraction from Active Admin
 [#451]: https://github.com/activeadmin/arbre/pull/451
 [#456]: https://github.com/activeadmin/arbre/pull/456
 [#537]: https://github.com/activeadmin/arbre/pull/537
+[#539]: https://github.com/activeadmin/arbre/pull/539
 
 [@aramvisser]: https://github.com/aramvisser
 [@LTe]: https://github.com/LTe
@@ -145,3 +149,4 @@ Initial release and extraction from Active Admin
 [@Ikariusrb]: https://github.com/Ikariusrb
 [@ngan]: https://github.com/ngan
 [@tomascco]: https://github.com/tomascco
+[@javierjulio]: https://github.com/javierjulio

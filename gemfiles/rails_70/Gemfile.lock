@@ -1,7 +1,7 @@
 PATH
   remote: ../..
   specs:
-    arbre (1.6.0)
+    arbre (1.7.0)
       activesupport (>= 3.0.0)
       ruby2_keywords (>= 0.0.2)
 
