@@ -28,5 +28,21 @@ module Arbre
       builder_method :para
     end
 
+    class Table < Tag
+      def initialize(*)
+        super
+        set_table_tag_defaults
+      end
+
+      protected
+
+      # Set some good defaults for tables
+      def set_table_tag_defaults
+        set_attribute :border,      0
+        set_attribute :cellspacing, 0
+        set_attribute :cellpadding, 0
+      end
+    end
+
   end
 end
