@@ -49,7 +49,7 @@ This provides a simpler alternative to nesting partials.
 The recommended approach is to subclass Arbre::Component and implement a new builder method.
 
 The builder_method defines the method that will be called to build this component
-when using the DSL. The arguments passed into the builder_method will be passed 
+when using the DSL. The arguments passed into the builder_method will be passed
 into the #build method for you.
 
 For example:
@@ -66,7 +66,7 @@ class Panel < Arbre::Component
 end
 ```
 
-By default components are `div` tags with an HTML class corresponding to the component class name.  This can be overridden by redefining the `tag_name` method.
+By default, components are `div` tags. This can be overridden by redefining the `tag_name` method.
 
 Several examples of Arbre components are [included in Active Admin](https://activeadmin.info/12-arbre-components.html)
 
@@ -76,7 +76,7 @@ An [Arbre::Context](http://www.rubydoc.info/gems/arbre/Arbre/Context) is an obje
 
 ```ruby
 html = Arbre::Context.new do
-  panel "Hello World", id: "my-panel" do
+  panel "Hello World", class: "panel", id: "my-panel" do
     span "Inside the panel"
     text_node "Plain text"
   end
