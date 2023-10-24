@@ -13,12 +13,10 @@ class MockComponent < Arbre::Component
 end
 
 describe Arbre::Component do
-
   let(:assigns) { {} }
   let(:helpers) { nil }
-
-  let(:component_class){ MockComponent }
-  let(:component){ component_class.new }
+  let(:component_class) { MockComponent }
+  let(:component) { component_class.new }
 
   it "should be a subclass of an html div" do
     expect(Arbre::Component.ancestors).to include(Arbre::HTML::Div)
@@ -28,18 +26,18 @@ describe Arbre::Component do
     expect(component.tag_name).to eq('div')
   end
 
-  it "should add a class by default" do
-    expect(component.class_list).to include("mock_component")
+  it "should not have a class list" do
+    expect(component.class_list.to_s).to eq("")
+    expect(component.class_list.empty?).to eq(true)
   end
 
   it "should render the object using the builder method name" do
     comp = expect(arbre {
       mock_component
     }.to_s).to eq <<~HTML
-      <div class="mock_component">
+      <div>
         <h2>Hello World</h2>
       </div>
       HTML
   end
-
 end
