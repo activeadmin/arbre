@@ -25,11 +25,11 @@ module Arbre
         tag.parent = current_arbre_element
 
         with_current_arbre_element tag do
-          if block_given? && block.arity > 0
+          if block && block.arity > 0
             tag.build(*args, &block)
           else
             tag.build(*args)
-            append_return_block(yield) if block_given?
+            append_return_block(yield) if block
           end
         end
 

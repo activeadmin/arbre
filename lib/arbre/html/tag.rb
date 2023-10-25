@@ -165,7 +165,7 @@ module Arbre
         if record.class.respond_to?(:model_name)
           record.class.model_name.singular
         else
-          record.class.name.underscore.gsub("/", "_")
+          record.class.name.underscore.tr("/", "_")
         end
       end
 

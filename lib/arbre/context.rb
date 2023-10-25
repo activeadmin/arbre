@@ -44,7 +44,7 @@ module Arbre
       @_current_arbre_element_buffer = [self]
 
       super(self)
-      instance_eval(&block) if block_given?
+      instance_eval(&block) if block
     end
 
     def arbre_context

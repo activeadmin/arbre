@@ -15,6 +15,7 @@ end
 group :rubocop do
   gem 'rubocop'
   gem 'rubocop-packaging'
+  gem 'rubocop-performance'
 end
 
 group :rails do
