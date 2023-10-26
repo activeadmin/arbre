@@ -23,7 +23,7 @@ RSpec.describe "Building forms" do
     end
 
     it "should include the hidden authenticity token" do
-      expect(html).to have_css('input[type="hidden"][name="authenticity_token"][value="AUTH_TOKEN"]', visible: :hidden)
+      expect(html).to have_field("authenticity_token", type: :hidden, with: "AUTH_TOKEN")
     end
 
     it "should create a label" do
