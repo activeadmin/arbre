@@ -255,6 +255,8 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.29.0)
       parser (>= 3.2.1.0)
+    rubocop-capybara (2.19.0)
+      rubocop (~> 1.41)
     rubocop-packaging (0.5.2)
       rubocop (>= 1.33, < 2.0)
     rubocop-performance (1.19.1)
@@ -303,6 +305,7 @@ DEPENDENCIES
   rspec
   rspec-rails
   rubocop
+  rubocop-capybara
   rubocop-packaging
   rubocop-performance
   simplecov

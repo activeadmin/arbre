@@ -1,6 +1,7 @@
 ---
 
 require:
+  - rubocop-capybara
   - rubocop-packaging
   - rubocop-performance
 
@@ -11,6 +12,39 @@ AllCops:
   DisplayStyleGuide: true
 
   TargetRubyVersion: 3.0
+
+Capybara:
+  Enabled: true
+
+Capybara/ClickLinkOrButtonStyle:
+  Enabled: true
+
+Capybara/CurrentPathExpectation:
+  Enabled: true
+
+Capybara/MatchStyle:
+  Enabled: true
+
+Capybara/NegationMatcher:
+  Enabled: true
+
+Capybara/RSpec/HaveSelector:
+  Enabled: true
+
+Capybara/RSpec/PredicateMatcher:
+  Enabled: true
+
+Capybara/SpecificActions:
+  Enabled: true
+
+Capybara/SpecificFinders:
+  Enabled: true
+
+Capybara/SpecificMatcher:
+  Enabled: true
+
+Capybara/VisibilityMatcher:
+  Enabled: true
 
 Metrics:
   Enabled: false
