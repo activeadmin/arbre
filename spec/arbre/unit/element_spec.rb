@@ -174,7 +174,7 @@ describe Arbre::Element do
   describe "rendering to html" do
 
     before  { @separator = $, }
-    after   { $, = @separator }
+    after   { $, = @separator } # rubocop:disable RSpec/InstanceVariable
 
     let(:collection){ element + "hello world" }
 
