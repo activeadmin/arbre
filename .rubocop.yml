@@ -272,7 +272,7 @@ RSpec/DescribeClass:
   Enabled: true
 
 RSpec/DescribeMethod:
-  Enabled: true
+  Enabled: false
 
 RSpec/DescribeSymbol:
   Enabled: true
@@ -317,7 +317,7 @@ RSpec/Eq:
   Enabled: true
 
 RSpec/ExampleLength:
-  Enabled: true
+  Enabled: false
 
 RSpec/ExampleWithoutDescription:
   Enabled: true
@@ -341,7 +341,7 @@ RSpec/ExpectOutput:
   Enabled: true
 
 RSpec/FilePath:
-  Enabled: true
+  Enabled: false
 
 RSpec/Focus:
   Enabled: true
@@ -401,7 +401,7 @@ RSpec/MessageExpectation:
   Enabled: false
 
 RSpec/MessageSpies:
-  Enabled: true
+  Enabled: false
 
 RSpec/MetadataStyle:
   Enabled: true
@@ -413,7 +413,7 @@ RSpec/MultipleDescribes:
   Enabled: true
 
 RSpec/MultipleExpectations:
-  Enabled: true
+  Enabled: false
 
 RSpec/MultipleMemoizedHelpers:
   Enabled: true
@@ -425,7 +425,7 @@ RSpec/NamedSubject:
   Enabled: true
 
 RSpec/NestedGroups:
-  Enabled: true
+  Enabled: false
 
 RSpec/NoExpectationExample:
   Enabled: true
@@ -500,13 +500,13 @@ RSpec/SortMetadata:
   Enabled: true
 
 RSpec/SpecFilePathFormat:
-  Enabled: true
+  Enabled: false
 
 RSpec/SpecFilePathSuffix:
   Enabled: true
 
 RSpec/StubbedMock:
-  Enabled: true
+  Enabled: false
 
 RSpec/SubjectDeclaration:
   Enabled: true
