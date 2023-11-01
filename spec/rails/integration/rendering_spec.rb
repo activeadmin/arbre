@@ -52,19 +52,19 @@ RSpec.describe TestController, "Rendering with Arbre", type: :request do
     Rails.application.reload_routes!
   end
 
-  it "should render the empty template" do
+  it "renders the empty template" do
     get "/test/render_empty"
     expect(response).to be_successful
   end
 
-  it "should render a simple page" do
+  it "renders a simple page" do
     get "/test/render_simple_page"
     expect(response).to be_successful
     expect(body).to have_css("h1", text: "Hello World")
     expect(body).to have_css("p", text: "Hello again!")
   end
 
-  it "should render an arb partial" do
+  it "renders an arb partial" do
     get "/test/render_partial"
     expect(response).to be_successful
     expect(body).to eq <<~HTML
@@ -74,7 +74,7 @@ RSpec.describe TestController, "Rendering with Arbre", type: :request do
     HTML
   end
 
-  it "should render an erb (or other) partial" do
+  it "renders an erb (or other) partial" do
     get "/test/render_erb_partial"
     expect(response).to be_successful
     expect(body).to eq <<~HTML
@@ -84,13 +84,13 @@ RSpec.describe TestController, "Rendering with Arbre", type: :request do
     HTML
   end
 
-  it "should render with instance variables" do
+  it "renders with instance variables" do
     get "/test/render_with_instance_variable"
     expect(response).to be_successful
     expect(body).to have_css("h1", text: "From Instance Var")
   end
 
-  it "should render an arbre partial with assignments" do
+  it "renders an arbre partial with assignments" do
     get "/test/render_partial_with_instance_variable"
     expect(response).to be_successful
     expect(body).to have_css("p", text: "Partial: From Instance Var")

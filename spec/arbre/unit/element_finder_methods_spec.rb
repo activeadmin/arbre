@@ -7,13 +7,13 @@ describe Arbre::Element, "Finder Methods" do
 
   describe "finding elements by tag name" do
 
-    it "should return 0 when no elements exist" do
+    it "returns 0 when no elements exist" do
       expect(arbre {
         div
       }.get_elements_by_tag_name("li").size).to eq(0)
     end
 
-    it "should return a child element" do
+    it "returns a child element" do
       html = arbre do
         ul
         li
@@ -24,7 +24,7 @@ describe Arbre::Element, "Finder Methods" do
       expect(elements[0]).to be_instance_of(Arbre::HTML::Li)
     end
 
-    it "should return multiple child elements" do
+    it "returns multiple child elements" do
       html = arbre do
         ul
         li
@@ -37,7 +37,7 @@ describe Arbre::Element, "Finder Methods" do
       expect(elements[1]).to be_instance_of(Arbre::HTML::Li)
     end
 
-    it "should return children's child elements" do
+    it "returns children's child elements" do
       html = arbre do
         ul
         li do
@@ -56,19 +56,19 @@ describe Arbre::Element, "Finder Methods" do
 
   describe "finding an element by a class name" do
 
-    it "should return 0 when no elements exist" do
+    it "returns 0 when no elements exist" do
       expect(arbre {
         div
       }.get_elements_by_class_name("my_class").size).to eq(0)
     end
 
-    it "should allow text nodes on tree" do
+    it "allows text nodes on tree" do
       expect(arbre {
         text_node "text"
       }.get_elements_by_class_name("my_class").size).to eq(0)
     end
 
-    it "should return a child element" do
+    it "returns a child element" do
       html = arbre do
         div class: "some_class"
         div class: "my_class"
@@ -78,7 +78,7 @@ describe Arbre::Element, "Finder Methods" do
       expect(elements[0]).to be_instance_of(Arbre::HTML::Div)
     end
 
-    it "should return multiple child elements" do
+    it "returns multiple child elements" do
       html = arbre do
         div class: "some_class"
         div class: "my_class"
@@ -90,7 +90,7 @@ describe Arbre::Element, "Finder Methods" do
       expect(elements[1]).to be_instance_of(Arbre::HTML::Div)
     end
 
-    it "should return elements that match one of several classes" do
+    it "returns elements that match one of several classes" do
       html = arbre do
         div class: "some_class this_class"
         div class: "some_class"
@@ -102,7 +102,7 @@ describe Arbre::Element, "Finder Methods" do
       expect(elements[0]).to be_instance_of(Arbre::HTML::Div)
     end
 
-    it "should return a grandchild element" do
+    it "returns a grandchild element" do
       html = arbre do
         div class: "some_class" do
           div class: "my_class"
