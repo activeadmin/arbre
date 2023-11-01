@@ -67,9 +67,11 @@ describe Arbre::Element do
   end
 
   it "to_a.flatten should not infinitely recurse" do
-    Timeout.timeout(1) do
-      element.to_a.flatten
-    end
+    expect {
+      Timeout.timeout(1) do
+        element.to_a.flatten
+      end
+    }.not_to raise_error
   end
 
   describe "adding a child" do
