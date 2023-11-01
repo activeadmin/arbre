@@ -18,9 +18,11 @@ describe Arbre::HTML::Tag do
   end
 
   describe "creating a tag 'for' an object" do
+    # rubocop:disable RSpec/VerifiedDoubles
     let(:model_name){ double(singular: "resource_class")}
     let(:resource_class){ double(model_name: model_name) }
     let(:resource){ double(class: resource_class, to_key: ['5'])}
+    # rubocop:enable RSpec/VerifiedDoubles
 
     before do
       tag.build for: resource
@@ -36,7 +38,7 @@ describe Arbre::HTML::Tag do
 
 
     describe "for an object that doesn't have a model_name" do
-      let(:resource_class){ double(name: 'ResourceClass') }
+      let(:resource_class){ double(name: 'ResourceClass') } # rubocop:disable RSpec/VerifiedDoubles
 
       before do
         tag.build for: resource
