@@ -17,6 +17,7 @@ group :rubocop do
   gem 'rubocop-capybara'
   gem 'rubocop-packaging'
   gem 'rubocop-performance'
+  gem 'rubocop-rspec'
 end
 
 group :rails do
