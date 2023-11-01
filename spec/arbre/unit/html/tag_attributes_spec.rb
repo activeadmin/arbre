@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe Arbre::HTML::Tag, "Attributes" do
 
-  let(:tag){ Arbre::HTML::Tag.new }
+  let(:tag){ described_class.new }
 
   describe "attributes" do
 
@@ -74,13 +74,13 @@ describe Arbre::HTML::Tag, "Attributes" do
     describe "#has_attribute?" do
       context "when the attribute exists" do
         it "returns true" do
-          expect(tag.has_attribute?(:id)).to eq(true)
+          expect(tag.has_attribute?(:id)).to be(true)
         end
       end
 
       context "when the attribute does not exist" do
         it "returns false" do
-          expect(tag.has_attribute?(:class)).to eq(false)
+          expect(tag.has_attribute?(:class)).to be(false)
         end
       end
     end

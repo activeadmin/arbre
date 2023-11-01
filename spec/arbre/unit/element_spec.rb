@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe Arbre::Element do
 
-  let(:element){ Arbre::Element.new }
+  let(:element){ described_class.new }
 
   context "when initialized" do
 
@@ -21,7 +21,7 @@ describe Arbre::Element do
 
     it "has a set of local assigns" do
       context = Arbre::Context.new hello: "World"
-      element = Arbre::Element.new(context)
+      element = described_class.new(context)
       expect(element.assigns[:hello]).to eq("World")
     end
 
@@ -41,7 +41,7 @@ describe Arbre::Element do
       end
     end
 
-    let(:element){ Arbre::Element.new(Arbre::Context.new(nil, helper.new)) }
+    let(:element){ described_class.new(Arbre::Context.new(nil, helper.new)) }
 
     it "calls methods on the helper object and return TextNode objects" do
       expect(element.helper_method).to eq("helper method")
@@ -60,7 +60,7 @@ describe Arbre::Element do
     let(:assigns){ {post: post} }
 
     it "is accessible via a method call" do
-      element = Arbre::Element.new(Arbre::Context.new(assigns))
+      element = described_class.new(Arbre::Context.new(assigns))
       expect(element.post).to eq(post)
     end
 
@@ -74,7 +74,7 @@ describe Arbre::Element do
 
   describe "adding a child" do
 
-    let(:child){ Arbre::Element.new }
+    let(:child){ described_class.new }
 
     before do
       element.add_child child
@@ -135,7 +135,7 @@ describe Arbre::Element do
     end
 
     context "when an element" do
-      let(:content_element){ Arbre::Element.new }
+      let(:content_element){ described_class.new }
 
       before do
         element.content = content_element
@@ -151,8 +151,8 @@ describe Arbre::Element do
     end
 
     context "when an array of tags" do
-      let(:first){ Arbre::Element.new }
-      let(:second){ Arbre::Element.new }
+      let(:first){ described_class.new }
+      let(:second){ described_class.new }
 
       before do
         element.content = [first, second]
@@ -209,8 +209,8 @@ describe Arbre::Element do
   describe "adding elements together" do
 
     context "when both elements are tags" do
-      let(:first){ Arbre::Element.new }
-      let(:second){ Arbre::Element.new }
+      let(:first){ described_class.new }
+      let(:second){ described_class.new }
       let(:collection){ first + second }
 
       it "returns an instance of Collection" do
@@ -225,10 +225,10 @@ describe Arbre::Element do
     end
 
     context "when the left is a collection and the right is a tag" do
-      let(:first){ Arbre::Element.new }
-      let(:second){ Arbre::Element.new }
-      let(:third){ Arbre::Element.new }
-      let(:collection){ Arbre::ElementCollection.new([first, second]) + third}
+      let(:first){ described_class.new }
+      let(:second){ described_class.new }
+      let(:third){ described_class.new }
+      let(:collection){ Arbre::ElementCollection.new([first, second]) + third }
 
       it "returns an instance of Collection" do
         expect(collection).to be_an_instance_of(Arbre::ElementCollection)
@@ -243,9 +243,9 @@ describe Arbre::Element do
     end
 
     context "when the right is a collection and the left is a tag" do
-      let(:first){ Arbre::Element.new }
-      let(:second){ Arbre::Element.new }
-      let(:third){ Arbre::Element.new }
+      let(:first){ described_class.new }
+      let(:second){ described_class.new }
+      let(:third){ described_class.new }
       let(:collection){ first + Arbre::ElementCollection.new([second,third]) }
 
       it "returns an instance of Collection" do
@@ -261,7 +261,7 @@ describe Arbre::Element do
     end
 
     context "when the left is a tag and the right is a string" do
-      let(:element){ Arbre::Element.new }
+      let(:element){ described_class.new }
       let(:collection){ element + "Hello World"}
 
       it "returns an instance of Collection" do
@@ -276,7 +276,7 @@ describe Arbre::Element do
     end
 
     context "when the left is a string and the right is a tag" do
-      let(:collection){ "hello World" + Arbre::Element.new}
+      let(:collection){ "hello World" + described_class.new}
 
       it "returns a string" do
         expect(collection.strip.chomp).to eq("hello World")

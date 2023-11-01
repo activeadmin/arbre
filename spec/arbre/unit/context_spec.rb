@@ -5,7 +5,7 @@ require 'spec_helper'
 describe Arbre::Context do
 
   let(:context) do
-    Arbre::Context.new do
+    described_class.new do
       h1 "札幌市北区" # Add some HTML to the context
     end
   end

@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe Arbre::HTML::Tag do
 
-  let(:tag){ Arbre::HTML::Tag.new }
+  let(:tag){ described_class.new }
 
   describe "building a new tag" do
     before { tag.build "Hello World", id: "my_id" }
@@ -106,7 +106,7 @@ describe Arbre::HTML::Tag do
     end
 
     it "creates a class list from a string" do
-      tag = Arbre::HTML::Tag.new
+      tag = described_class.new
       tag.build(class: "first-class")
       tag.add_class "second-class"
       expect(tag.class_list.size).to eq(2)

@@ -19,7 +19,7 @@ describe Arbre::Component do
   let(:component) { component_class.new }
 
   it "is a subclass of an html div" do
-    expect(Arbre::Component.ancestors).to include(Arbre::HTML::Div)
+    expect(described_class.ancestors).to include(Arbre::HTML::Div)
   end
 
   it "renders to a div, even as a subclass" do
@@ -28,7 +28,7 @@ describe Arbre::Component do
 
   it "does not have a class list" do
     expect(component.class_list.to_s).to eq("")
-    expect(component.class_list.empty?).to eq(true)
+    expect(component.class_list.empty?).to be(true)
   end
 
   it "renders the object using the builder method name" do
