@@ -15,9 +15,10 @@ RSpec.describe "Changelog" do
   end
 
   describe 'entry' do
+    subject(:entries) { lines.grep(/^\*/) }
+
     let(:lines) { changelog.each_line }
 
-    subject(:entries) { lines.grep(/^\*/) }
 
     it 'does not end with a punctuation' do
       entries.each do |entry|

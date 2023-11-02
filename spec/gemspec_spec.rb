@@ -3,7 +3,7 @@ require "spec_helper"
 require "open3"
 require "arbre/version"
 
-RSpec.describe "gemspec sanity" do
+RSpec.describe "Gemspec" do
   after do
     File.delete("arbre-#{Arbre::VERSION}.gem")
   end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails/rails_spec_helper'
 
-RSpec.describe "Building forms" do
+RSpec.describe "Forms" do
 
   let(:assigns){ {} }
   let(:helpers){ mock_action_view }
@@ -18,19 +18,19 @@ RSpec.describe "Building forms" do
       end
     end
 
-    it "should build a form" do
+    it "builds a form" do
       expect(html).to have_css("form")
     end
 
-    it "should include the hidden authenticity token" do
+    it "includes the hidden authenticity token" do
       expect(html).to have_field("authenticity_token", type: :hidden, with: "AUTH_TOKEN")
     end
 
-    it "should create a label" do
+    it "creates a label" do
       expect(html).to have_css("form label[for=mock_person_name]")
     end
 
-    it "should create a text field" do
+    it "creates a text field" do
       expect(html).to have_css("form input[type=text]")
     end
 
@@ -51,15 +51,15 @@ RSpec.describe "Building forms" do
       end
     end
 
-    it "should render nested label" do
+    it "renders nested label" do
       expect(html).to have_css("form label[for=mock_person_permission_admin]", text: "Admin")
     end
 
-    it "should render nested label" do
+    it "renders nested input" do
       expect(html).to have_css("form input[type=checkbox][name='mock_person[permission][admin]']")
     end
 
-    it "should not render a div for the proxy" do
+    it "does not render a div for the proxy" do
       expect(html).not_to have_css("form div.fields_for_proxy")
     end
 
@@ -93,11 +93,11 @@ RSpec.describe "Building forms" do
       end
     end
 
-    it "should correctly nest elements" do
+    it "nests elements" do
       expect(html).to have_css("form > p > label")
     end
 
-    it "should correnctly nest elements within fields for" do
+    it "nests elements within fields for" do
       expect(html).to have_css("form > div.permissions > div.permissions_label label")
     end
   end
