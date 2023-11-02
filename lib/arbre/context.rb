@@ -26,7 +26,6 @@ module Arbre
   #     html.to_s #=> "Your number 1"
   #
   class Context < Element
-
     # Initialize a new Arbre::Context
     #
     # @param [Hash] assigns A hash of objecs that you would like to be
@@ -98,7 +97,6 @@ module Arbre
 
     private
 
-
     # Caches the rendered HTML so that we don't re-render just to
     # get the content length or to delegate a method to the HTML
     def cached_html
@@ -110,6 +108,5 @@ module Arbre
         html
       end
     end
-
   end
 end

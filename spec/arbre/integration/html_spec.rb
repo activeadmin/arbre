@@ -74,7 +74,6 @@ describe Arbre do
     HTML
   end
 
-
   it "passes the element in to the block if asked for" do
     expect(arbre {
       div do |d|
@@ -90,7 +89,6 @@ describe Arbre do
       </div>
     HTML
   end
-
 
   it "moves content tags between parents" do
     expect(arbre {

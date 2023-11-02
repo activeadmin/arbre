@@ -184,7 +184,6 @@ module Arbre
       def default_id_for_prefix
         nil
       end
-
     end
 
   end

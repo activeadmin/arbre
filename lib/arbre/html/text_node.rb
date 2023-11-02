@@ -5,7 +5,6 @@ module Arbre
   module HTML
 
     class TextNode < Element
-
       builder_method :text_node
 
       # Builds a text node from a string

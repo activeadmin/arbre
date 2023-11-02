@@ -36,7 +36,6 @@ describe Arbre::HTML::Tag do
       expect(tag.class_list).to include("resource_class")
     end
 
-
     describe "for an object that doesn't have a model_name" do
       let(:resource_class){ double(name: 'ResourceClass') } # rubocop:disable RSpec/VerifiedDoubles
 

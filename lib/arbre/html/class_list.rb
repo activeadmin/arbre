@@ -6,7 +6,6 @@ module Arbre
 
     # Holds a set of classes
     class ClassList < Set
-
       def self.build_from_string(class_names)
         new.add(class_names)
       end
@@ -22,7 +21,6 @@ module Arbre
       def to_s
         to_a.join(" ")
       end
-
     end
 
   end
