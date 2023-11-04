@@ -38,7 +38,6 @@ module Arbre
             super
           end
         end
-
       end
 
       class FormForProxy < FormBuilderProxy
@@ -70,11 +69,9 @@ module Arbre
         def closing_tag
           @closing_tag || ""
         end
-
       end
 
       class FieldsForProxy < FormBuilderProxy
-
         def build(form_builder, *args, &block)
           form_builder.fields_for(*args) do |f|
             @form_builder = f
@@ -86,7 +83,6 @@ module Arbre
         def to_s
           children.to_s
         end
-
       end
 
     end

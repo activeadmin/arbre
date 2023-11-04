@@ -3,7 +3,6 @@ module Arbre
 
   # Stores a collection of Element objects
   class ElementCollection < Array
-
     def +(other)
       self.class.new(super)
     end

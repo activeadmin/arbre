@@ -3,13 +3,11 @@ require 'spec_helper'
 
 # A mock subclass to play with
 class MockComponent < Arbre::Component
-
   builder_method :mock_component
 
   def build
     h2 "Hello World"
   end
-
 end
 
 describe Arbre::Component do

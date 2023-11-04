@@ -19,7 +19,6 @@ RSpec.describe "Changelog" do
 
     let(:lines) { changelog.each_line }
 
-
     it 'does not end with a punctuation' do
       entries.each do |entry|
         expect(entry).not_to match(/\.$/)

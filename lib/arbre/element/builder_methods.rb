@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 module Arbre
   class Element
-
     module BuilderMethods
 
       def self.included(klass)
@@ -78,6 +77,5 @@ module Arbre
 
       end
     end
-
   end
 end

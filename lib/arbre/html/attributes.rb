@@ -3,7 +3,6 @@ module Arbre
   module HTML
 
     class Attributes < Hash
-
       def to_s
         flatten_hash.compact.map do |name, value|
           "#{html_escape(name)}=\"#{html_escape(value)}\""

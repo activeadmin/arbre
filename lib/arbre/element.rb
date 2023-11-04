@@ -185,6 +185,5 @@ module Arbre
         super
       end
     end
-
   end
 end
