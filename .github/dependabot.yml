@@ -4,8 +4,8 @@ updates:
     directory: /
     schedule:
       interval: daily
-    github_actions:
-      default:
+    groups:
+      github_actions:
         patterns:
           - "*"
   - package-ecosystem: bundler
