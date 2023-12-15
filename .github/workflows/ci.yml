@@ -40,6 +40,7 @@ jobs:
           COVERAGE: true
         run: bundle exec rspec
       - uses: actions/upload-artifact@v3
+        if: matrix.deps == 'rails_71'
         with:
           name: coverage
           path: coverage
