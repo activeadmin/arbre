@@ -38,9 +38,10 @@ jobs:
       - name: Run tests
         env:
           COVERAGE: true
-        run: bundle exec rspec
+        run: |
+          bundle exec rspec
+          mv coverage/coverage.xml coverage/coverage-ruby-${{ matrix.ruby }}-${{ matrix.deps }}.xml
       - uses: actions/upload-artifact@v3
-        if: matrix.deps == 'rails_71'
         with:
           name: coverage
           path: coverage
