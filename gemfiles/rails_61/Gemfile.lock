@@ -121,10 +121,10 @@ GEM
       net-protocol
     nio4r (2.7.0)
     nio4r (2.7.0-java)
-    nokogiri (1.16.0)
+    nokogiri (1.16.2)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    nokogiri (1.16.0-java)
+    nokogiri (1.16.2-java)
       racc (~> 1.4)
     pry (0.14.2)
       coderay (~> 1.1)
