@@ -25,5 +25,4 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.7'
 
   s.add_dependency("activesupport", ">= 3.0.0")
-  s.add_dependency("ruby2_keywords", ">= 0.0.2")
 end
