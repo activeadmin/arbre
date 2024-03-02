@@ -2,7 +2,6 @@
 require 'arbre/element/builder_methods'
 require 'arbre/element/proxy'
 require 'arbre/element_collection'
-require 'ruby2_keywords'
 
 module Arbre
 

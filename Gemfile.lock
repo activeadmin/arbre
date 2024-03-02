@@ -3,7 +3,6 @@ PATH
   specs:
     arbre (2.0.0)
       activesupport (>= 3.0.0)
-      ruby2_keywords (>= 0.0.2)
 
 GEM
   remote: http://rubygems.org/

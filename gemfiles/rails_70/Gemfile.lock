@@ -3,7 +3,6 @@ PATH
   specs:
     arbre (2.0.0)
       activesupport (>= 3.0.0)
-      ruby2_keywords (>= 0.0.2)
 
 GEM
   remote: http://rubygems.org/
@@ -197,7 +196,6 @@ GEM
       rspec-mocks (~> 3.12)
       rspec-support (~> 3.12)
     rspec-support (3.12.1)
-    ruby2_keywords (0.0.5)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
