@@ -60,7 +60,7 @@ RSpec.describe "Forms" do
     end
 
     it "does not render a div for the proxy" do
-      expect(html).not_to have_css("form div.fields_for_proxy")
+      expect(html).to have_no_css("form div.fields_for_proxy")
     end
 
   end

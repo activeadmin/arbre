@@ -152,7 +152,7 @@ describe Arbre do
       end
       node = list.children.first
     }
-    expect(node).to be_a Arbre::HTML::TextNode
+    expect(node).to be_a described_class::HTML::TextNode
   end
 
   it "does not render blank arrays" do
@@ -185,7 +185,7 @@ describe Arbre do
       }.to_s).to eq("<link rel=\"stylesheet\"/>\n")
     end
 
-    Arbre::HTML::Tag::SELF_CLOSING_ELEMENTS.each do |tag|
+    described_class::HTML::Tag::SELF_CLOSING_ELEMENTS.each do |tag|
       it "self-closes #{tag} tags" do
         expect(arbre {
           send(tag)

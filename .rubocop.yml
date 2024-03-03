@@ -29,6 +29,9 @@ Capybara/MatchStyle:
 Capybara/NegationMatcher:
   Enabled: true
 
+Capybara/RedundantWithinFind:
+  Enabled: true
+
 Capybara/RSpec/HaveSelector:
   Enabled: true
 
@@ -394,6 +397,9 @@ RSpec/InstanceSpy:
 RSpec/InstanceVariable:
   Enabled: true
 
+RSpec/IsExpectedSpecify:
+  Enabled: true
+
 RSpec/ItBehavesLike:
   Enabled: true
 
@@ -481,6 +487,12 @@ RSpec/ReceiveNever:
 RSpec/RedundantAround:
   Enabled: true
 
+RSpec/RedundantPredicateMatcher:
+  Enabled: true
+
+RSpec/RemoveConst:
+  Enabled: true
+
 RSpec/RepeatedDescription:
   Enabled: true
 
@@ -494,6 +506,9 @@ RSpec/RepeatedExampleGroupDescription:
   Enabled: true
 
 RSpec/RepeatedIncludeExample:
+  Enabled: true
+
+RSpec/RepeatedSubjectCall:
   Enabled: true
 
 RSpec/ReturnFromStub:
