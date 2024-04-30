@@ -27,7 +27,7 @@ module Arbre
   class Context < Element
     # Initialize a new Arbre::Context
     #
-    # @param [Hash] assigns A hash of objecs that you would like to be
+    # @param [Hash] assigns A hash of objects that you would like to be
     #                       available as local variables within the Context
     #
     # @param [Object] helpers An object that has methods on it which will become
