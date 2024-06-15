@@ -364,9 +364,6 @@ RSpec/ExpectInHook:
 RSpec/ExpectOutput:
   Enabled: true
 
-RSpec/FilePath:
-  Enabled: false
-
 RSpec/Focus:
   Enabled: true
 
@@ -471,9 +468,6 @@ RSpec/PendingWithoutReason:
 
 RSpec/PredicateMatcher:
   Enabled: true
-
-RSpec/Rails:
-  Enabled: false
 
 RSpec/ReceiveCounts:
   Enabled: true
