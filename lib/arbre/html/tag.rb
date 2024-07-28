@@ -7,7 +7,7 @@ module Arbre
     class Tag < Element
       attr_reader :attributes
 
-      # See: http://www.w3.org/html/wg/drafts/html/master/syntax.html#void-elements
+      # See: https://html.spec.whatwg.org/multipage/syntax.html#void-elements
       SELF_CLOSING_ELEMENTS = [ :area, :base, :br, :col, :embed, :hr, :img, :input, :keygen, :link,
                             :menuitem, :meta, :param, :source, :track, :wbr ]
 
