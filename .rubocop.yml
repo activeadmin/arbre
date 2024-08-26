@@ -565,6 +565,9 @@ RSpec/VoidExpect:
 RSpec/Yield:
   Enabled: true
 
+Style/Encoding:
+  Enabled: true
+
 Style/FrozenStringLiteralComment:
   Enabled: true
   Exclude:
