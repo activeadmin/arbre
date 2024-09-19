@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require 'arbre/element'
+require_relative 'element'
 
 module Arbre
 
