@@ -6,16 +6,16 @@ require 'active_support/inflector'
 module Arbre
 end
 
-require 'arbre/element'
-require 'arbre/context'
-require 'arbre/html/attributes'
-require 'arbre/html/class_list'
-require 'arbre/html/tag'
-require 'arbre/html/text_node'
-require 'arbre/html/document'
-require 'arbre/html/html5_elements'
-require 'arbre/component'
+require_relative 'arbre/element'
+require_relative 'arbre/context'
+require_relative 'arbre/html/attributes'
+require_relative 'arbre/html/class_list'
+require_relative 'arbre/html/tag'
+require_relative 'arbre/html/text_node'
+require_relative 'arbre/html/document'
+require_relative 'arbre/html/html5_elements'
+require_relative 'arbre/component'
 
 if defined?(Rails)
-  require 'arbre/railtie'
+  require_relative 'arbre/railtie'
 end

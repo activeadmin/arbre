@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require 'arbre/rails/template_handler'
-require 'arbre/rails/forms'
-require 'arbre/rails/rendering'
+require_relative 'rails/template_handler'
+require_relative 'rails/forms'
+require_relative 'rails/rendering'
 require 'rails'
 
 Arbre::Element.include(Arbre::Rails::Rendering)
