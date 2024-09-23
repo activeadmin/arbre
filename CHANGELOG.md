@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+## 2.0.2 [☰](https://github.com/activeadmin/arbre/compare/v2.0.1...v2.0.2)
+
+* Prefer `require_relative` for internal requires. [#622][] by [@tagliala][]
+
 ## 2.0.1 [☰](https://github.com/activeadmin/arbre/compare/v2.0.0...v2.0.1)
 
 * Drop dependency on ruby2_keywords. [#578][] by [@Earlopain][]
@@ -141,6 +147,7 @@ Initial release and extraction from Active Admin
 [#562]: https://github.com/activeadmin/arbre/pull/562
 [#578]: https://github.com/activeadmin/arbre/pull/578
 [#617]: https://github.com/activeadmin/arbre/pull/617
+[#622]: https://github.com/activeadmin/arbre/pull/622
 
 [@aramvisser]: https://github.com/aramvisser
 [@LTe]: https://github.com/LTe
