@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    arbre (2.0.1)
+    arbre (2.0.2)
       activesupport (>= 3.0.0)
 
 GEM
@@ -107,7 +107,7 @@ GEM
     erubi (1.13.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    i18n (1.14.5)
+    i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     io-console (0.7.2)
     irb (1.14.0)
@@ -244,7 +244,7 @@ GEM
       rubocop (~> 1.41)
     rubocop-packaging (0.5.2)
       rubocop (>= 1.33, < 2.0)
-    rubocop-performance (1.21.1)
+    rubocop-performance (1.22.1)
       rubocop (>= 1.48.1, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
     rubocop-rspec (3.0.5)
@@ -300,4 +300,4 @@ DEPENDENCIES
   simplecov-cobertura
 
 BUNDLED WITH
-   2.5.18
+   2.5.19
