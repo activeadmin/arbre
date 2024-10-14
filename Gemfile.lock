@@ -298,6 +298,7 @@ DEPENDENCIES
   rubocop-rspec
   simplecov
   simplecov-cobertura
+  zeitwerk (~> 2.6.18)
 
 BUNDLED WITH
-   2.5.19
+   2.5.21
