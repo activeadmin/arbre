@@ -23,5 +23,5 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 3.1'
 
-  s.add_dependency("activesupport", ">= 3.0.0")
+  s.add_dependency("activesupport", ">= 7.0")
 end

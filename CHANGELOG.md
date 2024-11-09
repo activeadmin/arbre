@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+* Remove support for Ruby `< 3.1`
+* Remove support for Rails `< 7.0`
+* Test against Rails 8.0
+
 ## 2.0.2 [☰](https://github.com/activeadmin/arbre/compare/v2.0.1...v2.0.2)
 
 * Prefer `require_relative` for internal requires. [#622][] by [@tagliala][]
