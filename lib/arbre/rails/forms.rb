@@ -31,7 +31,7 @@ module Arbre
           text_node form_builder.send(method, *args, &block)
         end
 
-        ruby2_keywords def method_missing(method, *args, &block)
+        def method_missing(method, *args, &block)
           if form_builder && form_builder.respond_to?(method)
             proxy_call_to_form(method, *args, &block)
           else
