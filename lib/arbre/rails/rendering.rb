@@ -3,8 +3,8 @@ module Arbre
   module Rails
     module Rendering
 
-      def render(*args)
-        rendered = helpers.render(*args)
+      def render(*args, &block)
+        rendered = helpers.render(*args, &block)
         case rendered
         when Arbre::Context
           current_arbre_element.add_child rendered
