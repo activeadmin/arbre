@@ -31,6 +31,10 @@ class TestController < ActionController::Base
     @my_instance_var = "From Instance Var"
     render "arbre/page_with_arb_partial_and_assignment"
   end
+
+  def render_with_block
+    render "arbre/page_with_render_with_block"
+  end
 end
 
 RSpec.describe TestController, "Rendering with Arbre", type: :request do
@@ -45,6 +49,7 @@ RSpec.describe TestController, "Rendering with Arbre", type: :request do
       get 'test/render_with_instance_variable', controller: "test"
       get 'test/render_partial_with_instance_variable', controller: "test"
       get 'test/render_page_with_helpers', controller: "test"
+      get 'test/render_with_block', controller: "test"
     end
   end
 
@@ -94,6 +99,16 @@ RSpec.describe TestController, "Rendering with Arbre", type: :request do
     get "/test/render_partial_with_instance_variable"
     expect(response).to be_successful
     expect(body).to have_css("p", text: "Partial: From Instance Var")
+  end
+
+  it "renders with a block" do
+    get "/test/render_with_block"
+    expect(response).to be_successful
+    expect(body).to eq <<~HTML
+      <h1>Before Render</h1>
+      Hello from a render block
+      <h2>After Render</h2>
+    HTML
   end
 
 end

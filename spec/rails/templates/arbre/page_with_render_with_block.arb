@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+render_in_object = Class.new do
+  def render_in(_, &block)
+    block.call
+  end
+end.new
+
+h1 "Before Render"
+render render_in_object do
+  "Hello from a render block\n"
+end
+h2 "After Render"
