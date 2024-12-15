@@ -1,7 +1,8 @@
 # Changelog
 
-## Unreleased
+## 2.1.0 [☰](https://github.com/activeadmin/arbre/compare/v2.0.2...v2.1.0)
 
+* Add support for ViewComponent. [#644][] by [@budu][]
 * Remove support for Ruby `< 3.1`
 * Remove support for Rails `< 7.0`
 * Test against Rails 8.0
@@ -152,6 +153,7 @@ Initial release and extraction from Active Admin
 [#578]: https://github.com/activeadmin/arbre/pull/578
 [#617]: https://github.com/activeadmin/arbre/pull/617
 [#622]: https://github.com/activeadmin/arbre/pull/622
+[#644]: https://github.com/activeadmin/arbre/pull/644
 
 [@aramvisser]: https://github.com/aramvisser
 [@LTe]: https://github.com/LTe
@@ -176,3 +178,4 @@ Initial release and extraction from Active Admin
 [@tomascco]: https://github.com/tomascco
 [@javierjulio]: https://github.com/javierjulio
 [@Earlopain]: https://github.com/Earlopain
+[@budu]: https://github.com/budu
