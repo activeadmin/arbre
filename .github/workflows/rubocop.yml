@@ -8,7 +8,7 @@ env:
 
 jobs:
   rubocop:
-    name: Run rubocop
+    name: Run rubocop - test actionlint
     runs-on: ubuntu-latest
     env:
       BUNDLE_ONLY: ${{ vars.RUBOCOP_BUNDLE_ONLY || 'rubocop' }}
