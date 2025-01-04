@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 render_in_object = Class.new do
   def render_in(_, &block)
     block.call

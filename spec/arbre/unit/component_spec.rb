@@ -30,7 +30,7 @@ describe Arbre::Component do
   end
 
   it "renders the object using the builder method name" do
-    comp = expect(arbre {
+    expect(arbre {
       mock_component
     }.to_s).to eq <<~HTML
       <div>

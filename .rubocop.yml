@@ -86,6 +86,15 @@ Layout/TrailingWhitespace:
 Layout/TrailingEmptyLines:
   Enabled: true
 
+Lint/AmbiguousOperator:
+  Enabled: true
+
+Lint/AmbiguousRegexpLiteral:
+  Enabled: true
+
+Lint/UselessAssignment:
+  Enabled: true
+
 Packaging/BundlerSetupInTests:
   Enabled: true
 
@@ -584,6 +593,7 @@ Style/FrozenStringLiteralComment:
   Enabled: true
   Exclude:
     - bin/console
+    - '**/*.arb'
 
 Style/HashSyntax:
   Enabled: true
