@@ -1,6 +1,6 @@
 # Changelog
 
-## unreleased [☰](https://github.com/activeadmin/arbre/compare/v2.1.0...master)
+## 2.2.0 [☰](https://github.com/activeadmin/arbre/compare/v2.1.0...v2.2.0)
 
 * Add some missing HTML5 elements [#655][] by [@tagliala][]
 
