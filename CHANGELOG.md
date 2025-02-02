@@ -1,5 +1,9 @@
 # Changelog
 
+## unreleased [☰](https://github.com/activeadmin/arbre/compare/v2.1.0...master)
+
+* Add some missing HTML5 elements [#655][] by [@tagliala][]
+
 ## 2.1.0 [☰](https://github.com/activeadmin/arbre/compare/v2.0.2...v2.1.0)
 
 * Add support for ViewComponent. [#644][] by [@budu][]
@@ -154,6 +158,7 @@ Initial release and extraction from Active Admin
 [#617]: https://github.com/activeadmin/arbre/pull/617
 [#622]: https://github.com/activeadmin/arbre/pull/622
 [#644]: https://github.com/activeadmin/arbre/pull/644
+[#655]: https://github.com/activeadmin/arbre/pull/655
 
 [@aramvisser]: https://github.com/aramvisser
 [@LTe]: https://github.com/LTe
