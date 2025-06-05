@@ -418,6 +418,9 @@ RSpec/ImplicitExpect:
 RSpec/ImplicitSubject:
   Enabled: true
 
+RSpec/IncludeExamples:
+  Enabled: true
+
 RSpec/IndexedLet:
   Enabled: true
 
