@@ -32,4 +32,24 @@ describe Arbre::Context do
     expect(context.index('<')).to eq(0)
   end
 
+  context "when an error is raised in a nested block" do
+    let(:context) do
+      described_class.new do
+        ul do
+          li do
+            'item one'
+          end
+          li do
+            raise 'error talking to the db'
+          end
+        end
+      rescue StandardError
+        para 'Uh oh! DB call failed'
+      end
+    end
+
+    it "properly resets the element buffer" do
+      expect(context.current_arbre_element).to be_a(described_class)
+    end
+  end
 end
