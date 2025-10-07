@@ -1,5 +1,9 @@
 # Changelog
 
+## unreleased [☰](https://github.com/activeadmin/arbre/compare/v2.2.0...master)
+
+* Ensure Arbre context is properly reset after rendering [#700][] by [@drcapulet][]
+
 ## 2.2.0 [☰](https://github.com/activeadmin/arbre/compare/v2.1.0...v2.2.0)
 
 * Add some missing HTML5 elements [#655][] by [@tagliala][]
@@ -159,6 +163,7 @@ Initial release and extraction from Active Admin
 [#622]: https://github.com/activeadmin/arbre/pull/622
 [#644]: https://github.com/activeadmin/arbre/pull/644
 [#655]: https://github.com/activeadmin/arbre/pull/655
+[#700]: https://github.com/activeadmin/arbre/pull/700
 
 [@aramvisser]: https://github.com/aramvisser
 [@LTe]: https://github.com/LTe
@@ -184,3 +189,4 @@ Initial release and extraction from Active Admin
 [@javierjulio]: https://github.com/javierjulio
 [@Earlopain]: https://github.com/Earlopain
 [@budu]: https://github.com/budu
+[@drcapulet]: https://github.com/drcapulet
