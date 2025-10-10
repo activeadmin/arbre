@@ -1,6 +1,6 @@
 # Changelog
 
-## unreleased [☰](https://github.com/activeadmin/arbre/compare/v2.2.0...master)
+## 2.2.1 [☰](https://github.com/activeadmin/arbre/compare/v2.2.0...v2.2.1)
 
 * Ensure Arbre context is properly reset after rendering [#700][] by [@drcapulet][]
 

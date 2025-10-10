@@ -1,7 +1,7 @@
 PATH
   remote: ../..
   specs:
-    arbre (2.2.0)
+    arbre (2.2.1)
       activesupport (>= 7.0)
 
 GEM
@@ -88,7 +88,7 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     base64 (0.3.0)
     benchmark (0.4.1)
-    bigdecimal (3.3.0)
+    bigdecimal (3.3.1)
     builder (3.3.0)
     capybara (3.40.0)
       addressable
@@ -138,7 +138,7 @@ GEM
     method_source (1.1.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
-    minitest (5.25.5)
+    minitest (5.26.0)
     mutex_m (0.3.0)
     net-imap (0.5.12)
       date
@@ -172,7 +172,7 @@ GEM
       stringio
     public_suffix (6.0.2)
     racc (1.8.1)
-    rack (3.2.2)
+    rack (3.2.3)
     rack-session (2.1.1)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
