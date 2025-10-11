@@ -1,7 +1,7 @@
 PATH
   remote: ../..
   specs:
-    arbre (2.2.0)
+    arbre (2.2.1)
       activesupport (>= 7.0)
 
 GEM
@@ -113,7 +113,7 @@ GEM
     method_source (1.1.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
-    minitest (5.25.5)
+    minitest (5.26.0)
     net-imap (0.5.12)
       date
       net-protocol
@@ -140,7 +140,7 @@ GEM
       method_source (~> 1.0)
     public_suffix (6.0.2)
     racc (1.8.1)
-    rack (2.2.19)
+    rack (2.2.20)
     rack-test (2.2.0)
       rack (>= 1.3)
     rails (7.0.8.7)
