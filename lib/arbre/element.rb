@@ -174,7 +174,9 @@ module Arbre
     #  4. Call super
     #
     ruby2_keywords def method_missing(name, *args, &block)
-      if current_arbre_element.respond_to?(name)
+      if "Arbre::Components::#{name.to_s.camelize}".safe_constantize && respond_to?(name)
+        public_send(name, *args, &block)
+      elsif current_arbre_element.respond_to?(name)
         current_arbre_element.send name, *args, &block
       elsif assigns && assigns.has_key?(name)
         assigns[name]
