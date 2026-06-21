@@ -50,9 +50,6 @@ Capybara/RSpec/NegationMatcherAfterVisit:
 Capybara/RSpec/PredicateMatcher:
   Enabled: true
 
-Capybara/RSpec/SpecificFinders:
-  Enabled: true
-
 Capybara/RSpec/SpecificMatcher:
   Enabled: true
 
@@ -60,6 +57,9 @@ Capybara/RSpec/VisibilityMatcher:
   Enabled: true
 
 Capybara/SpecificActions:
+  Enabled: true
+
+Capybara/SpecificFinders:
   Enabled: true
 
 Metrics:
