@@ -20,9 +20,6 @@ Capybara:
 Capybara/AssertStyle:
   Enabled: true
 
-Capybara/ClickLinkOrButtonStyle:
-  Enabled: true
-
 Capybara/FindAllFirst:
   Enabled: true
 
@@ -50,9 +47,6 @@ Capybara/RSpec/NegationMatcherAfterVisit:
 Capybara/RSpec/PredicateMatcher:
   Enabled: true
 
-Capybara/RSpec/SpecificFinders:
-  Enabled: true
-
 Capybara/RSpec/SpecificMatcher:
   Enabled: true
 
@@ -60,6 +54,9 @@ Capybara/RSpec/VisibilityMatcher:
   Enabled: true
 
 Capybara/SpecificActions:
+  Enabled: true
+
+Capybara/SpecificFinders:
   Enabled: true
 
 Metrics:
@@ -349,6 +346,9 @@ RSpec/DescribedClassModuleWrapping:
 RSpec/Dialect:
   Enabled: true
 
+RSpec/DiscardedMatcher:
+  Enabled: true
+
 RSpec/DuplicatedMetadata:
   Enabled: true
 
@@ -461,6 +461,9 @@ RSpec/LetSetup:
   Enabled: true
 
 RSpec/MatchArray:
+  Enabled: true
+
+RSpec/MatchWithSimpleRegex:
   Enabled: true
 
 RSpec/MessageChain:

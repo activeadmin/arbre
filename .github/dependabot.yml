@@ -18,6 +18,9 @@ updates:
     patterns:
       - "*"
     multi-ecosystem-group: bundler
+    ignore:
+      - dependency-name: parallel
+        versions: ">= 2.0" # TODO: remove when dropping Ruby < 3.3 compatibility
   - package-ecosystem: bundler
     directory: /gemfiles/rails_70
     versioning-strategy: lockfile-only
@@ -25,6 +28,8 @@ updates:
       - "*"
     multi-ecosystem-group: bundler
     ignore:
+      - dependency-name: parallel
+        versions: ">= 2.0" # TODO: remove when dropping Ruby < 3.3 compatibility
       - dependency-name: rails
         versions: ">= 7.1.0"
       - dependency-name: railties
@@ -40,6 +45,8 @@ updates:
     ignore:
       - dependency-name: erb
         versions: ">= 5"
+      - dependency-name: parallel
+        versions: ">= 2.0" # TODO: remove when dropping Ruby < 3.3 compatibility
       - dependency-name: rails
         versions: ">= 7.2.0"
       - dependency-name: railties
@@ -55,6 +62,8 @@ updates:
     ignore:
       - dependency-name: erb
         versions: ">= 5"
+      - dependency-name: parallel
+        versions: ">= 2.0" # TODO: remove when dropping Ruby < 3.3 compatibility
       - dependency-name: rails
         versions: ">= 8.0.0"
       - dependency-name: railties
@@ -66,6 +75,8 @@ updates:
       - "*"
     multi-ecosystem-group: bundler
     ignore:
+      - dependency-name: parallel
+        versions: ">= 2.0" # TODO: remove when dropping Ruby < 3.3 compatibility
       - dependency-name: rails
         versions: ">= 8.1.0"
       - dependency-name: railties
