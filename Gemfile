@@ -13,6 +13,8 @@ group :test do
 end
 
 group :rubocop do
+  gem 'parallel', '~> 1.28' # TODO: remove when dropping Ruby < 3.3 compatibility
+
   gem 'rubocop'
   gem 'rubocop-capybara'
   gem 'rubocop-packaging'
