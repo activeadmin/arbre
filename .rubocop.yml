@@ -14,9 +14,6 @@ AllCops:
 
   TargetRubyVersion: 3.2
 
-Capybara:
-  Enabled: true
-
 Capybara/AssertStyle:
   Enabled: true
 
@@ -59,9 +56,6 @@ Capybara/SpecificActions:
 Capybara/SpecificFinders:
   Enabled: true
 
-Metrics:
-  Enabled: false
-
 Layout/CommentIndentation:
   Enabled: true
 
@@ -83,16 +77,16 @@ Layout/HeredocIndentation:
 Layout/IndentationConsistency:
   Enabled: true
 
-Layout/IndentationWidth:
-  Enabled: true
-
 Layout/IndentationStyle:
   Enabled: true
 
-Layout/TrailingWhitespace:
+Layout/IndentationWidth:
   Enabled: true
 
 Layout/TrailingEmptyLines:
+  Enabled: true
+
+Layout/TrailingWhitespace:
   Enabled: true
 
 Lint/AmbiguousOperator:
@@ -104,6 +98,9 @@ Lint/AmbiguousRegexpLiteral:
 Lint/UselessAssignment:
   Enabled: true
 
+Metrics:
+  Enabled: false
+
 Packaging/BundlerSetupInTests:
   Enabled: true
 
@@ -114,9 +111,6 @@ Packaging/RequireHardcodingLib:
   Enabled: true
 
 Packaging/RequireRelativeHardcodingLib:
-  Enabled: true
-
-Performance:
   Enabled: true
 
 Performance/AncestorsInclude:
@@ -137,11 +131,11 @@ Performance/BlockGivenWithExplicitBlock:
 Performance/Caller:
   Enabled: true
 
-Performance/CaseWhenSplat:
-  Enabled: true
-
 Performance/Casecmp:
   Enabled: false
+
+Performance/CaseWhenSplat:
+  Enabled: true
 
 Performance/ChainArrayAllocation:
   Enabled: false
@@ -280,9 +274,6 @@ Performance/UriDefaultParser:
 Performance/ZipWithoutBlock:
   Enabled: true
 
-RSpec:
-  Enabled: true
-
 RSpec/AlignLeftLetBrace:
   Enabled: false
 
@@ -307,10 +298,10 @@ RSpec/BeEq:
 RSpec/BeEql:
   Enabled: true
 
-RSpec/BeNil:
+RSpec/BeforeAfterAll:
   Enabled: true
 
-RSpec/BeforeAfterAll:
+RSpec/BeNil:
   Enabled: true
 
 RSpec/ChangeByZero:
@@ -331,16 +322,16 @@ RSpec/ContextWording:
 RSpec/DescribeClass:
   Enabled: true
 
-RSpec/DescribeMethod:
-  Enabled: false
-
-RSpec/DescribeSymbol:
-  Enabled: true
-
 RSpec/DescribedClass:
   Enabled: true
 
 RSpec/DescribedClassModuleWrapping:
+  Enabled: true
+
+RSpec/DescribeMethod:
+  Enabled: false
+
+RSpec/DescribeSymbol:
   Enabled: true
 
 RSpec/Dialect:
@@ -376,6 +367,9 @@ RSpec/EmptyLineAfterSubject:
 RSpec/EmptyMetadata:
   Enabled: true
 
+RSpec/EmptyOutput:
+  Enabled: true
+
 RSpec/Eq:
   Enabled: true
 
@@ -398,6 +392,9 @@ RSpec/ExpectChange:
   Enabled: true
 
 RSpec/ExpectInHook:
+  Enabled: true
+
+RSpec/ExpectInLet:
   Enabled: true
 
 RSpec/ExpectOutput:
@@ -479,6 +476,9 @@ RSpec/MetadataStyle:
   Enabled: true
 
 RSpec/MissingExampleGroupArgument:
+  Enabled: true
+
+RSpec/MissingExpectationTargetMethod:
   Enabled: true
 
 RSpec/MultipleDescribes:
@@ -593,6 +593,9 @@ RSpec/SubjectDeclaration:
   Enabled: true
 
 RSpec/SubjectStub:
+  Enabled: true
+
+RSpec/UndescriptiveLiteralsDescription:
   Enabled: true
 
 RSpec/UnspecifiedException:
