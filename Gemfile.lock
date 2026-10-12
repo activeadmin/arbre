@@ -5,7 +5,7 @@ PATH
       activesupport (>= 7.0)
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     action_text-trix (2.1.19)
       railties
