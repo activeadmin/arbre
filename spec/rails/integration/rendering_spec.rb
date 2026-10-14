@@ -27,6 +27,10 @@ class TestController < ActionController::Base
     render "arbre/page_with_assignment"
   end
 
+  def render_with_autoloadable_component
+    render "arbre/page_with_autoloadable_component"
+  end
+
   def render_partial_with_instance_variable
     @my_instance_var = "From Instance Var"
     render "arbre/page_with_arb_partial_and_assignment"
@@ -47,6 +51,7 @@ RSpec.describe TestController, "Rendering with Arbre", type: :request do
       get 'test/render_partial', controller: "test"
       get 'test/render_erb_partial', controller: "test"
       get 'test/render_with_instance_variable', controller: "test"
+      get 'test/render_with_autoloadable_component', controller: "test"
       get 'test/render_partial_with_instance_variable', controller: "test"
       get 'test/render_page_with_helpers', controller: "test"
       get 'test/render_with_block', controller: "test"
@@ -93,6 +98,12 @@ RSpec.describe TestController, "Rendering with Arbre", type: :request do
     get "/test/render_with_instance_variable"
     expect(response).to be_successful
     expect(body).to have_css("h1", text: "From Instance Var")
+  end
+
+  it "renders with autoloadable component" do
+    get "/test/render_with_autoloadable_component"
+    expect(response).to be_successful
+    expect(body).to have_css("div", text: "Autoloadable Component")
   end
 
   it "renders an arbre partial with assignments" do
