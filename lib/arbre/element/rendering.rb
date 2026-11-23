@@ -16,11 +16,13 @@ module Arbre
       CUSTOM_BUILDER = 512
       CUSTOM_TAG_BUILD = 1024
       ORIGINAL_BUILD_CHAIN = 2048
+      PLAIN_TAG = 4096
 
       RENDER_METHODS = [
         :to_s, :content, :children, :indent_level, :indent, :opening_tag, :closing_tag,
         :attributes_html, :attributes, :no_child?, :child_is_text?, :self_closing_tag?,
-        :insert_tag, :build_tag, :extract_arguments, :set_for_attribute, :build, :arbre_build_arguments
+        :insert_tag, :build_tag, :extract_arguments, :set_for_attribute, :build, :arbre_build_arguments,
+        :arbre_write_to, :arbre_write_tag
       ].to_h { |name| [name, true] }.freeze
 
       ORIGINAL_BUILDER_METHODS = [
@@ -182,6 +184,10 @@ module Arbre
             flags |= CUSTOM_PREDICATES unless arbre_owner?(:no_child?, HTML::Tag) &&
                                               arbre_owner?(:child_is_text?, HTML::Tag) &&
                                               arbre_owner?(:self_closing_tag?, HTML::Tag)
+            if flags.nobits?(CUSTOM_TO_S | HTML::Tag::FALLBACK_FLAGS) &&
+               arbre_owner?(:arbre_write_to, HTML::Tag) && arbre_owner?(:arbre_write_tag, HTML::Tag)
+              flags |= PLAIN_TAG
+            end
           end
           flags
         end
@@ -248,7 +254,11 @@ module Arbre
               else
                 level + 1
               end
-            child.arbre_write_to(buffer, child_level, flags)
+            if flags & PLAIN_TAG != 0
+              child.arbre_write_tag(buffer, child_level, flags)
+            else
+              child.arbre_write_to(buffer, child_level, flags)
+            end
           else
             Rendering.append(buffer, child.to_s)
           end

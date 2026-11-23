@@ -226,6 +226,7 @@ module Arbre
         end
         buffer << "\n"
       end
+      public :arbre_write_tag
 
       # Children changed the layout while rendering: rebuild this tag from its parts.
       def arbre_relayout(buffer, start, spaces, open_end, one_line, void, direct_open, close_tag)
