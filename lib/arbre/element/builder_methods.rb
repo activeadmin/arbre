@@ -12,7 +12,7 @@ module Arbre
         def builder_method(method_name)
           BuilderMethods.class_eval <<-EOF, __FILE__, __LINE__
             def #{method_name}(*args, &block)
-              insert_tag ::#{self.name}, *args, &block
+              arbre_insert_tag ::#{self.name}, args, block
             end
           EOF
         end
@@ -54,6 +54,33 @@ module Arbre
 
       # Appends the value to the current DOM element if there are no
       # existing DOM Children and it responds to #to_s
+      # insert_tag(klass, *args, &block) without splatting args twice more,
+      # unless insert_tag or build_tag is overridden.
+      def arbre_insert_tag(klass, args, block)
+        unless Element === self && arbre_render_flags.nobits?(Rendering::CUSTOM_BUILDER)
+          return insert_tag(klass, *args, &block)
+        end
+
+        tag = klass.new(arbre_context)
+        tag.parent = current_arbre_element
+
+        with_current_arbre_element tag do
+          if block && block.arity > 0
+            tag.build(*args, &block)
+          else
+            if tag.arbre_render_flags.anybits?(Rendering::ORIGINAL_BUILD_CHAIN)
+              tag.arbre_build_arguments(args)
+            else
+              tag.build(*args)
+            end
+            append_return_block(block.call) if block
+          end
+        end
+
+        current_arbre_element.add_child(tag)
+        tag
+      end
+
       def append_return_block(tag)
         return nil if current_arbre_element.children?
 

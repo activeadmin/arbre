@@ -22,7 +22,17 @@ module Arbre
       end
 
       def to_s
-        doctype + super
+        buffer = Element::Rendering.new_buffer
+        Element::Rendering.append(buffer, doctype)
+        arbre_write_tag_or_fallback(buffer)
+        buffer.html_safe
+      end
+
+      def arbre_write_to(buffer, level, flags = arbre_render_flags)
+        return Element::Rendering.append(buffer, to_s) if flags.anybits?(Element::Rendering::CUSTOM_TO_S | FALLBACK_FLAGS)
+
+        Element::Rendering.append(buffer, doctype)
+        arbre_write_tag(buffer, level, flags)
       end
 
       protected
