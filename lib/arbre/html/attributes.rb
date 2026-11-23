@@ -66,10 +66,10 @@ module Arbre
           buffer << " " unless first
           first = false
           path&.each do |segment|
-            Element::Rendering.append_escaped(buffer, segment)
+            Element::Rendering.append_escaped_name(buffer, segment)
             buffer << "-"
           end
-          Element::Rendering.append_escaped(buffer, name)
+          Element::Rendering.append_escaped_name(buffer, name)
           buffer << '="'
           Element::Rendering.append_escaped(buffer, value)
           buffer << '"'

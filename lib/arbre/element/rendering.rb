@@ -83,6 +83,16 @@ module Arbre
           end
         end
 
+        # Symbol names always have a valid encoding, so only the characters matter.
+        def append_escaped_name(buffer, name)
+          string = name.name
+          if string.encoding.ascii_compatible? && !string.match?(UNSAFE_HTML)
+            buffer << string
+          else
+            buffer << ERB::Util.unwrapped_html_escape(string)
+          end
+        end
+
         def concat(buffer, string)
           buffer.force_encoding(string.encoding) if buffer.empty?
           buffer << string
@@ -211,25 +221,20 @@ module Arbre
         @children.each do |child|
           if Element === child
             flags = child.arbre_render_flags
-            child.arbre_write_to(buffer, arbre_child_level(child, level, flags), flags)
+            child_level =
+              if flags.anybits?(CUSTOM_LEVEL) || !child.parent.equal?(self)
+                child.indent_level
+              elsif flags.anybits?(CONTEXT_LEVEL)
+                level
+              else
+                level + 1
+              end
+            child.arbre_write_to(buffer, child_level, flags)
           else
             Rendering.append(buffer, child.to_s)
           end
         end
         buffer
-      end
-
-      # The value child.indent_level returns, without walking the parent chain.
-      def arbre_child_level(child, level, flags)
-        return child.indent_level unless child.parent.equal?(self)
-
-        if flags.anybits?(CUSTOM_LEVEL)
-          child.indent_level
-        elsif flags.anybits?(CONTEXT_LEVEL)
-          level
-        else
-          level + 1
-        end
       end
     end
   end
