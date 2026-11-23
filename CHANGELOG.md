@@ -3,6 +3,7 @@
 ## Unreleased
 
 * Drop Ruby 3.1 support
+* Render the element tree into one shared buffer instead of copying each subtree's HTML at every nesting level, and stop building a throwaway `Arbre::Context` for every text node
 
 ## 2.2.1 [☰](https://github.com/activeadmin/arbre/compare/v2.2.0...v2.2.1)
 
