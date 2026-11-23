@@ -31,7 +31,7 @@ module Arbre
       @tag_name ||= self.class.arbre_default_tag_name
     end
 
-    def build(*args, &block)
+    def build(*, &block)
       # Render the block passing ourselves in
       append_return_block(block.call(self)) if block
     end

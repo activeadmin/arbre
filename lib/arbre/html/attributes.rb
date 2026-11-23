@@ -15,7 +15,7 @@ module Arbre
         keys = arbre_key_kinds(self, 0)
         return buffer << to_s if keys.anybits?(NON_SYMBOL_KEY) || keys.allbits?(NESTED_HASH | DASHED_KEY)
 
-        arbre_write_pairs(buffer, self, keys.anybits?(NESTED_HASH) ? [] : nil, true)
+        arbre_write_pairs(buffer, self, nil, true)
         buffer
       end
 
@@ -52,22 +52,32 @@ module Arbre
         kinds
       end
 
-      # Returns whether nothing has been written yet, for the separator.
-      def arbre_write_pairs(buffer, hash, path, first)
+      # Returns whether nothing has been written yet, for the separator. prefix
+      # is nil, the parent key, or an Array of keys below the first level.
+      def arbre_write_pairs(buffer, hash, prefix, first)
         hash.each_pair do |name, value|
           if Hash === value
-            path.push(name)
-            first = arbre_write_pairs(buffer, value, path, first)
-            path.pop
+            nested_prefix =
+              case prefix
+              when nil then name
+              when Symbol then [prefix, name]
+              else prefix + [name]
+              end
+            first = arbre_write_pairs(buffer, value, nested_prefix, first)
             next
           end
           next if value.nil?
 
           buffer << " " unless first
           first = false
-          path&.each do |segment|
-            Element::Rendering.append_escaped_name(buffer, segment)
+          if Symbol === prefix
+            Element::Rendering.append_escaped_name(buffer, prefix)
             buffer << "-"
+          else
+            prefix&.each do |segment|
+              Element::Rendering.append_escaped_name(buffer, segment)
+              buffer << "-"
+            end
           end
           Element::Rendering.append_escaped_name(buffer, name)
           buffer << '="'

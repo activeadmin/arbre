@@ -15,11 +15,12 @@ module Arbre
       CUSTOM_PREDICATES = 256
       CUSTOM_BUILDER = 512
       CUSTOM_TAG_BUILD = 1024
+      ORIGINAL_BUILD_CHAIN = 2048
 
       RENDER_METHODS = [
         :to_s, :content, :children, :indent_level, :indent, :opening_tag, :closing_tag,
         :attributes_html, :attributes, :no_child?, :child_is_text?, :self_closing_tag?,
-        :insert_tag, :build_tag, :extract_arguments, :set_for_attribute
+        :insert_tag, :build_tag, :extract_arguments, :set_for_attribute, :build, :arbre_build_arguments
       ].to_h { |name| [name, true] }.freeze
 
       ORIGINAL_BUILDER_METHODS = [
@@ -170,6 +171,7 @@ module Arbre
                                         arbre_owner?(:attributes_html, HTML::Tag) &&
                                         arbre_owner?(:attributes, HTML::Tag)
             flags |= CUSTOM_CLOSE unless arbre_owner?(:closing_tag, HTML::Tag)
+            flags |= ORIGINAL_BUILD_CHAIN if arbre_original_build_chain?
             flags |= CUSTOM_TAG_BUILD unless instance_method(:extract_arguments) == HTML::Tag::ORIGINAL_BUILD_HOOKS[0] &&
                                              instance_method(:set_for_attribute) == HTML::Tag::ORIGINAL_BUILD_HOOKS[1]
             flags |= CUSTOM_PREDICATES unless arbre_owner?(:no_child?, HTML::Tag) &&
@@ -177,6 +179,18 @@ module Arbre
                                               arbre_owner?(:self_closing_tag?, HTML::Tag)
           end
           flags
+        end
+
+        # build is Tag#build, and the build its super reaches is Element#build.
+        def arbre_original_build_chain?
+          return false unless instance_method(:build) == HTML::Tag::ORIGINAL_BUILDS[0] &&
+                              arbre_owner?(:arbre_build_arguments, HTML::Tag)
+
+          after_tag = ancestors.drop(ancestors.index(HTML::Tag) + 1)
+          next_build = after_tag.find do |mod|
+            mod.instance_methods(false).include?(:build) || mod.private_instance_methods(false).include?(:build)
+          end
+          next_build == Element && Element.instance_method(:build) == HTML::Tag::ORIGINAL_BUILDS[1]
         end
 
         def arbre_owner?(method_name, *owners)

@@ -290,5 +290,22 @@ describe Arbre::Element::Rendering do
 
       expect(html).to eq(%(<span data-for="nil" class="default">x</span>\n))
     end
+
+    it "calls a build override" do
+      klass = Class.new(Arbre::HTML::Span) do
+        def tag_name = "span"
+        def build(*args) = super(*args.map(&:upcase))
+      end
+
+      expect(render { insert_tag klass, "x" }).to eq("<span>X</span>\n")
+    end
+
+    it "calls a build defined in a module included after the class was used" do
+      klass = Class.new(Arbre::HTML::Span) { def tag_name = "span" }
+      render { insert_tag klass, "x" }
+      klass.include(Module.new { def build(*) = super.tap { set_attribute(:title, "late") } })
+
+      expect(render { insert_tag klass, "x" }).to eq(%(<span title="late">x</span>\n))
+    end
   end
 end

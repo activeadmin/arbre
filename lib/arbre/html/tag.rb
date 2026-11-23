@@ -18,6 +18,12 @@ module Arbre
 
       def build(*args)
         super
+        arbre_build_arguments(args)
+      end
+
+      # The part of build after super, reading args in place. The builder calls it
+      # directly when build is Tag#build and its super is Element#build.
+      def arbre_build_arguments(args)
         original_hooks = arbre_render_flags.nobits?(Element::Rendering::CUSTOM_TAG_BUILD)
         attributes =
           if !original_hooks
@@ -287,6 +293,7 @@ module Arbre
       # Tag#build skips the empty hash extract_arguments returns, and the
       # set_for_attribute(nil) call, only while both are these originals.
       ORIGINAL_BUILD_HOOKS = [instance_method(:extract_arguments), instance_method(:set_for_attribute)].freeze
+      ORIGINAL_BUILDS = [instance_method(:build), Element.instance_method(:build)].freeze
     end
 
   end

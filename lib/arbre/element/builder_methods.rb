@@ -68,7 +68,11 @@ module Arbre
           if block && block.arity > 0
             tag.build(*args, &block)
           else
-            tag.build(*args)
+            if tag.arbre_render_flags.anybits?(Rendering::ORIGINAL_BUILD_CHAIN)
+              tag.arbre_build_arguments(args)
+            else
+              tag.build(*args)
+            end
             append_return_block(block.call) if block
           end
         end
