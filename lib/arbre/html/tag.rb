@@ -117,7 +117,7 @@ module Arbre
       end
 
       def arbre_write_to(buffer, level, flags = arbre_render_flags)
-        if flags.anybits?(Element::Rendering::CUSTOM_TO_S | FALLBACK_FLAGS)
+        if flags & (Element::Rendering::CUSTOM_TO_S | FALLBACK_FLAGS) != 0
           Element::Rendering.append(buffer, to_s)
         else
           arbre_write_tag(buffer, level, flags)
@@ -176,7 +176,7 @@ module Arbre
       # chosen before the children render and checked again after, as indent does.
       def arbre_write_tag(buffer, level, flags)
         spaces = SPACES[level] || ' ' * level * INDENT_SIZE
-        open_tag = opening_tag if flags.anybits?(Element::Rendering::CUSTOM_OPEN)
+        open_tag = opening_tag if flags & Element::Rendering::CUSTOM_OPEN != 0
         children = @children
         one_line = children.empty? || (children.size == 1 && children.first.is_a?(TextNode))
         void = one_line && self_closing_tag?
@@ -187,13 +187,20 @@ module Arbre
         if open_tag
           buffer << open_tag
         else
-          arbre_write_open_tag(buffer, void)
+          name = tag_name
+          buffer << "<"
+          String === name ? buffer << name : Element::Rendering.append(buffer, name)
+          unless @attributes.empty?
+            buffer << " "
+            @attributes.arbre_write_to(buffer)
+          end
+          buffer << (void ? "/>" : ">")
         end
         open_end = buffer.bytesize
         buffer << "\n" unless one_line
 
         arbre_write_children(buffer, level)
-        close_tag = flags.anybits?(Element::Rendering::CUSTOM_CLOSE) ? closing_tag : nil
+        close_tag = closing_tag if flags & Element::Rendering::CUSTOM_CLOSE != 0
 
         if one_line != (children.empty? || (children.size == 1 && children.first.is_a?(TextNode)))
           return arbre_relayout(buffer, start, spaces, open_end, one_line, void, open_tag.nil?, close_tag)
@@ -208,7 +215,14 @@ module Arbre
           end
         else
           buffer << spaces unless one_line
-          close_tag ? buffer << close_tag : arbre_write_close_tag(buffer)
+          if close_tag
+            buffer << close_tag
+          else
+            name = tag_name
+            buffer << "</"
+            String === name ? buffer << name : Element::Rendering.append(buffer, name)
+            buffer << ">"
+          end
         end
         buffer << "\n"
       end
@@ -221,22 +235,6 @@ module Arbre
         buffer.bytesplice(start, buffer.bytesize - start, "")
         close_tag ||= closing_tag
         buffer << indent(open_tag, child_content, close_tag)
-      end
-
-      def arbre_write_open_tag(buffer, void)
-        buffer << "<"
-        Element::Rendering.append(buffer, tag_name)
-        unless @attributes.empty?
-          buffer << " "
-          @attributes.arbre_write_to(buffer)
-        end
-        buffer << (void ? "/>" : ">")
-      end
-
-      def arbre_write_close_tag(buffer)
-        buffer << "</"
-        Element::Rendering.append(buffer, tag_name)
-        buffer << ">"
       end
 
       def self_closing_tag?

@@ -42,14 +42,17 @@ module Arbre
 
       UNSAFE_HTML = /[&<>"']/
 
-      @generation = 0
+      # One mutable slot, read on every render-flag lookup.
+      GENERATION = [0] # rubocop:disable Style/MutableConstant
 
       class << self
-        attr_reader :generation
+        def generation
+          GENERATION[0]
+        end
 
         # Invalidates every cached set of render flags.
         def bump_generation!
-          @generation += 1
+          GENERATION[0] += 1
         end
 
         def new_buffer
@@ -116,12 +119,14 @@ module Arbre
         end
 
         def arbre_render_flags
-          generation = Rendering.generation
-          cached = @arbre_render_flags
-          return cached[1] if cached && cached[0] == generation
+          generation = GENERATION[0]
+          return @arbre_render_flags if @arbre_render_generation == generation
 
           flags = compute_arbre_render_flags
-          @arbre_render_flags = [generation, flags].freeze unless frozen?
+          unless frozen?
+            @arbre_render_flags = flags
+            @arbre_render_generation = generation
+          end
           flags
         end
 
@@ -208,7 +213,7 @@ module Arbre
       # Writes this element's HTML, as to_s would return it, into buffer.
       # level is the value indent_level returns for this element.
       def arbre_write_to(buffer, level, flags = arbre_render_flags)
-        if flags.anybits?(CUSTOM_TO_S | CUSTOM_CONTENT | CUSTOM_CHILDREN)
+        if flags & (CUSTOM_TO_S | CUSTOM_CONTENT | CUSTOM_CHILDREN) != 0
           Rendering.append(buffer, to_s)
         else
           arbre_write_children(buffer, level)
@@ -236,9 +241,9 @@ module Arbre
           if Element === child
             flags = child.arbre_render_flags
             child_level =
-              if flags.anybits?(CUSTOM_LEVEL) || !child.parent.equal?(self)
+              if flags & CUSTOM_LEVEL != 0 || !child.parent.equal?(self)
                 child.indent_level
-              elsif flags.anybits?(CONTEXT_LEVEL)
+              elsif flags & CONTEXT_LEVEL != 0
                 level
               else
                 level + 1

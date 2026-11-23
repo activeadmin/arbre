@@ -59,7 +59,7 @@ module Arbre
       end
 
       def arbre_write_to(buffer, _level, flags = arbre_render_flags)
-        if flags.anybits?(Element::Rendering::CUSTOM_TO_S)
+        if flags & Element::Rendering::CUSTOM_TO_S != 0
           Element::Rendering.append(buffer, to_s)
         else
           Element::Rendering.append_escaped(buffer, @content)

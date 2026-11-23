@@ -12,10 +12,34 @@ module Arbre
       # Writes to_s into buffer. Flattened names can collide when keys are not
       # Symbols, or when a nested hash sits beside a key with a dash.
       def arbre_write_to(buffer)
-        keys = arbre_key_kinds(self, 0)
-        return buffer << to_s if keys.anybits?(NON_SYMBOL_KEY) || keys.allbits?(NESTED_HASH | DASHED_KEY)
+        start = buffer.bytesize
+        keys_checked = false
+        first = true
+        each_pair do |name, value|
+          # Values written so far are converted again if the keys turn out to
+          # need to_s, so check every key before a nested hash or an arbitrary to_s.
+          unless keys_checked || (Symbol === name && PLAIN_VALUES[value.class])
+            keys = arbre_key_kinds(self, 0)
+            if keys.anybits?(NON_SYMBOL_KEY) || keys.allbits?(NESTED_HASH | DASHED_KEY)
+              buffer.bytesplice(start, buffer.bytesize - start, "")
+              return buffer << to_s
+            end
+            keys_checked = true
+          end
 
-        arbre_write_pairs(buffer, self, nil, true)
+          if Hash === value
+            first = arbre_write_pairs(buffer, value, name, first)
+            next
+          end
+          next if value.nil?
+
+          buffer << " " unless first
+          first = false
+          Element::Rendering.append_escaped_name(buffer, name)
+          buffer << '="'
+          Element::Rendering.append_escaped(buffer, value)
+          buffer << '"'
+        end
         buffer
       end
 
@@ -34,6 +58,9 @@ module Arbre
       end
 
       private
+
+      PLAIN_VALUES = [String, Symbol, Integer, Float, TrueClass, FalseClass, NilClass].to_h { |klass| [klass, true] }.freeze
+      private_constant :PLAIN_VALUES
 
       NON_SYMBOL_KEY = 1
       NESTED_HASH = 2
