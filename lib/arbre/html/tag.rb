@@ -177,7 +177,8 @@ module Arbre
       def arbre_write_tag(buffer, level, flags)
         spaces = SPACES[level] || ' ' * level * INDENT_SIZE
         open_tag = opening_tag if flags.anybits?(Element::Rendering::CUSTOM_OPEN)
-        one_line = arbre_one_line?
+        children = @children
+        one_line = children.empty? || (children.size == 1 && children.first.is_a?(TextNode))
         void = one_line && self_closing_tag?
 
         start = buffer.bytesize
@@ -194,7 +195,7 @@ module Arbre
         arbre_write_children(buffer, level)
         close_tag = flags.anybits?(Element::Rendering::CUSTOM_CLOSE) ? closing_tag : nil
 
-        if one_line != arbre_one_line?
+        if one_line != (children.empty? || (children.size == 1 && children.first.is_a?(TextNode)))
           return arbre_relayout(buffer, start, spaces, open_end, one_line, void, open_tag.nil?, close_tag)
         end
 
@@ -220,10 +221,6 @@ module Arbre
         buffer.bytesplice(start, buffer.bytesize - start, "")
         close_tag ||= closing_tag
         buffer << indent(open_tag, child_content, close_tag)
-      end
-
-      def arbre_one_line?
-        @children.empty? || (@children.size == 1 && @children.first.is_a?(TextNode))
       end
 
       def arbre_write_open_tag(buffer, void)
