@@ -14,26 +14,28 @@ require 'capybara/rails'
 
 require 'rails/support/mock_person'
 
-module AdditionalHelpers
+module ArbreRailsHelpers
+  # Returns a view to use as the helpers of an Arbre context.
+  #
+  # The view class is a fresh subclass for each call, so the overrides
+  # below never leak into the views that real requests render with.
+  def mock_action_view(assigns = {})
+    view_class = Class.new(ActionView::Base.with_empty_template_cache) do
+      def protect_against_forgery?
+        true
+      end
 
-  def protect_against_forgery?
-    true
+      def form_authenticity_token(form_options: {})
+        "AUTH_TOKEN"
+      end
+    end
+    controller = ActionView::TestCase::TestController.new
+    lookup_context = ActionView::LookupContext.new(ActionController::Base.view_paths)
+    view_class.new(lookup_context, assigns, controller)
   end
-
-  def form_authenticity_token(form_options: {})
-    "AUTH_TOKEN"
-  end
-
-end
-
-def mock_action_view(assigns = {})
-  controller = ActionView::TestCase::TestController.new
-  ActionView::Base.include(ActionView::Helpers)
-  ActionView::Base.include(AdditionalHelpers)
-  context = ActionView::LookupContext.new(ActionController::Base.view_paths)
-  ActionView::Base.new(context, assigns, controller)
 end
 
 RSpec.configure do |config|
   config.include Capybara::RSpecMatchers
+  config.include ArbreRailsHelpers
 end
