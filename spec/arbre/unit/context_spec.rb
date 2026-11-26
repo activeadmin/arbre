@@ -32,6 +32,25 @@ RSpec.describe Arbre::Context do
     expect(context.index('<')).to eq(0)
   end
 
+  it "symbolizes the keys of the assigns" do
+    expect(described_class.new("name" => "Arbre").assigns).to eq(name: "Arbre")
+  end
+
+  it "uses empty assigns when given nil" do
+    expect(described_class.new(nil).assigns).to eq({})
+  end
+
+  it "raises an error when the current element is set to nil" do
+    expect {
+      context.with_current_arbre_element(nil) {}
+    }.to raise_error(ArgumentError, /Can't be in the context of nil/)
+  end
+
+  it "does not respond to methods the html string does not have" do
+    expect(context).not_to respond_to(:not_a_string_method)
+    expect { context.not_a_string_method }.to raise_error(NoMethodError)
+  end
+
   context "when an error is raised in a nested block" do
     let(:context) do
       described_class.new do
