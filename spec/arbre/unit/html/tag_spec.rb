@@ -69,6 +69,42 @@ RSpec.describe Arbre::HTML::Tag do
     end
   end
 
+  describe "creating a tag 'for' an object without a to_key" do
+    let(:resource_class) do
+      Class.new do
+        def self.name
+          "Admin::User"
+        end
+      end
+    end
+
+    it "uses the id of the object" do
+      resource = resource_class.new
+      resource.define_singleton_method(:id) { 42 }
+      tag.build for: resource
+      expect(tag.id).to eq("admin_user_42")
+      expect(tag.class_list).to include("admin_user")
+    end
+
+    it "falls back to the object id of the object" do
+      resource = resource_class.new
+      tag.build for: resource
+      expect(tag.id).to eq("admin_user_#{resource.object_id}")
+    end
+  end
+
+  describe "#id!" do
+    it "generates an id from the object id when there is none" do
+      expect(tag.id!).to eq(tag.object_id.to_s)
+      expect(tag.id).to eq(tag.object_id.to_s)
+    end
+
+    it "keeps an existing id" do
+      tag.id = "my_id"
+      expect(tag.id!).to eq("my_id")
+    end
+  end
+
   describe "creating a tag with a for attribute" do
     it "sets the `for` attribute when a string is given" do
       tag.build for: "email"
