@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe Arbre::HTML::ClassList do
+RSpec.describe Arbre::HTML::ClassList do
 
   describe ".build_from_string" do
 

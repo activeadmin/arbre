@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe Arbre::Element, "Finder Methods" do
+RSpec.describe Arbre::Element, "Finder Methods" do
   let(:assigns){ {} }
   let(:helpers){ {} }
 

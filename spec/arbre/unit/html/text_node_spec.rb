@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe Arbre::HTML::TextNode do
+RSpec.describe Arbre::HTML::TextNode do
   let(:text_node){ described_class.new }
 
   describe '#class_list' do

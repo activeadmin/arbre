@@ -13,7 +13,14 @@ end
 require 'support/bundle'
 require 'combustion'
 require 'arbre'
+require 'support/arbre_helpers'
 
-def arbre(&block)
-  Arbre::Context.new assigns, helpers, &block
+RSpec.configure do |config|
+  config.include ArbreHelpers
+  config.mock_with :rspec do |mocks|
+    mocks.verify_partial_doubles = true
+  end
+  config.disable_monkey_patching!
+  config.order = :random
+  Kernel.srand config.seed
 end

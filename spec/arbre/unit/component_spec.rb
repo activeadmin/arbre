@@ -10,7 +10,7 @@ class MockComponent < Arbre::Component
   end
 end
 
-describe Arbre::Component do
+RSpec.describe Arbre::Component do
   let(:assigns) { {} }
   let(:helpers) { nil }
   let(:component_class) { MockComponent }

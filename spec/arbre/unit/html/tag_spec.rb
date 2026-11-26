@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe Arbre::HTML::Tag do
+RSpec.describe Arbre::HTML::Tag do
 
   let(:tag){ described_class.new }
 

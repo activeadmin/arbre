@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe Arbre::Context do
+RSpec.describe Arbre::Context do
 
   let(:context) do
     described_class.new do

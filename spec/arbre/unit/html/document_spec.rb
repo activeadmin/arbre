@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe Arbre::HTML::Document do
+RSpec.describe Arbre::HTML::Document do
   let(:document){ described_class.new }
 
   describe "#to_s" do

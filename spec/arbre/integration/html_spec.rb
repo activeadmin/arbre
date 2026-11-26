@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe Arbre do
+RSpec.describe Arbre do
 
   let(:helpers){ nil }
   let(:assigns){ {} }
