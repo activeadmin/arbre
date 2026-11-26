@@ -122,4 +122,42 @@ RSpec.describe "Forms" do
     end
   end
 
+  describe "building a select" do
+    let(:form) do
+      arbre do
+        form_for MockPerson.new, url: "/" do |f|
+          f.select :name, ["Alice", "Bob"]
+        end
+      end
+    end
+
+    it "proxies select to the form builder" do
+      expect(html).to have_select("mock_person[name]", options: ["Alice", "Bob"])
+    end
+  end
+
+  describe "the form builder proxy" do
+    let(:proxy) do
+      proxy = nil
+      arbre do
+        form_for MockPerson.new, url: "/" do |f|
+          proxy = f
+        end
+      end
+      proxy
+    end
+
+    it "responds to form builder methods" do
+      expect(proxy).to respond_to(:text_field)
+    end
+
+    it "does not respond to methods unknown to the form builder" do
+      expect(proxy).not_to respond_to(:not_a_form_builder_method)
+    end
+
+    it "raises a NoMethodError for methods unknown to the form builder" do
+      expect { proxy.not_a_form_builder_method }.to raise_error(NoMethodError, /not_a_form_builder_method/)
+    end
+  end
+
 end
