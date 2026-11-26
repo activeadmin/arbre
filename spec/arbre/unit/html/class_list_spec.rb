@@ -14,4 +14,13 @@ RSpec.describe Arbre::HTML::ClassList do
 
   end
 
+  describe "#add" do
+    it "adds each class from a string of classes" do
+      list = described_class.new
+      list << "first second"
+      list.add "second third"
+      expect(list.to_s).to eq("first second third")
+    end
+  end
+
 end
