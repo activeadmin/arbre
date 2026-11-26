@@ -173,8 +173,12 @@ RSpec.describe Arbre::Element do
 
   describe "rendering to html" do
 
-    before  { @separator = $, }
-    after   { $, = @separator } # rubocop:disable RSpec/InstanceVariable
+    around do |example|
+      separator = $,
+      example.run
+    ensure
+      without_warnings { $, = separator }
+    end
 
     let(:collection){ element + "hello world" }
 
@@ -184,7 +188,7 @@ RSpec.describe Arbre::Element do
     end
 
     it "renders collection when is set the default separator" do
-      suppressing_27_warning { $, = "_" }
+      without_warnings { $, = "_" }
 
       expect(collection.to_s).to eq("hello world")
     end
@@ -195,16 +199,13 @@ RSpec.describe Arbre::Element do
 
     private
 
-    def suppressing_27_warning
-      return yield unless Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.7.a")
-
-      begin
-        old_verbose = $VERBOSE
-        $VERBOSE = nil
-        yield
-      ensure
-        $VERBOSE = old_verbose
-      end
+    # Assigning $, emits a deprecation warning
+    def without_warnings
+      old_verbose = $VERBOSE
+      $VERBOSE = nil
+      yield
+    ensure
+      $VERBOSE = old_verbose
     end
   end
 
