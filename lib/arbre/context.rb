@@ -88,10 +88,13 @@ module Arbre
 
     def with_current_arbre_element(tag)
       raise ArgumentError, "Can't be in the context of nil. #{@_current_arbre_element_buffer.inspect}" unless tag
+
       @_current_arbre_element_buffer.push tag
-      yield
-    ensure
-      @_current_arbre_element_buffer.pop
+      begin
+        yield
+      ensure
+        @_current_arbre_element_buffer.pop
+      end
     end
     alias_method :within, :with_current_arbre_element
 

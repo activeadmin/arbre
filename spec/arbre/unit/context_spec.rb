@@ -32,6 +32,14 @@ describe Arbre::Context do
     expect(context.index('<')).to eq(0)
   end
 
+  it "keeps the current element when setting it to nil fails" do
+    expect {
+      context.with_current_arbre_element(nil) {}
+    }.to raise_error(ArgumentError, /Can't be in the context of nil/)
+    expect(context.current_arbre_element).to be(context)
+    expect(context.h2("Still building").parent).to be(context)
+  end
+
   context "when an error is raised in a nested block" do
     let(:context) do
       described_class.new do
