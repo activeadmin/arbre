@@ -16,9 +16,26 @@ RSpec.describe Arbre::HTML::TextNode do
     it { is_expected.to be_nil }
   end
 
-  describe '#to_s' do
-    subject { text_node.build('Test').to_s }
+  describe '#add_child' do
+    it 'raises an error' do
+      expect { text_node.add_child('child') }.to raise_error(RuntimeError, 'TextNodes do not have children')
+    end
+  end
 
-    it { is_expected.to eq 'Test' }
+  describe '#to_s' do
+    it 'renders the content' do
+      text_node.build('Test')
+      expect(text_node.to_s).to eq 'Test'
+    end
+
+    it 'escapes html' do
+      text_node.build('<br>')
+      expect(text_node.to_s).to eq '&lt;br&gt;'
+    end
+
+    it 'does not escape html safe content' do
+      text_node.build('<br>'.html_safe)
+      expect(text_node.to_s).to eq '<br>'
+    end
   end
 end
