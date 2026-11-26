@@ -1,11 +1,31 @@
 # frozen_string_literal: true
 require 'rails/rails_spec_helper'
+require 'active_model'
 
 RSpec.describe "Forms" do
 
   let(:assigns){ {} }
   let(:helpers){ mock_action_view }
   let(:html) { form.to_s }
+  let(:person_class) do
+    Class.new do
+      extend ActiveModel::Naming
+
+      attr_accessor :name
+
+      def persisted?
+        false
+      end
+
+      def to_key
+        []
+      end
+    end
+  end
+
+  before do
+    stub_const("MockPerson", person_class)
+  end
 
   describe "building a simple form for" do
 

@@ -1,46 +1,47 @@
 # frozen_string_literal: true
 require 'rails/rails_spec_helper'
 
-ARBRE_VIEWS_PATH = File.expand_path("../../templates", __FILE__)
-
-class TestController < ActionController::Base
-  append_view_path ARBRE_VIEWS_PATH
-
-  def render_empty
-    render "arbre/empty"
-  end
-
-  def render_simple_page
-    render "arbre/simple_page"
-  end
-
-  def render_partial
-    render "arbre/page_with_partial"
-  end
-
-  def render_erb_partial
-    render "arbre/page_with_erb_partial"
-  end
-
-  def render_with_instance_variable
-    @my_instance_var = "From Instance Var"
-    render "arbre/page_with_assignment"
-  end
-
-  def render_partial_with_instance_variable
-    @my_instance_var = "From Instance Var"
-    render "arbre/page_with_arb_partial_and_assignment"
-  end
-
-  def render_with_block
-    render "arbre/page_with_render_with_block"
-  end
-end
-
-RSpec.describe TestController, "Rendering with Arbre", type: :request do
+RSpec.describe "Rendering with Arbre", type: :request do
   let(:body){ response.body }
+  let(:controller_class) do
+    Class.new(ActionController::Base) do
+      append_view_path File.expand_path("../templates", __dir__)
+
+      def render_empty
+        render "arbre/empty"
+      end
+
+      def render_simple_page
+        render "arbre/simple_page"
+      end
+
+      def render_partial
+        render "arbre/page_with_partial"
+      end
+
+      def render_erb_partial
+        render "arbre/page_with_erb_partial"
+      end
+
+      def render_with_instance_variable
+        @my_instance_var = "From Instance Var"
+        render "arbre/page_with_assignment"
+      end
+
+      def render_partial_with_instance_variable
+        @my_instance_var = "From Instance Var"
+        render "arbre/page_with_arb_partial_and_assignment"
+      end
+
+      def render_with_block
+        render "arbre/page_with_render_with_block"
+      end
+    end
+  end
 
   before do
+    stub_const("TestController", controller_class)
+
     Rails.application.routes.draw do
       get 'test/render_empty', controller: "test"
       get 'test/render_simple_page', controller: "test"
@@ -48,7 +49,6 @@ RSpec.describe TestController, "Rendering with Arbre", type: :request do
       get 'test/render_erb_partial', controller: "test"
       get 'test/render_with_instance_variable', controller: "test"
       get 'test/render_partial_with_instance_variable', controller: "test"
-      get 'test/render_page_with_helpers', controller: "test"
       get 'test/render_with_block', controller: "test"
     end
   end

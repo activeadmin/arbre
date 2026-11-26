@@ -12,8 +12,6 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
 
-require 'rails/support/mock_person'
-
 module ArbreRailsHelpers
   # Returns a view to use as the helpers of an Arbre context.
   #
