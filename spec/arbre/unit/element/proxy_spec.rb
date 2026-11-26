@@ -20,7 +20,8 @@ RSpec.describe Arbre::Element::Proxy do
 
   # Responding to to_ary would make Array#flatten recurse into the element
   it "does not respond to to_ary" do
-    expect(proxy.respond_to?(:to_ary)).to be(false)
+    expect(proxy).not_to respond_to(:to_ary)
+    expect(proxy).not_to respond_to("to_ary")
   end
 
   it "raises a NoMethodError for to_ary" do

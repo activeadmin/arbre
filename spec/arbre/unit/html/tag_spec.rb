@@ -102,6 +102,7 @@ RSpec.describe Arbre::HTML::Tag do
     it "keeps an existing id" do
       tag.id = "my_id"
       expect(tag.id!).to eq("my_id")
+      expect(tag.id).to eq("my_id")
     end
   end
 

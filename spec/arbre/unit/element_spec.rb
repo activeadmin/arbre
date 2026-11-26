@@ -199,7 +199,9 @@ RSpec.describe Arbre::Element do
 
     it "uses the rendered html for #html_safe, #inspect and #to_str" do
       element.add_child "<b>"
-      expect(element.html_safe).to eq("&lt;b&gt;")
+      html = element.html_safe
+      expect(html).to eq("&lt;b&gt;")
+      expect(html).to be_html_safe
       expect(element.inspect).to eq("&lt;b&gt;")
       expect(element.to_str).to eq("&lt;b&gt;")
     end
@@ -222,7 +224,7 @@ RSpec.describe Arbre::Element do
   end
 
   describe "ancestors" do
-    let(:grandparent){ described_class.new }
+    let(:grandparent){ Arbre::HTML::Span.new }
     let(:parent){ Arbre::HTML::Div.new }
 
     before do
@@ -243,8 +245,12 @@ RSpec.describe Arbre::Element do
       expect(element.find_first_ancestor(Arbre::HTML::Div)).to eq(parent)
     end
 
+    it "finds a matching ancestor beyond the parent" do
+      expect(element.find_first_ancestor(Arbre::HTML::Span)).to be(grandparent)
+    end
+
     it "returns nil when no ancestor is of the type" do
-      expect(element.find_first_ancestor(Arbre::HTML::Span)).to be_nil
+      expect(element.find_first_ancestor(Arbre::HTML::Document)).to be_nil
     end
   end
 
