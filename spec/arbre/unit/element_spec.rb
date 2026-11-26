@@ -197,6 +197,18 @@ RSpec.describe Arbre::Element do
       expect(collection.to_s).to eq("hello world")
     end
 
+    it "uses the rendered html for #html_safe, #inspect and #to_str" do
+      element.add_child "<b>"
+      expect(element.html_safe).to eq("&lt;b&gt;")
+      expect(element.inspect).to eq("&lt;b&gt;")
+      expect(element.to_str).to eq("&lt;b&gt;")
+    end
+
+    it "yields the rendered html once from #each" do
+      element.add_child "hello"
+      expect { |block| element.each(&block) }.to yield_with_args("hello")
+    end
+
     private
 
     # Assigning $, emits a deprecation warning
@@ -206,6 +218,69 @@ RSpec.describe Arbre::Element do
       yield
     ensure
       $VERBOSE = old_verbose
+    end
+  end
+
+  describe "ancestors" do
+    let(:grandparent){ described_class.new }
+    let(:parent){ Arbre::HTML::Div.new }
+
+    before do
+      grandparent.add_child parent
+      parent.add_child element
+    end
+
+    it "is empty without a parent" do
+      expect(grandparent.ancestors).to eq([])
+    end
+
+    it "lists parents from the closest to the furthest" do
+      expect(element.ancestors).to eq([parent, grandparent])
+    end
+
+    it "finds the first ancestor of a type" do
+      expect(element.find_first_ancestor(described_class)).to eq(parent)
+      expect(element.find_first_ancestor(Arbre::HTML::Div)).to eq(parent)
+    end
+
+    it "returns nil when no ancestor is of the type" do
+      expect(element.find_first_ancestor(Arbre::HTML::Span)).to be_nil
+    end
+  end
+
+  describe "moving a child to a new parent" do
+    let(:old_parent){ described_class.new }
+    let(:new_parent){ described_class.new }
+
+    before do
+      old_parent.add_child element
+      new_parent.add_child element
+    end
+
+    it "removes the child from its previous parent" do
+      expect(old_parent.children).to be_empty
+    end
+
+    it "adds the child to its new parent" do
+      expect(new_parent.children).to eq([element])
+      expect(element.parent).to eq(new_parent)
+    end
+  end
+
+  describe "removing a child" do
+    let(:child){ described_class.new }
+
+    before do
+      element.add_child child
+      element.remove_child child
+    end
+
+    it "removes the child" do
+      expect(element.children).to be_empty
+    end
+
+    it "unsets the parent of the child" do
+      expect(child.parent).to be_nil
     end
   end
 

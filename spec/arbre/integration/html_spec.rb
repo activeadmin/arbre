@@ -123,6 +123,19 @@ RSpec.describe Arbre do
     HTML
   end
 
+  it "calls methods missing from the context on the current element" do
+    expect(arbre {
+      div do
+        add_class "from-block"
+        span "child"
+      end
+    }.to_s).to eq <<~HTML
+      <div class="from-block">
+        <span>child</span>
+      </div>
+    HTML
+  end
+
   it "has the parent set on it" do
     list, item = nil
     arbre {
