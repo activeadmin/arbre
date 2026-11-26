@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-* Drop Ruby 3.1 support
+* Drop support for Ruby 3.2 and earlier versions
 
 ## 2.2.1 [☰](https://github.com/activeadmin/arbre/compare/v2.2.0...v2.2.1)
 

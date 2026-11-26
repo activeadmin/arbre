@@ -12,7 +12,7 @@ AllCops:
   DisplayCopNames: true
   DisplayStyleGuide: true
 
-  TargetRubyVersion: 3.2
+  TargetRubyVersion: 3.3
 
 Capybara/AssertStyle:
   Enabled: true
